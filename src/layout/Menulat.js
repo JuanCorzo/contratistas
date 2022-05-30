@@ -20,11 +20,11 @@ class Menulat extends Component {
     }
     render() {
         return (
-            <div className="am-sideleft colorback" style={{width:"170px"}}>
+            <div className="am-sideleft colorback" style={{width:"270px"}}>
                 <div className="tab-content">
-                    <div key="mainMenu" id="mainMenu" className="tab-pane active">
-                        <ProSidebar>
-                            <Menu iconShape="square">
+                    <div key="mainMenu" id="mainMenu">
+                        <ProSidebar style={{marginTop: "35px", height: "800px"}}>
+                            <Menu iconShape="square" style={{marginTop: "15px"}}>
                                 <MenuItem id="0" key="item_1" icon={<i className="icon ion-ios-home-outline tx-20"></i>}><NavLink to="./inicio">Inicio</NavLink></MenuItem>
 
                                 <SubMenu key="sub_1" title="Configuración" icon={<i className="icon ion-ios-gear-outline tx-20"></i>} >
