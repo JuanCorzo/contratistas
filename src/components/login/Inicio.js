@@ -68,8 +68,8 @@ class Inicio extends Component {
             <div>
                 <Header />
                 <Menulat />
-                <div className="am-mainpanel">
-                    <div className="am-pagebody">
+                <div className="am-mainpanel" style={{marginTop: "5em", width:"80%", marginLeft:"auto"}}>
+                    <div className="am-pagebody" >
                         <div className="card pd-20 pd-sm-20">
                         <div className="row fgris">
                             <div className="col-sm-6 col-lg-3 fblanco">
@@ -186,7 +186,7 @@ class Inicio extends Component {
                             </div>
                         </div>
                         <div className='row fgris'>
-                            <div className='col-lg-6 fblimag'>
+                            <div className='col fblimag' style={{marginRight:"5px"}}>
                                 <Chart
                                 width={"100%"} height={380} chartType="ColumnChart"
                                 loader={<div>Loading Chart</div>}
@@ -195,7 +195,7 @@ class Inicio extends Component {
                                 legend: { position: 'none' }}}
                             legendToggle />
                             </div>
-                            <div className='col-lg-6 fblimag'>
+                            <div className='col fblimag' style={{marginLeft:"5px"}}>
                                 <Chart width={'100%'} height={380} chartType="PieChart"
                                 loader={<div>Loading Chart</div>} 
                                 data={this.state.tabe4} options={{ title: 'Aportantes por macrozona', is3D:true,

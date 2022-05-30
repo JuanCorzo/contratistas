@@ -8,11 +8,11 @@ class Header extends Component {
     render() {
         return (
 
-            <div className="am-header">
+            <div className="am-header" style={{padding: "50px"}}>
                 <div className="am-header-left">&nbsp;&nbsp;
                     <NavLink to="/Inicio" className="am-logo"><img src={logo} alt="Logo" className='tamaimg' /></NavLink>
                 </div>
-                <div className="logoblanco">
+                <div className="logoblanco" style={{marginLeft: "80px"}}>
                 ESAP - SIGIP - Sistema Integrado de Gestión de Ingresos Parafiscales
                 </div>
                 <div className="am-header-left">
@@ -21,6 +21,9 @@ class Header extends Component {
                     <div className="dropdown dropdown-notification">
                         <div className="dropdown-menu wd-300 pd-0-force">
                         </div>
+                    </div>
+                    <div className="nombret">
+                        { cookies.get("inicial") }
                     </div>
                     <div className="dropdown dropdown-profile texblanco">
                         { cookies.get("nombre") }
