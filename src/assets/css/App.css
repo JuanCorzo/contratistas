@@ -88,9 +88,7 @@
  
 .nombret {
   color:#FFF;
-  position: relative;
-  top:25px;
-  left: 55px;
+  margin: 0 15px 0 0;
   font-size: 20px;
   background-color: rgba(4, 49, 132, 1); 
   border: solid;
@@ -133,6 +131,7 @@
   border-radius: 5px;
   -webkit-box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%), 0 3px 1px -2px rgb(0 0 0 / 20%);
 }
+
 .logoblanco {
   font-size: 18px;
   color:white;

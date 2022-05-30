@@ -22,9 +22,6 @@ class Menulat extends Component {
         return (
             <div className="am-sideleft colorback" style={{width:"170px"}}>
                 <div className="tab-content">
-                <div className="nombret">
-                    { cookies.get("inicial") }
-                </div>
                     <div key="mainMenu" id="mainMenu" className="tab-pane active">
                         <ProSidebar>
                             <Menu iconShape="square">

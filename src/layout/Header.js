@@ -22,6 +22,9 @@ class Header extends Component {
                         <div className="dropdown-menu wd-300 pd-0-force">
                         </div>
                     </div>
+                    <div className="nombret">
+                        { cookies.get("inicial") }
+                    </div>
                     <div className="dropdown dropdown-profile texblanco">
                         { cookies.get("nombre") }
                         <div className="dropdown-menu wd-200">
