@@ -39,15 +39,17 @@ class Permisos extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Permisos"/>
-                <div className="am-mainpanel">
-                    <div className="card pd-20 pd-sm-40">
-                        <Script3 tabla="permisos" devuelvedatos={this.dato} /><br/>
-                        <EncTabla titulo="Permisos" link="/Crearperm" titulo2="Permisos" />
-                        <Tabla tabla="permisos" columnas={columnas} valores={this.state.tabl} 
-                        redire="/permisos" titulo="Permisos" link="editaperm/" />
-                    </div>
-                </div>
+                    <div className='w-75 m-auto pt-5'>                
+                        <Titulo titulo="Permisos"/>
+                        <div className="am-mainpanel">
+                            <div className="card pd-20 pd-sm-40">
+                                <Script3 tabla="permisos" devuelvedatos={this.dato} /><br/>
+                                <EncTabla titulo="Permisos" link="/Crearperm" titulo2="Permisos" />
+                                <Tabla tabla="permisos" columnas={columnas} valores={this.state.tabl} 
+                                redire="/permisos" titulo="Permisos" link="editaperm/" />
+                            </div>
+                        </div>
+                    </div>    
                 <Footer></Footer>
             </div>
         );

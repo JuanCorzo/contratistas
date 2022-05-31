@@ -36,29 +36,31 @@ class Roles extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Macrozonas"/>
-                <div className="am-mainpanel">
-                    <div className="card pd-20 pd-sm-40">
-                        <Script3 tabla="macrozonas" devuelvedatos={this.dato} />
-                        { cookies.get("idroles")==="1"? (
-                            <React.Fragment>
-                                <EncTabla titulo="Macrozonas" link="/crearmacr" titulo2="Macrozona" />
-                                <Tabla tabla="macrozonas" columnas={columnas} valores={this.state.rols}
-                                redire="/macrozonas" titulo="Macrozonas" link="editamacr/" />
-                            </React.Fragment>
-                        ): (
-                            <React.Fragment>
-                                <h6 className="card-body-title">Macrozonas</h6>
-                                <Tabla3 tabla="macrozonas" columnas={columnas} valores={this.state.rols}
-                                redire="/macrozonas" titulo="Macrozonas" link="editamacr/" />
-                            </React.Fragment>
+                <div className='w-75 m-auto pt-5'>
+                        <Titulo titulo="Macrozonas"/>
+                        <div className="am-mainpanel">
+                            <div className="card pd-20 pd-sm-40">
+                                <Script3 tabla="macrozonas" devuelvedatos={this.dato} />
+                                { cookies.get("idroles")==="1"? (
+                                    <React.Fragment>
+                                        <EncTabla titulo="Macrozonas" link="/crearmacr" titulo2="Macrozona" />
+                                        <Tabla tabla="macrozonas" columnas={columnas} valores={this.state.rols}
+                                        redire="/macrozonas" titulo="Macrozonas" link="editamacr/" />
+                                    </React.Fragment>
+                                ): (
+                                    <React.Fragment>
+                                        <h6 className="card-body-title">Macrozonas</h6>
+                                        <Tabla3 tabla="macrozonas" columnas={columnas} valores={this.state.rols}
+                                        redire="/macrozonas" titulo="Macrozonas" link="editamacr/" />
+                                    </React.Fragment>
 
-                        )
-                    }
+                                )
+                            }
+                            </div>
+                        </div>
+                        <Footer></Footer>
                     </div>
-                </div>
-                <Footer></Footer>
-            </div>
+            </div>        
         );
     }
 }

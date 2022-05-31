@@ -35,15 +35,18 @@ class clasificaAportantes extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Clasificación de aportantes por obligatoriedad"/>
-                <div className="am-mainpanel">
-                    <div className="card pd-20 pd-sm-40">
-                        <Script3 tabla="clasificacionesaportantes" devuelvedatos={this.dato} />
-                        <EncTabla titulo="Clasificación de aportantes por obligatoriedad" link="/crearcapo" titulo2="Clasificación Aportantes" />
-                        <Tabla tabla="clasificacionesaportantes" columnas={columnas} valores={this.state.rols} 
-                        redire="/Clasificacion-aportantes" titulo="Clasificación de aportantes por obligatoriedad" link="editacapo/" />
+                    <div className='w-75 m-auto pt-5'>
+                        <Titulo titulo="Clasificación de aportantes por obligatoriedad"/>
+                        <div className="am-mainpanel">
+                            <div className="card pd-20 pd-sm-40">
+                                <Script3 tabla="clasificacionesaportantes" devuelvedatos={this.dato} />
+                                <EncTabla titulo="Clasificación de aportantes por obligatoriedad" link="/crearcapo" titulo2="Clasificación Aportantes" />
+                                <Tabla tabla="clasificacionesaportantes" columnas={columnas} valores={this.state.rols} 
+                                redire="/Clasificacion-aportantes" titulo="" link="editacapo/" />
+                            </div>
+                        </div>
                     </div>
-                </div>
+
                 <Footer></Footer>
             </div>
         );

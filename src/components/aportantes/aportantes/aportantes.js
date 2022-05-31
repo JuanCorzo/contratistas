@@ -72,116 +72,118 @@ class aportanes extends Component {
           },
         ]
         return (
-            <div>
+            <div className='pt-5' style={{width:"85%", margin:"auto"}}>
                 <Header></Header>
                 <Menulat></Menulat>
-                <div className="am-mainpanel">
-                  <div className="card pd-20 pd-sm-40">
-                  { 
-                    cookies.get("idroles")==="1" || cookies.get("idroles")==="3"? (
-                    <EncTabla titulo="Entidades Aportantes" link="/Crearapor" titulo2="Aportantes" />
-                    ): ( <h6 className="card-body-title">Entidades Aportantes</h6> )
-                  }
-                    <FiltrosConsulta devuelvedatos={this.dato} titulo=''/><br></br>
-                    { 
-                    cookies.get("idroles")==="1" || cookies.get("idroles")==="3"? (
-                    <MaterialTable columns={columnas} 
-                    style={{"padding": "1px 1px 1px 1px", "fontSize": "12px"}}
-                    data={this.state.tabe} title="Entidades aportantes"
-                      actions={[
-                      { icon: () => <Edit style={{"transform":"scale(0.8)"}} />, tooltip: 'Editar', 
-                        onClick: (event, rowData)=>{ this.enviar("editaapor/" + rowData.idaportantes); }
-                      },
-                      { icon: () => <DeleteOutline style={{"transform":"scale(0.8)"}} />, tooltip: 'Eliminar', onClick: (event, rowData)=>this.elimina(rowData.idaportantes) }
-                      ]}
-                      options={{ actionsColumnIndex: -1, rowStyle: { fontSize: 13,}}}
-                      localization={{ header:{ actions: 'Acciones'}}}
-                      icons={definiciones}
-                      detailPanel={[
-                        {
-                          tooltip: 'Acciones',
-                          render: rowData => {
-                            return (
-                              <div
-                                style={{
-                                  fontSize: 11,
-                                  color: '12337a',
-                                  textAlign: 'left',
-                                  paddingLeft:'20px'
-                                }}
-                              ><br></br>
-                               <div className='row'>
-                                 <div className='col-lg-2 izqq'>Ficha técnica:</div>
-                                 <div className='col-lg-3 izqq'>
-                                 <NavLink style={{"transform":"scale(0.8)", "padding":"5px", "width":"70px"}} className="btn btn-primary" to={"/ficha/"+rowData["idaportantes"]}><i className="icon ion-eye"></i>  Ver</NavLink>
-                                 </div>
-                                </div>
-                                <div className='row'>
-                                 <div className='col-lg-2 izqq'>Enlaces y factores salariales:</div>
-                                 <div className='col-lg-3 izqq'>
-                                 <NavLink style={{"transform":"scale(0.8)", "padding":"5px", "width":"70px"}} className="btn btn-primary" to={"/enlaces/"+rowData["idaportantes"]}><i className="icon ion-link"></i> Ver</NavLink>
-                                 </div>
-                                </div>
-                                <div className='row'>
-                                 <div className='col-lg-2 izqq'>Anexos:</div>
-                                 <div className='col-lg-3 izqq'>
-                                 <NavLink style={{"transform":"scale(0.8)", "padding":"5px", "width":"70px"}} className="btn btn-primary" to={"/anexos/"+rowData["idaportantes"]}><i className="icon ion-document"></i> Ver</NavLink>
-                                 </div>
-                                </div><br></br>
-                              </div>
-                            )
+                  <div>
+                    <div className="am-mainpanel">
+                      <div className="card pd-20 pd-sm-40">
+                      { 
+                        cookies.get("idroles")==="1" || cookies.get("idroles")==="3"? (
+                        <EncTabla titulo="Entidades Aportantes" link="/Crearapor" titulo2="Aportantes" />
+                        ): ( <h6 className="card-body-title">Entidades Aportantes</h6> )
+                      }
+                        <FiltrosConsulta devuelvedatos={this.dato} titulo=''/><br></br>
+                        { 
+                        cookies.get("idroles")==="1" || cookies.get("idroles")==="3"? (
+                        <MaterialTable columns={columnas} 
+                        style={{"padding": "1px 1px 1px 1px", "fontSize": "12px"}}
+                        data={this.state.tabe} title="Entidades aportantes"
+                          actions={[
+                          { icon: () => <Edit style={{"transform":"scale(0.8)"}} />, tooltip: 'Editar', 
+                            onClick: (event, rowData)=>{ this.enviar("editaapor/" + rowData.idaportantes); }
                           },
-                        },
-                      ]}
-                
-                    ></MaterialTable> ) : (
-                    <MaterialTable columns={columnas} data={this.state.tabe} 
-                    title="Entidades aportantes" style={{"padding": "1px 1px 1px 1px", "fontSize": "12px"}}
-                      actions={[
-                      ]}
-                      options={{ actionsColumnIndex: -1, rowStyle: { fontSize: 13,}}}
-                      localization={{ header:{ actions: 'Acciones'}}}
-                      icons={definiciones}
-                      detailPanel={[
-                        {
-                          tooltip: 'Acciones',
-                          render: rowData => {
-                            return (
-                              <div
-                                style={{
-                                  fontSize: 11,
-                                  color: '12337a',
-                                  textAlign: 'left',
-                                  paddingLeft:'5px'
-                                }}
-                              ><br></br>
-                              <div className='row'>
-                                <div className='col-lg-2 izqq'>Ficha técnica:</div>
-                                <div className='col-lg-3 izqq'>
-                                <NavLink style={{"transform":"scale(0.8)", "padding":"5px", "width":"70px"}} className="btn btn-primary" to={"/ficha/"+rowData["idaportantes"]}><i className="icon ion-eye"></i>  Ver</NavLink>
+                          { icon: () => <DeleteOutline style={{"transform":"scale(0.8)"}} />, tooltip: 'Eliminar', onClick: (event, rowData)=>this.elimina(rowData.idaportantes) }
+                          ]}
+                          options={{ actionsColumnIndex: -1, rowStyle: { fontSize: 13,}}}
+                          localization={{ header:{ actions: 'Acciones'}}}
+                          icons={definiciones}
+                          detailPanel={[
+                            {
+                              tooltip: 'Acciones',
+                              render: rowData => {
+                                return (
+                                  <div
+                                    style={{
+                                      fontSize: 11,
+                                      color: '12337a',
+                                      textAlign: 'left',
+                                      paddingLeft:'20px'
+                                    }}
+                                  ><br></br>
+                                  <div className='row'>
+                                    <div className='col-lg-2 izqq'>Ficha técnica:</div>
+                                    <div className='col-lg-3 izqq'>
+                                    <NavLink style={{"transform":"scale(0.8)", "padding":"5px", "width":"70px"}} className="btn btn-primary" to={"/ficha/"+rowData["idaportantes"]}><i className="icon ion-eye"></i>  Ver</NavLink>
+                                    </div>
+                                    </div>
+                                    <div className='row'>
+                                    <div className='col-lg-2 izqq'>Enlaces y factores salariales:</div>
+                                    <div className='col-lg-3 izqq'>
+                                    <NavLink style={{"transform":"scale(0.8)", "padding":"5px", "width":"70px"}} className="btn btn-primary" to={"/enlaces/"+rowData["idaportantes"]}><i className="icon ion-link"></i> Ver</NavLink>
+                                    </div>
+                                    </div>
+                                    <div className='row'>
+                                    <div className='col-lg-2 izqq'>Anexos:</div>
+                                    <div className='col-lg-3 izqq'>
+                                    <NavLink style={{"transform":"scale(0.8)", "padding":"5px", "width":"70px"}} className="btn btn-primary" to={"/anexos/"+rowData["idaportantes"]}><i className="icon ion-document"></i> Ver</NavLink>
+                                    </div>
+                                    </div><br></br>
+                                  </div>
+                                )
+                              },
+                            },
+                          ]}
+                    
+                        ></MaterialTable> ) : (
+                        <MaterialTable columns={columnas} data={this.state.tabe} 
+                        title="Entidades aportantes" style={{"padding": "1px 1px 1px 1px", "fontSize": "12px"}}
+                          actions={[
+                          ]}
+                          options={{ actionsColumnIndex: -1, rowStyle: { fontSize: 13,}}}
+                          localization={{ header:{ actions: 'Acciones'}}}
+                          icons={definiciones}
+                          detailPanel={[
+                            {
+                              tooltip: 'Acciones',
+                              render: rowData => {
+                                return (
+                                  <div
+                                    style={{
+                                      fontSize: 11,
+                                      color: '12337a',
+                                      textAlign: 'left',
+                                      paddingLeft:'5px'
+                                    }}
+                                  ><br></br>
+                                  <div className='row'>
+                                    <div className='col-lg-2 izqq'>Ficha técnica:</div>
+                                    <div className='col-lg-3 izqq'>
+                                    <NavLink style={{"transform":"scale(0.8)", "padding":"5px", "width":"70px"}} className="btn btn-primary" to={"/ficha/"+rowData["idaportantes"]}><i className="icon ion-eye"></i>  Ver</NavLink>
+                                    </div>
+                                  </div>
+                                  <div className='row'>
+                                    <div className='col-lg-2 izqq'>Enlaces y factores salariales:</div>
+                                    <div className='col-lg-3 izqq'>
+                                    <NavLink style={{"transform":"scale(0.8)", "padding":"5px", "width":"70px"}} className="btn btn-primary" to={"/enlaces/"+rowData["idaportantes"]}><i className="icon ion-link"></i> Ver</NavLink>
+                                    </div>
+                                  </div>
+                                  <div className='row'>
+                                    <div className='col-lg-2 izqq'>Anexos:</div>
+                                    <div className='col-lg-3 izqq'>
+                                    <NavLink style={{"transform":"scale(0.8)", "padding":"5px", "width":"70px"}} className="btn btn-primary" to={"/anexos/"+rowData["idaportantes"]}><i className="icon ion-document"></i> Ver</NavLink>
+                                    </div>
+                                  </div><br></br>
                                 </div>
-                               </div>
-                               <div className='row'>
-                                <div className='col-lg-2 izqq'>Enlaces y factores salariales:</div>
-                                <div className='col-lg-3 izqq'>
-                                <NavLink style={{"transform":"scale(0.8)", "padding":"5px", "width":"70px"}} className="btn btn-primary" to={"/enlaces/"+rowData["idaportantes"]}><i className="icon ion-link"></i> Ver</NavLink>
-                                </div>
-                               </div>
-                               <div className='row'>
-                                <div className='col-lg-2 izqq'>Anexos:</div>
-                                <div className='col-lg-3 izqq'>
-                                <NavLink style={{"transform":"scale(0.8)", "padding":"5px", "width":"70px"}} className="btn btn-primary" to={"/anexos/"+rowData["idaportantes"]}><i className="icon ion-document"></i> Ver</NavLink>
-                                </div>
-                               </div><br></br>
-                             </div>
-                            )
-                          },
-                        },
-                      ]}
-                    ></MaterialTable>                    ) 
-                  }
+                                )
+                              },
+                            },
+                          ]}
+                        ></MaterialTable>                    ) 
+                      }
+                      </div>
                   </div>
-              </div>
+                </div>  
               <Footer></Footer>
             </div>
         );

@@ -34,15 +34,17 @@ class Paises extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Paises"/>
-                <div className="am-mainpanel">
-                    <div className="card pd-20 pd-sm-40">
-                        <Script3 tabla="paises" devuelvedatos={this.dato} />
-                        <EncTabla titulo="Paises" link="/Crearpais" titulo2="Paises" />
-                        <Tabla tabla="paises" columnas={columnas} valores={this.state.tabl} 
-                        redire="/Paises" titulo="Pais" link="editapais/" />
-                    </div>
-                </div>
+                    <div className='w-75 m-auto pt-5'>
+                        <Titulo titulo="Paises"/>
+                        <div className="am-mainpanel">
+                            <div className="card pd-20 pd-sm-40">
+                                <Script3 tabla="paises" devuelvedatos={this.dato} />
+                                <EncTabla titulo="Paises" link="/Crearpais" titulo2="Paises" />
+                                <Tabla tabla="paises" columnas={columnas} valores={this.state.tabl} 
+                                redire="/Paises" titulo="Pais" link="editapais/" />
+                            </div>
+                        </div>
+                    </div>    
                 <Footer></Footer>
             </div>
         );

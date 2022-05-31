@@ -37,16 +37,18 @@ class Menus extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Menus"/>
-                <div className="am-mainpanel">
-                    <div className="card pd-20 pd-sm-40">
-                        <Script3 tabla="menus" devuelvedatos={this.dato} />
-                        <EncTabla titulo="Menus" link="/Crearmenu" titulo2="Menus" />
-                        <Tabla tabla="menus" columnas={columnas} valores={this.state.rols} 
-                        redire="/Menus" titulo="Menu" link="editamenu/" />
-                    </div>
-                </div>
-                <Footer></Footer>
+                    <div className='w-75 pt-5 m-auto'>
+                        <Titulo titulo="Menus"/>
+                        <div className="am-mainpanel">
+                            <div className="card pd-20 pd-sm-40">
+                                <Script3 tabla="menus" devuelvedatos={this.dato} />
+                                <EncTabla titulo="Menus" link="/Crearmenu" titulo2="Menus" />
+                                <Tabla tabla="menus" columnas={columnas} valores={this.state.rols} 
+                                redire="/Menus" titulo="Menu" link="editamenu/" />
+                            </div>
+                        </div>
+                    </div>    
+            <Footer></Footer>
             </div>
         );
     }

@@ -37,16 +37,18 @@ class Departamento extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Departamentos"/>
-                <div className="am-mainpanel">
-                    <div className="card pd-20 pd-sm-40">
-                        {/*<Territorial devuelvedatos={this.dato}  /><br/> */ }
-                        <Script3 tabla="departamentos" devuelvedatos={this.dato} />
-                        <EncTabla titulo="Departamentos" link="/Creardpto" titulo2="Departamentos" />
-                        <Tabla tabla="departamentos" columnas={columnas} valores={this.state.tabl} 
-                        redire="/Departamentos" titulo="Departamentos" link="editadpto/" />
-                    </div>
-                </div>
+                    <div className='w-75 m-auto pt-5'>
+                        <Titulo titulo="Departamentos"/>
+                        <div className="am-mainpanel">
+                            <div className="card pd-20 pd-sm-40">
+                                {/*<Territorial devuelvedatos={this.dato}  /><br/> */ }
+                                <Script3 tabla="departamentos" devuelvedatos={this.dato} />
+                                <EncTabla titulo="Departamentos" link="/Creardpto" titulo2="Departamentos" />
+                                <Tabla tabla="departamentos" columnas={columnas} valores={this.state.tabl} 
+                                redire="/Departamentos" titulo="Departamentos" link="editadpto/" />
+                            </div>
+                        </div>
+                    </div>    
                 <Footer></Footer>
             </div>
         );

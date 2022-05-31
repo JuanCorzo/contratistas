@@ -36,31 +36,33 @@ class lineasdetiempo extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Líneas de tiempo"/>
-                <div className="am-mainpanel">
-                  <div className="card pd-20 pd-sm-40">
-                    <FiltrosConsulta devuelvedatos={this.dato} devuelvedatos2={this.dato1} titulo='tres'/>
-                    <div className='row'>
-                        <div className="col-lg-12">
-                        <Chart
-                            width={'100%'} height={'350px'}
-                            chartType="Timeline" loader={<div>Loading Chart</div>}
-                            data={this.state.tabe1}
-                            options={{ showRowNumber: true,}}
-                            rootProps={{ 'data-testid': '1' }} />                        
+                    <div  className='pt-5' style={{width:"90%", margin:"auto"}}>
+                        <Titulo titulo="Líneas de tiempo"/>
+                        <div className="am-mainpanel">
+                        <div className="card pd-20 pd-sm-40">
+                            <FiltrosConsulta devuelvedatos={this.dato} devuelvedatos2={this.dato1} titulo='tres'/>
+                            <div className='row'>
+                                <div className="col-lg-12">
+                                <Chart
+                                    width={'100%'} height={'350px'}
+                                    chartType="Timeline" loader={<div>Loading Chart</div>}
+                                    data={this.state.tabe1}
+                                    options={{ showRowNumber: true,}}
+                                    rootProps={{ 'data-testid': '1' }} />                        
+                                </div>
+                            </div>
+                            <div className='row'>
+                                <div className="col-lg-12">
+                                    <MaterialTable columns={columnas} data={this.state.tabe} title="Líneas de tiempo de documentos y enlaces"
+                                    options={{ actionsColumnIndex: -1, rowStyle: { fontSize: 13,}}}
+                                    localization={{ header:{ actions: 'Acciones'}}}
+                                    icons={definiciones}
+                                    ></MaterialTable> 
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div className='row'>
-                        <div className="col-lg-12">
-                            <MaterialTable columns={columnas} data={this.state.tabe} title="Líneas de tiempo de documentos y enlaces"
-                            options={{ actionsColumnIndex: -1, rowStyle: { fontSize: 13,}}}
-                            localization={{ header:{ actions: 'Acciones'}}}
-                            icons={definiciones}
-                            ></MaterialTable> 
-                        </div>
-                    </div>
-                  </div>
-              </div>
+                    </div>    
               <Footer></Footer>
             </div>
         );

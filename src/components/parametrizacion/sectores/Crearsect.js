@@ -29,23 +29,25 @@ class Crearsect extends Component {
             <div>
                 <Header/>
                 <Menulat/>
-                <Titulo titulo="Agregar Clasificación por tipo de NIT"/>
-                <div className="am-mainpanel">
-                    <div className="am-pagebody">
-                        <div className="card pd-20 pd-sm-40">
-                            <h6 className="card-body-title">Agregar Clasificación por tipo de NIT</h6>
-                            <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
-                                    <div className="modal-body pd-20">
-                                        <Fila nombre="Código" refer="Codigo" tipo="1" arreglo=""  />
-                                        <Fila nombre="Clasificación por tipo de NIT" refer="Nombre" tipo="1" arreglo="" />
-                                    </div>
+                    <div className='w-75 m-auto pt-5'> 
+                        <Titulo titulo="Agregar Clasificación por tipo de NIT"/>
+                        <div className="am-mainpanel">
+                            <div className="am-pagebody">
+                                <div className="card pd-20 pd-sm-40">
+                                    <h6 className="card-body-title">Agregar Clasificación por tipo de NIT</h6>
+                                    <form  name="forma" onSubmit={this.guardar}>
+                                        <div className="modal-content tx-size-sm">
+                                            <div className="modal-body pd-20">
+                                                <Fila nombre="Código" refer="Codigo" tipo="1" arreglo=""  />
+                                                <Fila nombre="Clasificación por tipo de NIT" refer="Nombre" tipo="1" arreglo="" />
+                                            </div>
+                                        </div>
+                                        <Botones enlace='/naturaleza-entidades'/>    
+                                    </form>
                                 </div>
-                                <Botones enlace='/naturaleza-entidades'/>    
-                            </form>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </div>    
                 <Footer/>
             </div>
         );

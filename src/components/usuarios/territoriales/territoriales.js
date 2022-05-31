@@ -34,29 +34,31 @@ class Territoriales extends Component {
             { title: 'Macrozona', field: 'ter_macrozona', sortable: true },
         ]
         return (
-            <div>
-                <Header></Header>
-                <Menulat></Menulat>
-                <Titulo titulo="Territoriales"/>
-                <div className="am-mainpanel">
-                    <div className="card pd-20 pd-sm-40">
-                        <Script3 tabla="aportantes/territoriales/terri" devuelvedatos={this.dato} />
-                        { cookies.get("idroles")==="1"? (
-                            <React.Fragment>
-                                <EncTabla titulo="Territoriales" link="/Crearterr" titulo2="Territoriales" />
-                                <Tabla tabla="territoriales" columnas={columnas} valores={this.state.rols}
-                                redire="/territoriales" titulo="Territoriales" link="editaterr/" />
-                            </React.Fragment>
-                        ): (
-                            <React.Fragment>
-                                <h6 className="card-body-title">Territoriales</h6>
-                                <Tabla3 tabla="territoriales" columnas={columnas} valores={this.state.rols}
-                                redire="/territoriales" titulo="Territoriales" link="editaterr/" />
-                            </React.Fragment>
-                        )
-                    }
-                    </div>
-                </div>
+                <div>
+                    <div className='w-75 m-auto pt-5'>
+                        <Header></Header>
+                        <Menulat></Menulat>
+                        <Titulo titulo="Territoriales"/>
+                        <div className="am-mainpanel">
+                            <div className="card pd-20 pd-sm-40">
+                                <Script3 tabla="aportantes/territoriales/terri" devuelvedatos={this.dato} />
+                                { cookies.get("idroles")==="1"? (
+                                    <React.Fragment>
+                                        <EncTabla titulo="Territoriales" link="/Crearterr" titulo2="Territoriales" />
+                                        <Tabla tabla="territoriales" columnas={columnas} valores={this.state.rols}
+                                        redire="/territoriales" titulo="Territoriales" link="editaterr/" />
+                                    </React.Fragment>
+                                ): (
+                                    <React.Fragment>
+                                        <h6 className="card-body-title">Territoriales</h6>
+                                        <Tabla3 tabla="territoriales" columnas={columnas} valores={this.state.rols}
+                                        redire="/territoriales" titulo="Territoriales" link="editaterr/" />
+                                    </React.Fragment>
+                                )
+                            }
+                            </div>
+                        </div>
+                    </div>    
                 <Footer></Footer>
             </div>
         );

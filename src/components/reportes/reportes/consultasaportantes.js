@@ -42,16 +42,18 @@ class aportanes extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Consultas de entidades de aportantes"/>
-                <div className="am-mainpanel">
-                  <div className="card pd-20 pd-sm-40">
-                    <FiltrosConsulta devuelvedatos={this.dato} devuelvedatos2={this.dato1} titulo='uno'/>
-                    <MaterialTable columns={columnas} data={this.state.tabe} title="Consulta Entidades aportantes"
-                      options={{ actionsColumnIndex: -1, rowStyle: { fontSize: 13,}}}
-                      localization={{ header:{ actions: 'Acciones'}}}
-                      icons={definiciones}
-                    ></MaterialTable> 
-                  </div>
+                  <div className='pt-5' style={{width:"85%", margin:"auto"}}>
+                    <Titulo titulo="Consultas de entidades de aportantes"/>
+                    <div className="am-mainpanel">
+                      <div className="card pd-20 pd-sm-40">
+                        <FiltrosConsulta devuelvedatos={this.dato} devuelvedatos2={this.dato1} titulo='uno'/>
+                        <MaterialTable columns={columnas} data={this.state.tabe} title="Consulta Entidades aportantes"
+                          options={{ actionsColumnIndex: -1, rowStyle: { fontSize: 13,}}}
+                          localization={{ header:{ actions: 'Acciones'}}}
+                          icons={definiciones}
+                        ></MaterialTable> 
+                      </div>
+                  </div>    
               </div>
               <Footer></Footer>
             </div>

@@ -38,16 +38,18 @@ class Municipios extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Municipios"/>
-                <div className="am-mainpanel">
-                    <div className="card pd-20 pd-sm-40">
-                        {/*<Departamento devuelvedatos={this.dato}  />*/}
-                        <Script3 tabla="ciudades" devuelvedatos={this.dato} />
-                        <EncTabla titulo="Municipios" link="/Crearmuni" titulo2="Municipios" />
-                        <Tabla tabla="ciudades" columnas={columnas} valores={this.state.tabl} 
-                        redire="/Municipios" titulo="Municipios" link="editamuni/" />
-                    </div>
-                </div>
+                    <div className='w-75 m-auto pt-5'>
+                        <Titulo titulo="Municipios"/>
+                        <div className="am-mainpanel">
+                            <div className="card pd-20 pd-sm-40">
+                                {/*<Departamento devuelvedatos={this.dato}  />*/}
+                                <Script3 tabla="ciudades" devuelvedatos={this.dato} />
+                                <EncTabla titulo="Municipios" link="/Crearmuni" titulo2="Municipios" />
+                                <Tabla tabla="ciudades" columnas={columnas} valores={this.state.tabl} 
+                                redire="/Municipios" titulo="Municipios" link="editamuni/" />
+                            </div>
+                        </div>
+                    </div>    
                 <Footer></Footer>
             </div>
         );

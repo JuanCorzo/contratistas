@@ -39,15 +39,17 @@ class Usuarios extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Usuarios del sistema"/>
-                <div className="am-mainpanel">
-                    <div className="card pd-20 pd-sm-40">
-                        <Script3 tabla="usuarios" devuelvedatos={this.dato} />
-                        <EncTabla titulo="Usuarios del sistema" link="/crearusuario" titulo2="Usuario" />
-                        <Tabla tabla="usuarios" columnas={columnas} valores={this.state.usua} 
-                        titulo="Usuarios del sistema" link="editausuario/" redire="/Usuarios" />
-                    </div>
-                </div>
+                    <div className='w-75 pt-5 m-auto'>
+                        <Titulo titulo="Usuarios del sistema"/>
+                        <div className="am-mainpanel">
+                            <div className="card pd-20 pd-sm-40">
+                                <Script3 tabla="usuarios" devuelvedatos={this.dato} />
+                                <EncTabla titulo="Usuarios del sistema" link="/crearusuario" titulo2="Usuario" />
+                                <Tabla tabla="usuarios" columnas={columnas} valores={this.state.usua} 
+                                titulo="Usuarios del sistema" link="editausuario/" redire="/Usuarios" />
+                            </div>
+                        </div>
+                    </div>    
                 <Footer></Footer>
             </div>
         );

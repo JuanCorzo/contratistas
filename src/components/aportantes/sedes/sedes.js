@@ -38,17 +38,19 @@ class sedes extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <form  name="forma">
-                <Titulo titulo="Sedes"/>
-                <div className="am-mainpanel">
-                    <div className="card pd-20 pd-sm-40">
-                        <Script3 tabla="sedes" devuelvedatos={this.dato} />
-                        <EncTabla titulo="Sedes" link="/Crearsede" titulo2="Sedes" />
-                        <Tabla tabla="sedes" columnas={columnas} valores={this.state.tabl} 
-                        redire="/sedes" titulo="Sedes" link="editasede/" />
-                    </div>
-                </div>
-                </form>
+                    <div className=' pt-5' style={{width:"85%", margin:"auto"}}>
+                        <form  name="forma">
+                        <Titulo titulo="Sedes"/>
+                        <div className="am-mainpanel">
+                            <div className="card pd-20 pd-sm-40">
+                                <Script3 tabla="sedes" devuelvedatos={this.dato} />
+                                <EncTabla titulo="Sedes" link="/Crearsede" titulo2="Sedes" />
+                                <Tabla tabla="sedes" columnas={columnas} valores={this.state.tabl} 
+                                redire="/sedes" titulo="Sedes" link="editasede/" />
+                            </div>
+                        </div>
+                        </form>
+                    </div>    
                 <Footer></Footer>
             </div>
         );

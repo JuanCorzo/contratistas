@@ -5,7 +5,7 @@ class Territorial extends Component {
     state = { role:[] };
     componentDidMount(){ this.llenar(); }
     llenar = () => {
-        axios.get(global.url + "aportantes/territoriales/terri", global.autentica)
+        axios.get(global.url + "aportantes//terri", global.autentica)
         .then(res => {
             let role = res.data;
             role =  role.map( (p) => { p['id'] = p.idterritorial; p[`nombre`] = p.ter_nombre; return p; });
@@ -15,7 +15,7 @@ class Territorial extends Component {
     render() { 
         const valor = this.props.valor;
         return( 
-            <div>
+            <div >
                 <div className="row">
                     <div className="col-md-6 izqq">Nombre de territorial</div>
                     <div className="col-md-6 derechas">

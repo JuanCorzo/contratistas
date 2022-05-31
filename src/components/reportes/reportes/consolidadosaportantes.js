@@ -36,29 +36,31 @@ class consolidadosaportanes extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Consolidados Entidades aportanes"/>
-                <div className="am-mainpanel">
-                  <div className="card pd-20 pd-sm-40">
-                    <FiltrosConsulta devuelvedatos={this.dato} devuelvedatos2={this.dato1} titulo='dos'/>
-                    <div className='row'>
-                        <div className="col-lg-6">
-                            <MaterialTable columns={columnas} data={this.state.tabe} title="Consulta Entidades aportantes"
-                            options={{ actionsColumnIndex: -1, rowStyle: { fontSize: 13,}}}
-                            localization={{ header:{ actions: 'Acciones'}}}
-                            icons={definiciones}
-                            rowsPerPageOptions={[25, 50, 100]}
+                  <div className='pt-5' style={{width:"90%", margin:"auto"}}>
+                    <Titulo titulo="Consolidados Entidades aportanes"/>
+                    <div className="am-mainpanel">
+                      <div className="card pd-20 pd-sm-40">
+                        <FiltrosConsulta devuelvedatos={this.dato} devuelvedatos2={this.dato1} titulo='dos'/>
+                        <div className='row' style={{width:"98%"}}>
+                            <div className="col-lg-6">
+                                <MaterialTable columns={columnas} data={this.state.tabe} title="Consulta Entidades aportantes"
+                                options={{ actionsColumnIndex: -1, rowStyle: { fontSize: 13,}}}
+                                localization={{ header:{ actions: 'Acciones'}}}
+                                icons={definiciones}
+                                rowsPerPageOptions={[25, 50, 100]}
 
-                            ></MaterialTable> 
+                                ></MaterialTable> 
+                            </div>
+                            <div className="col-lg-6">
+                                <Chart width={'500px'} height={'300px'} chartType="PieChart"
+                                loader={<div>Loading Chart</div>} 
+                                data={this.state.tabe1} options={{ title: '', is3D:true }}
+                                rootProps={{ 'data-testid': '1' }}/>          
+                            </div>
                         </div>
-                        <div className="col-lg-6">
-                            <Chart width={'500px'} height={'300px'} chartType="PieChart"
-                            loader={<div>Loading Chart</div>} 
-                            data={this.state.tabe1} options={{ title: '', is3D:true }}
-                            rootProps={{ 'data-testid': '1' }}/>          
-                        </div>
-                    </div>
+                      </div>
                   </div>
-              </div>
+                </div>   
               <Footer></Footer>
             </div>
         );

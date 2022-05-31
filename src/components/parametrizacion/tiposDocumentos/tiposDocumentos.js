@@ -37,15 +37,17 @@ class tiposDocumentos extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Tipos documentos"/>
-                <div className="am-mainpanel">
-                    <div className="card pd-20 pd-sm-40">
-                        <Script3 tabla="tiposdocumentos" devuelvedatos={this.dato} />
-                        <EncTabla titulo="Tipos documentos" link="/creartdoc" titulo2="Tipos documentos" />
-                        <Tabla tabla="tiposdocumentos" columnas={columnas} valores={this.state.rols} 
-                        redire="/Tipos-docuemntos" titulo="Tipos documentos" link="editatdoc/" />
-                    </div>
-                </div>
+                    <div className='w-75 m-auto pt-5'>
+                        <Titulo titulo="Tipos documentos"/>
+                        <div className="am-mainpanel">
+                            <div className="card pd-20 pd-sm-40">
+                                <Script3 tabla="tiposdocumentos" devuelvedatos={this.dato} />
+                                <EncTabla titulo="Tipos documentos" link="/creartdoc" titulo2="Tipos documentos" />
+                                <Tabla tabla="tiposdocumentos" columnas={columnas} valores={this.state.rols} 
+                                redire="/Tipos-docuemntos" titulo="Tipos documentos" link="editatdoc/" />
+                            </div>
+                        </div>
+                    </div>    
                 <Footer></Footer>
             </div>
         );
