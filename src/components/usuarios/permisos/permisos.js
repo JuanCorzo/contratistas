@@ -39,7 +39,7 @@ class Permisos extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                    <div className='w-75 m-auto pt-5' style={{wigth: "84%", paddingLeft: "6em"}}>                
+                    <div className='m-auto' style={{width: "90%", paddingLeft: "9em",paddingRight: "3em", paddingTop: "5em"}}>                
                         <Titulo titulo="Permisos"/>
                         <div className="am-mainpanel">
                             <div className="card pd-20 pd-sm-40">

@@ -38,7 +38,7 @@ class Municipios extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                    <div className='m-auto pt-5' style={{wigth: "75%", paddingLeft: "6.3em"}}>
+                    <div className='m-auto' style={{width: "90%", paddingLeft: "9em",paddingRight: "3em", paddingTop: "5em"}}>
                         <Titulo titulo="Municipios"/>
                         <div className="am-mainpanel">
                             <div className="card pd-20 pd-sm-40">

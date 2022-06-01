@@ -37,7 +37,7 @@ class Menus extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                    <div className='pt-5 m-auto' style={{width: "85%", paddingLeft: "6em"}}>
+                    <div className='m-auto' style={{width: "85%", paddingLeft: "6em", paddingTop: "5.5em"}}>
                         <Titulo titulo="Menus"/>
                         <div className="am-mainpanel">
                             <div className="card pd-20 pd-sm-40">

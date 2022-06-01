@@ -36,7 +36,7 @@ class consolidadosaportanes extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                  <div className='pt-5 m-auto' style={{wigth: "75%", paddingLeft: "6.3em"}}>
+                  <div className='m-auto' style={{width: "100%", paddingLeft: "9em",paddingRight: "3em", paddingTop: "5em"}}>
                     <Titulo titulo="Consolidados Entidades aportanes"/>
                     <div className="am-mainpanel">
                       <div className="card pd-20 pd-sm-40">
