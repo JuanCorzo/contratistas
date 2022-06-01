@@ -18,7 +18,25 @@ class lineasdetiempo extends Component {
     state = { tabe:[], status: null, tabe1: [] };
     componentDidMount() {}
     dato = (tabe) => {  this.setState({ tabe });  }
-    dato1 = (tabe1) => { this.setState({ tabe1 }); console.log(tabe1); }
+    dato1 = (tabe1) => { 
+        const columns = [
+            { type: "string", id: "President" },
+            { type: "string", id: "President" },
+            { type: "string", id: "President" },
+            { type: "date", id: "Start" },
+            { type: "date", id: "End" },
+          ];
+          
+          const rows = [
+            ["Washington", "Washington", "Washington", new Date(1789, 3, 30), new Date(1797, 2, 4)],
+            ["Adams", "Adams", "Adams", new Date(1797, 2, 4), new Date(1801, 2, 4)],
+            ["Jefferson", "Jefferson", "Jefferson", new Date(1801, 2, 4), new Date(1809, 2, 4)],
+          ];
+          
+          let data = [columns, ...rows];
+        this.setState({ data }); 
+        console.log(data); 
+    }
     render() {
         if(!cookies.get("idroles")) { return <Redirect to="./"/>; }
         if(this.state.status==="Ok"){ return <Redirect to="/aportantes"/>; }
@@ -43,11 +61,11 @@ class lineasdetiempo extends Component {
                             <FiltrosConsulta devuelvedatos={this.dato} devuelvedatos2={this.dato1} titulo='tres'/>
                             <div className='row'>
                                 <div className="col-lg-12">
-                                <Chart
+                                    <Chart
                                     width={'100%'} height={'350px'}
                                     chartType="Timeline" loader={<div>Loading Chart</div>}
                                     data={this.state.tabe1}
-                                    options={{ showRowNumber: true,}}
+                                    options={{ showRowNumber: true}}
                                     rootProps={{ 'data-testid': '1' }} />                        
                                 </div>
                             </div>

@@ -83,76 +83,78 @@ class Mapas extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <div className="am-mainpanel">
-                    <div className="am-pagebody">
-                        <div className="card pd-20 pd-sm-40">
-                            <div className='row'>
-                                <div className="col-lg-3">
+                    <div className='pt-5' style={{width:"75%", margin:"auto"}}>
+                        <div className="am-mainpanel">
+                            <div className="am-pagebody">
+                                <div className="card pd-20 pd-sm-40">
                                     <div className='row'>
-                                        <div className="col-lg-12 izqq">
-                                            <h6>Macrozonas</h6>
-                                            {
-                                                this.state.macr.map((con, i) => {
-                                                    var p = i + 1;
-                                                    var valor = "mac" + p;
-                                                    return (
-                                                        <React.Fragment>
-                                                            <label className='letrape'><input type='checkbox' onChange={this.cambio} name="macro" key={i}
-                                                                value={valor} /> {con.ter_macrozona}</label><br></br>
-                                                        </React.Fragment>
-                                                    )
-                                                })
-                                            }
+                                        <div className="col-lg-3">
+                                            <div className='row'>
+                                                <div className="col-lg-12 izqq">
+                                                    <h6>Macrozonas</h6>
+                                                    {
+                                                        this.state.macr.map((con, i) => {
+                                                            var p = i + 1;
+                                                            var valor = "mac" + p;
+                                                            return (
+                                                                <React.Fragment>
+                                                                    <label className='letrape'><input type='checkbox' onChange={this.cambio} name="macro" key={i}
+                                                                        value={valor} /> {con.ter_macrozona}</label><br></br>
+                                                                </React.Fragment>
+                                                            )
+                                                        })
+                                                    }
+                                                </div>
+                                            </div>
+                                            <div className='row'>
+                                                <div className="col-lg-12 izqq"><br></br>
+                                                    <h6>Territoriales</h6>
+                                                    {
+                                                        this.state.terr.map((con, i) => {
+                                                            return (
+                                                                <React.Fragment>
+                                                                    <label className='letrape'><input type='checkbox' onChange={this.cambio} key={i} 
+                                                                    value={"zon" + con.idterritorial} /> {con.ter_nombre}</label><br></br>
+                                                                </React.Fragment>
+                                                            )
+                                                        })
+                                                    }
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className='row'>
-                                        <div className="col-lg-12 izqq"><br></br>
-                                            <h6>Territoriales</h6>
-                                            {
-                                                this.state.terr.map((con, i) => {
-                                                    return (
-                                                        <React.Fragment>
-                                                            <label className='letrape'><input type='checkbox' onChange={this.cambio} key={i} 
-                                                            value={"zon" + con.idterritorial} /> {con.ter_nombre}</label><br></br>
-                                                        </React.Fragment>
-                                                    )
-                                                })
-                                            }
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-7">
-                                    <img src={imgbas} alt='' className='imagenesmap' />
-                                    <div id="mac1" className='imagenesmap1'><img src={macro1} alt='' className='imagenesmap' /></div>
-                                    <div id="mac2" className='imagenesmap1'><img src={macro2} alt='' className='imagenesmap' /></div>
-                                    <div id="mac3" className='imagenesmap1'><img src={macro3} alt='' className='imagenesmap' /></div>
+                                        <div className="col-lg-7">
+                                            <img src={imgbas} alt='' className='imagenesmap' />
+                                            <div id="mac1" className='imagenesmap1'><img src={macro1} alt='' className='imagenesmap' /></div>
+                                            <div id="mac2" className='imagenesmap1'><img src={macro2} alt='' className='imagenesmap' /></div>
+                                            <div id="mac3" className='imagenesmap1'><img src={macro3} alt='' className='imagenesmap' /></div>
 
-                                    <div id="zon2" className='imagenesmap1'><img src={terant} alt='' className='imagenesmap' /></div>
-                                    <div id="zon3" className='imagenesmap1'><img src={tercho} alt='' className='imagenesmap' /></div>
-                                    <div id="zon1" className='imagenesmap1'><img src={terboy} alt='' className='imagenesmap' /></div>
-                                    <div id="zon17" className='imagenesmap1'><img src={terval} alt='' className='imagenesmap' /></div>
-                                    <div id="zon4" className='imagenesmap1'><img src={teratl} alt='' className='imagenesmap' /></div>
-                                    <div id="zon5" className='imagenesmap1'><img src={tersuc} alt='' className='imagenesmap' /></div>
-                                    <div id="zon6" className='imagenesmap1'><img src={tercal} alt='' className='imagenesmap' /></div>
-                                    <div id="zon7" className='imagenesmap1'><img src={tercau} alt='' className='imagenesmap' /></div>
-                                    <div id="zon8" className='imagenesmap1'><img src={tercun} alt='' className='imagenesmap' /></div>
-                                    <div id="zon9" className='imagenesmap1'><img src={terhui} alt='' className='imagenesmap' /></div>
-                                    <div id="zon10" className='imagenesmap1'><img src={termet} alt='' className='imagenesmap' /></div>
-                                    <div id="zon11" className='imagenesmap1'><img src={ternar} alt='' className='imagenesmap' /></div>
-                                    <div id="zon12" className='imagenesmap1'><img src={terara} alt='' className='imagenesmap' /></div>
-                                    
-                                    <div id="zon16" className='imagenesmap1'><img src={tertol} alt='' className='imagenesmap' /></div>
-                                    <div id="zon13" className='imagenesmap1'><img src={terqui} alt='' className='imagenesmap' /></div>
-                                    <div id="zon14" className='imagenesmap1'><img src={tersan} alt='' className='imagenesmap' /></div>
-                                    <div id="zon15" className='imagenesmap1'><img src={terbog} alt='' className='imagenesmap' /></div>
-                                </div>
-                                <div className='col-log-2'>
-                                    <div id="mensa" style={{fontSize:"14px", textAlign:"left"}}></div>
+                                            <div id="zon2" className='imagenesmap1'><img src={terant} alt='' className='imagenesmap' /></div>
+                                            <div id="zon3" className='imagenesmap1'><img src={tercho} alt='' className='imagenesmap' /></div>
+                                            <div id="zon1" className='imagenesmap1'><img src={terboy} alt='' className='imagenesmap' /></div>
+                                            <div id="zon17" className='imagenesmap1'><img src={terval} alt='' className='imagenesmap' /></div>
+                                            <div id="zon4" className='imagenesmap1'><img src={teratl} alt='' className='imagenesmap' /></div>
+                                            <div id="zon5" className='imagenesmap1'><img src={tersuc} alt='' className='imagenesmap' /></div>
+                                            <div id="zon6" className='imagenesmap1'><img src={tercal} alt='' className='imagenesmap' /></div>
+                                            <div id="zon7" className='imagenesmap1'><img src={tercau} alt='' className='imagenesmap' /></div>
+                                            <div id="zon8" className='imagenesmap1'><img src={tercun} alt='' className='imagenesmap' /></div>
+                                            <div id="zon9" className='imagenesmap1'><img src={terhui} alt='' className='imagenesmap' /></div>
+                                            <div id="zon10" className='imagenesmap1'><img src={termet} alt='' className='imagenesmap' /></div>
+                                            <div id="zon11" className='imagenesmap1'><img src={ternar} alt='' className='imagenesmap' /></div>
+                                            <div id="zon12" className='imagenesmap1'><img src={terara} alt='' className='imagenesmap' /></div>
+                                            
+                                            <div id="zon16" className='imagenesmap1'><img src={tertol} alt='' className='imagenesmap' /></div>
+                                            <div id="zon13" className='imagenesmap1'><img src={terqui} alt='' className='imagenesmap' /></div>
+                                            <div id="zon14" className='imagenesmap1'><img src={tersan} alt='' className='imagenesmap' /></div>
+                                            <div id="zon15" className='imagenesmap1'><img src={terbog} alt='' className='imagenesmap' /></div>
+                                        </div>
+                                        <div className='col-log-2'>
+                                            <div id="mensa" style={{fontSize:"14px", textAlign:"left"}}></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </div>    
                 <Footer></Footer>
             </div>
         );

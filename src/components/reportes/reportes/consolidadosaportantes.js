@@ -36,7 +36,7 @@ class consolidadosaportanes extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                  <div className='pt-5' style={{width:"90%", margin:"auto"}}>
+                  <div className='pt-5' style={{width:"85%", margin:"auto"}}>
                     <Titulo titulo="Consolidados Entidades aportanes"/>
                     <div className="am-mainpanel">
                       <div className="card pd-20 pd-sm-40">
@@ -51,7 +51,7 @@ class consolidadosaportanes extends Component {
 
                                 ></MaterialTable> 
                             </div>
-                            <div className="col-lg-6">
+                            <div className="col-lg-6 ">
                                 <Chart width={'500px'} height={'300px'} chartType="PieChart"
                                 loader={<div>Loading Chart</div>} 
                                 data={this.state.tabe1} options={{ title: '', is3D:true }}

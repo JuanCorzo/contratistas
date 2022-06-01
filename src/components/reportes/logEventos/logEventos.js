@@ -26,13 +26,15 @@ class Roles extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Logs de eventos"/>
-                <div className="am-mainpanel">
-                    <div className="card pd-20 pd-sm-40">
-                        <Script3 tabla="logs" devuelvedatos={this.dato} />
-                        <Tabla3 tabla="logs" columnas={columnas} valores={this.state.rols} titulo="Logs de eventos" link="/" />
-                    </div>
-                </div>
+                    <div className='pt-5 m-auto' style={{width:"80%"}}>
+                        <Titulo titulo="Logs de eventos"/>
+                        <div className="am-mainpanel">
+                            <div className="card pd-20 pd-sm-40">
+                                <Script3 tabla="logs" devuelvedatos={this.dato} />
+                                <Tabla3 tabla="logs" columnas={columnas} valores={this.state.rols} titulo="Logs de eventos" link="/" />
+                            </div>
+                        </div>
+                    </div>    
                 <Footer></Footer>
             </div>
         );

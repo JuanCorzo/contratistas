@@ -89,7 +89,8 @@ class FiltrosConsulta extends Component {
         });
     }
     llenamun = () =>{
-        const iddep = this.Departamento.current.value;
+        let iddep = this.Departamento.current.value;
+        if(iddep==="Departamento") iddep="0";
         const srep = this.props.titulo;
         var ruta=global.url+"ciudades/departamento/"+ iddep;
         if(srep==="tres"){ ruta=global.url+"aportantes/departamento/"+ iddep; }
