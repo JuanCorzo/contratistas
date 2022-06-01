@@ -4,7 +4,6 @@ import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
 import { Redirect, NavLink } from 'react-router-dom';
 import Cookies from 'universal-cookie';
-import Titulo from '../../../comunes/Titulo';
 import MaterialTable from 'material-table';
 import definiciones from '../../../comunes/definiciones';
 import FiltrosConsulta from '../comunes/filtrosConsultas';

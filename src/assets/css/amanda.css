@@ -12289,12 +12289,12 @@ textarea.parsley-success:focus {
 /***** MAIN PANEL *****/
 .am-mainpanel {
   margin-left: 0;
-  margin-top: 45px;
+  margin-top: 90px;
   transition: all 0.2s ease-in-out;
 }
 @media (min-width: 992px) {
   .am-mainpanel {
-    margin-left: 170px;
+    margin-left: 270px;
   }
 }
 .am-pagetitle {

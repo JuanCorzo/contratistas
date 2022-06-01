@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 class Titulo extends Component {
     render() {
-        const titul = this.props.titulo;
+        //const titul = this.props.titulo;
         return (
             <React.Fragment>
                 {/*<div className="am-pagetitle">
