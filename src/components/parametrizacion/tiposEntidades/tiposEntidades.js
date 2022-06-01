@@ -35,7 +35,7 @@ class tiposEntidades extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                    <div className='w-75 m-auto pt-5'>
+                    <div className='m-auto pt-5' style={{wigth: "75%", paddingLeft: "6.2em"}}>
                         <Titulo titulo="Orden de las entidades aportantes según la estructura del estado colombiano"/>
                         <div className="am-mainpanel">
                             <div className="card pd-20 pd-sm-40">

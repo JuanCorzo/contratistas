@@ -39,7 +39,7 @@ class Usuarios extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                    <div className='w-75 pt-5 m-auto'>
+                    <div className='pt-5 m-auto' style={{width: "93%", paddingLeft: "6em"}}>
                         <Titulo titulo="Usuarios del sistema"/>
                         <div className="am-mainpanel">
                             <div className="card pd-20 pd-sm-40">

@@ -72,7 +72,7 @@ class aportanes extends Component {
           },
         ]
         return (
-            <div className='pt-5' style={{width:"85%", margin:"auto"}}>
+            <div className='pt-5 m-auto' style={{wigth: "75%", paddingLeft: "6.3em"}}>
                 <Header></Header>
                 <Menulat></Menulat>
                   <div>
