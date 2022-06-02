@@ -37,7 +37,7 @@ class tiposDocumentos extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                    <div className='m-auto' style={{width: "90%", paddingLeft: "9em",paddingRight: "3em", paddingTop: "5em"}}>
+                    <div className='m-auto' style={{width: "90%", paddingLeft: "6em",paddingRight: "6em", paddingTop: "2em"}}>
                         <Titulo titulo="Tipos documentos"/>
                         <div className="am-mainpanel">
                             <div className="card pd-20 pd-sm-40">

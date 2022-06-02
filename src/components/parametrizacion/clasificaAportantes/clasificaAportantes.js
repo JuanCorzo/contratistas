@@ -35,7 +35,7 @@ class clasificaAportantes extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                    <div className='m-auto' style={{width: "109%", paddingLeft: "10em",paddingRight: "11.5em", paddingTop: "5em"}}>
+                    <div className='m-auto' style={{width: "109%", paddingLeft: "8em",paddingRight: "16em", paddingTop: "3em"}}>
                         <Titulo titulo="Clasificación de aportantes por obligatoriedad"/>
                         <div className="am-mainpanel">
                             <div className="card pd-20 pd-sm-40">

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect, NavLink } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';

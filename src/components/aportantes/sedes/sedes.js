@@ -38,7 +38,7 @@ class sedes extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                    <div className='m-auto' style={{width: "95%", paddingLeft: "9em",paddingRight: "3em", paddingTop: "5em"}}>
+                    <div className='m-auto' style={{width: "95%", paddingLeft: "6em",paddingRight: "6em", paddingTop: "1.5em"}}>
                         <form  name="forma">
                         <Titulo titulo="Sedes"/>
                         <div className="am-mainpanel">

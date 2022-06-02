@@ -36,12 +36,12 @@ class consolidadosaportanes extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                  <div className='m-auto' style={{width: "100%", paddingLeft: "9em",paddingRight: "3em", paddingTop: "5em"}}>
+                  <div className='m-auto' style={{width: "100%", paddingLeft: "6em",paddingRight: "6em", paddingTop: "3em"}}>
                     <Titulo titulo="Consolidados Entidades aportanes"/>
                     <div className="am-mainpanel">
                       <div className="card pd-20 pd-sm-40">
                         <FiltrosConsulta devuelvedatos={this.dato} devuelvedatos2={this.dato1} titulo='dos'/>
-                        <div className='row' style={{width:"98%"}}>
+                        <div className='row' style={{width:"99%"}}>
                             <div className="col-lg-6">
                                 <MaterialTable columns={columnas} data={this.state.tabe} title="Consulta Entidades aportantes"
                                 options={{ actionsColumnIndex: -1, rowStyle: { fontSize: 13,}}}
@@ -52,7 +52,7 @@ class consolidadosaportanes extends Component {
                                 ></MaterialTable> 
                             </div>
                             <div className="col-lg-6 ">
-                                <Chart width={'500px'} height={'300px'} chartType="PieChart"
+                                <Chart width={'480px'} height={'300px'} chartType="PieChart"
                                 loader={<div>Loading Chart</div>} 
                                 data={this.state.tabe1} options={{ title: '', is3D:true }}
                                 rootProps={{ 'data-testid': '1' }}/>          

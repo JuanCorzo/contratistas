@@ -26,7 +26,7 @@ class Roles extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                    <div className='m-auto' style={{width: "90%", paddingLeft: "9em",paddingRight: "3em", paddingTop: "7em"}}>
+                    <div className='m-auto' style={{width: "90%", paddingLeft: "6em",paddingRight: "6em", paddingTop: "4em"}}>
                         <Titulo titulo="Logs de eventos"/>
                         <div className="am-mainpanel">
                             <div className="card pd-20 pd-sm-40">

@@ -36,7 +36,7 @@ class Roles extends Component {
                 <Header></Header>
                 <Menulat></Menulat>
                 <Titulo titulo="Roles de acceso"/>
-                <div className='am-mainpanel m-auto' style={{width: "83%", paddingLeft: "19em",paddingRight: "3em", paddingTop: "6em"}}>
+                <div className='am-mainpanel m-auto' style={{width: "83%", paddingLeft: "19em",paddingRight: "3em", paddingTop: "7em"}}>
                     <div className="card pd-20 pd-sm-40">
                         <Script3 tabla="roles" devuelvedatos={this.dato} />
                         <EncTabla titulo="Roles de acceso" link="/crearrol" titulo2="Rol" />

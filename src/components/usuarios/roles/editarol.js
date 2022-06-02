@@ -42,10 +42,12 @@ class editarol extends Component {
                           <Script2 id={this.props.match.params.id} tabla="roles" devuelvedatos={this.dato} />
                             <h6 className="card-body-title">Editar Rol</h6>
                             <form  name="forma" onSubmit={this.guardar}>
+
                                 <div className="modal-content tx-size-sm">
                                     <div className="modal-body pd-20">
                                         <Fila nombre="Nombre rol" refer="Rol" tipo="1" defecto={this.state.rol_nombre}/>
                                     </div>
+                                    
                                     <Botones enlace='/Roles'/>    
                                 </div>
                             </form>

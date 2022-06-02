@@ -23,27 +23,29 @@ class Creaarrol extends Component {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="26"){ return <Redirect to="./"/>; }
         if(this.state.status==="Ok"){ return <Redirect to="/Roles"/>; }
         return (
+
             <div>
                 <Header/>
                 <Menulat/>
-                <Titulo titulo="Agregar Rol"/>
-                <div className="am-mainpanel">
-                    <div className="am-pagebody">
-                        <div className="card pd-20 pd-sm-40">
-                            <h6 className="card-body-title">Agregar Rol</h6>
-                            <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
-                                    <div className="modal-body pd-20">
-                                        <Fila nombre="Nombre rol" refer="Rol" tipo="1" />
+                    <Titulo titulo="Agregar Rol"/>
+                    <div className="am-mainpanel">
+                        <div className="am-pagebody">
+                            <div className="card pd-20 pd-sm-40">
+                                <h6 className="card-body-title">Agregar Rol</h6>
+                                <form  name="forma" onSubmit={this.guardar}>
+                                    <div className="modal-content tx-size-sm">
+                                        <div className="modal-body pd-20">
+                                            <Fila nombre="Nombre rol" refer="Rol" tipo="1" />
+                                        </div>
                                     </div>
-                                </div>
-                                <Botones enlace='/Roles'/>    
-                            </form>
+                                    <Botones enlace='/Roles'/>    
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
                 <Footer/>
             </div>
+            
         );
     }
 }

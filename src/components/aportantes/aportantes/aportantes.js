@@ -4,7 +4,6 @@ import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
 import { Redirect, NavLink } from 'react-router-dom';
 import Cookies from 'universal-cookie';
-import Titulo from '../../../comunes/Titulo';
 import MaterialTable from 'material-table';
 import definiciones from '../../../comunes/definiciones';
 import FiltrosConsulta from '../comunes/filtrosConsultas';
@@ -72,7 +71,7 @@ class aportanes extends Component {
           },
         ]
         return (
-            <div className='m-auto' style={{width: "100%", paddingLeft: "9em",paddingRight: "3em", paddingTop: "5em"}}>
+            <div className='m-auto' style={{width: "100%", paddingLeft: "6em",paddingRight: "6em", paddingTop: "2em"}}>
                 <Header></Header>
                 <Menulat></Menulat>
                   <div>
