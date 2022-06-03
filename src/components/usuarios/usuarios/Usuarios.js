@@ -42,7 +42,7 @@ class Usuarios extends Component {
                 <Menulat></Menulat>
                     <div className='pt-5 m-auto'>
                         <div className="am-mainpanel">
-                        <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
 
                             <div className="card pd-20 pd-sm-40">
                             
@@ -51,7 +51,8 @@ class Usuarios extends Component {
                                 <Tabla tabla="usuarios" columnas={columnas} valores={this.state.usua} 
                                 titulo="Usuarios del sistema" link="editausuario/" redire="/Usuarios" />
                             </div>
-                        </div>    
+                        </div>  
+                    </div>  
                 <Footer></Footer>
             </div>
         );
