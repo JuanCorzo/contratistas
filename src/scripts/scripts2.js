@@ -4,7 +4,7 @@ import global from '../Global';
 class Script2 extends Component {
     state = { idc: "", tabla:"" };
     componentDidMount(){ 
-        for(var i=0; i<10000; i++){ console.log("") }
+        //for(var i=0; i<10000; i++){ console.log("") }
         this.marcar(); 
     }
     marcar = () => {

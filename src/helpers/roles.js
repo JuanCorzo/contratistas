@@ -15,26 +15,22 @@ class Roles extends Component {
     }
     render() { 
         const valor = this.props.valor;
+        var col = this.props.col || 3;
         return( 
-            <div>
-                <div className="row">
-                    <div className="col-md-6 izqq">Nombre de rol</div>
-                    <div className="col-md-6 derechas">
-                        <select name="irol" className="form-control" required>
-                            <option>Seleccione...</option>
-                            {
-                                this.state.role.map((arr, i) => {
-                                return (
-                                    arr.id===valor ? (
-                                        <option key={i} value={arr.id} selected>{arr.nombre} </option> ) 
-                                        :(<option key={i} value={arr.id}>{arr.nombre} </option> )
-                                    )
-                                })
-                            }
-                        </select>
-
-                    </div>
-                </div>
+            <div className={`col-md-${(col)} col-input-style`}>
+                <label>Nombre de rol</label>
+                <select name="irol" className="form-control" required>
+                    <option>Seleccione...</option>
+                    {
+                        this.state.role.map((arr, i) => {
+                        return (
+                            arr.id===valor ? (
+                                <option key={i} value={arr.id} selected>{arr.nombre} </option> ) 
+                                :(<option key={i} value={arr.id}>{arr.nombre} </option> )
+                            )
+                        })
+                    }
+                </select>
             </div>
         ) 
     }

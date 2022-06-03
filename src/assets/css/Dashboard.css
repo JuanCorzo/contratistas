@@ -1,15 +1,11 @@
-.back
-{
+.back{
     background-image: url('../../assets/images/back1.png');
-    height: 855px;
-
+    height: 100vh;
 }
 
 .cardlogin {
-    top:150px;
     border-radius: 10px;
     width:80%;
-    left:10%;
     background-color: white;
 }
 
@@ -99,4 +95,14 @@
 #page-content-wrapper {
     min-width: 0;
     width: 100%;
+}
+
+.center-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.h-100vh{
+    height: 100vh;
 }

@@ -6,6 +6,7 @@ import { Redirect, NavLink } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import MaterialTable from 'material-table';
 import definiciones from '../../../comunes/definiciones';
+import PatchedPagination from '../../../comunes/PatchedPagination';
 import FiltrosConsulta from '../comunes/filtrosConsultas';
 import EncTabla from '../../../comunes/EncTabla';
 import Edit from '@material-ui/icons/Edit';
@@ -86,7 +87,7 @@ class aportanes extends Component {
                         { 
                         cookies.get("idroles")==="1" || cookies.get("idroles")==="3"? (
                         <MaterialTable columns={columnas} 
-                        style={{"padding": "1px 1px 1px 1px", "fontSize": "12px"}}
+                        style={{"padding": "1px 1px 1px 1px"}}
                         data={this.state.tabe} title="Entidades aportantes"
                           actions={[
                           { icon: () => <Edit style={{"transform":"scale(0.8)"}} />, tooltip: 'Editar', 
@@ -94,7 +95,7 @@ class aportanes extends Component {
                           },
                           { icon: () => <DeleteOutline style={{"transform":"scale(0.8)"}} />, tooltip: 'Eliminar', onClick: (event, rowData)=>this.elimina(rowData.idaportantes) }
                           ]}
-                          options={{ actionsColumnIndex: -1, rowStyle: { fontSize: 13,}}}
+                          options={{ actionsColumnIndex: -1, rowStyle: { fontSize: 13 }}}
                           localization={{ header:{ actions: 'Acciones'}}}
                           icons={definiciones}
                           detailPanel={[
@@ -135,11 +136,15 @@ class aportanes extends Component {
                           ]}
                     
                         ></MaterialTable> ) : (
-                        <MaterialTable columns={columnas} data={this.state.tabe} 
-                        title="Entidades aportantes" style={{"padding": "1px 1px 1px 1px", "fontSize": "12px"}}
+                        <MaterialTable 
+                        components={{
+                            Pagination: PatchedPagination,
+                        }}
+                        columns={columnas} data={this.state.tabe} 
+                        title="Entidades aportantes" style={{"padding": "1px 1px 1px 1px"}}
                           actions={[
                           ]}
-                          options={{ actionsColumnIndex: -1, rowStyle: { fontSize: 13,}}}
+                          options={{ actionsColumnIndex: -1, rowStyle: { fontSize: 13 }}}
                           localization={{ header:{ actions: 'Acciones'}}}
                           icons={definiciones}
                           detailPanel={[

@@ -3,7 +3,7 @@ import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
 import Breadcrumb from '../../../layout/Breadcrumb';
-import Titulo from '../../../comunes/Titulo';
+import TituloModal from '../../../comunes/TituloModal';
 import Botones from '../../../comunes/Botones';
 import Fila from '../../../comunes/fila';
 import Roles from '../../../helpers/roles';
@@ -73,26 +73,31 @@ class Creaarrol extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>                
-                <Titulo titulo="Agregar Usuario"/>
                 <div className="am-mainpanel">
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
                             <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
 
-                            <h6 className="card-body-title">Agregar Usuario</h6>
-                            <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
-                                    <div className="modal-body pd-20">
-                                        <Roles valor=""/>
-                                        <Fila nombre="Nombre" refer="Nombre" tipo="1" arreglo="" defecto={this.state.usu_nombre} id="" />
-                                        <Fila nombre="Email" refer="Email" tipo="3" arreglo="" id="" defecto={this.state.usu_email} />
-                                        <Fila nombre="Contraseña" refer="Password" tipo="4" arreglo="" id="" defecto="" />
-                                        <Fila nombre="Celular" refer="Celular" tipo="1" arreglo="" id="" defecto={this.state.usu_telefono} />
-                                        <Fila nombre="Activo desde" refer="Desde" tipo="7" arreglo="" id="" defecto={this.state.usu_telefono} />
-                                        <Fila nombre="Activo hasta" refer="Hasta" tipo="7" arreglo="" id="" defecto={this.state.usu_telefono} />
+                            <form name="forma" onSubmit={this.guardar}>
+                                <div className="modal-content tx-size-sm mt-3">
+                                    <div className="modal-body p-6">
+
+                                        <TituloModal titulo="Agregar Usuario"/>                        
+
                                         <div className="row">
-                                            <div className="col-md-6 izqq">Macrozonas</div>
-                                            <div className="col-md-6 derechas">
+                                            <Fila nombre="Nombre" refer="Nombre" tipo="1" col="8" arreglo="" defecto={this.state.usu_nombre} id="" />
+                                            <Fila nombre="Celular" refer="Celular" tipo="1" col="4" arreglo="" id="" defecto={this.state.usu_telefono} />
+                                        </div>
+                                        <div className="row mt-4">
+                                            <Roles valor="" col="4" />
+                                            <Fila nombre="Email" refer="Email" tipo="3" col="4" arreglo="" id="" defecto={this.state.usu_email} />
+                                            <Fila nombre="Contraseña" refer="Password" tipo="4" col="4" arreglo="" id="" defecto="" />
+                                        </div>
+                                        <div className="row mt-4">
+                                            <Fila nombre="Activo desde" refer="Desde" tipo="7" arreglo="" id="" defecto={this.state.usu_telefono} />
+                                            <Fila nombre="Activo hasta" refer="Hasta" tipo="7" arreglo="" id="" defecto={this.state.usu_telefono} />
+                                            <div className="col-md-3 col-input-style">
+                                                <label>Macrozonas</label>
                                                 <select name="Macro" onChange={this.llenater} className="form-control" >
                                                     <option>Seleccione...</option>
                                                     {
@@ -104,10 +109,8 @@ class Creaarrol extends Component {
                                                     }
                                                 </select>
                                             </div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-md-6 izqq">Territorial</div>
-                                            <div className="col-md-6 derechas">
+                                            <div className="col-md-3 col-input-style">
+                                                <label>Territorial</label>
                                                 <select className="form-control" name="terr" required>
                                                     <option vaule="0">Territorial</option>
                                                     {

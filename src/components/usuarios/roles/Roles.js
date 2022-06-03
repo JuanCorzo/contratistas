@@ -35,13 +35,15 @@ class Roles extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Roles de acceso"/>
-                <div className="w-50 am-mainpanel mx-auto" style={{margin: "100px 0 0 0", paddingLeft: "5em"}}>
-                    <div className="card pd-20 pd-sm-40">
-                        <Script3 tabla="roles" devuelvedatos={this.dato} />
-                        <EncTabla titulo="Roles de acceso" link="/crearrol" titulo2="Rol" />
-                        <Tabla tabla="roles" columnas={columnas} valores={this.state.rols} 
-                        titulo="Roles de acceso" link="editarol/" redire="/Roles" />
+                <div className='pt-5 m-auto'>
+                    <Titulo titulo="Roles de acceso"/>
+                    <div className="am-mainpanel">
+                        <div className="card pd-20 pd-sm-40">
+                            <Script3 tabla="roles" devuelvedatos={this.dato} />
+                            <EncTabla titulo="Roles de acceso" link="/crearrol" titulo2="Rol" />
+                            <Tabla tabla="roles" columnas={columnas} valores={this.state.rols} 
+                            titulo="Roles de acceso" link="editarol/" redire="/Roles" />
+                        </div>
                     </div>
                 </div>
                 <Footer></Footer>

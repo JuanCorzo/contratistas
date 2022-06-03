@@ -8524,10 +8524,12 @@ a.text-dark:focus, a.text-dark:hover {
 }
 
 .card-body-title {
-  font-size: 14px;
-  text-transform: uppercase;
+  font-size: 20px;
   font-weight: 700;
-  color: #32415A;
+  color: #b1b1b1;
+  letter-spacing: 0.3px;
+  text-transform: capitalize;
+  margin-bottom: 22px;
 }
 
 .card-footer {
@@ -11889,7 +11891,7 @@ textarea.parsley-success:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #12337a;
+  background-image: linear-gradient( 135deg, #244899 50%, #034fc3 100%);
   padding: 0 15px 0 0;
   z-index: 1000;
 }
@@ -12065,12 +12067,14 @@ textarea.parsley-success:focus {
 /***** LEFT SIDEBAR *****/
 .am-sideleft {
   position: fixed;
-  top: 60px;
+  top: 0px;
   left: -200px;
   bottom: 0;
-  width: 200px;
+  width: 270px;
   background-color: #fff;
   transition: all 0.2s ease-in-out;
+  z-index: 1001;
+  box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
 }
 @media (min-width: 992px) {
   .am-sideleft {
@@ -12289,7 +12293,7 @@ textarea.parsley-success:focus {
 /***** MAIN PANEL *****/
 .am-mainpanel {
   margin-left: 0;
-  margin-top: 90px;
+  margin-top: 50px;
   transition: all 0.2s ease-in-out;
 }
 @media (min-width: 992px) {
@@ -56585,4 +56589,103 @@ a.hover-white-8:hover, a.hover-white-8:focus {
 
 .mx-wd-1350 {
   max-width: 1350px;
+}
+
+.col-input-style label{
+  text-align: left;
+  float: left;
+  color: #3861bbe6;
+  margin-bottom: 0px;
+  font-size: 14px;
+  background: #ffffff;
+  padding: 1px 10px 1px 10px;
+  border-radius: 5px;
+  border-bottom: none;
+  margin-bottom: -10px;
+  margin-left: 7px;
+}
+.col-input-style input, .col-input-style select{
+  border-radius: 0px 4px 4px 4px;
+  padding: 10px 12px;
+  height: auto !important;
+}
+.p-6 {
+  padding: 4rem 6rem 4rem 6rem !important;
+}
+.title-style h1 {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  font-weight: 300;
+  font-size: 28px;
+  color: #1d1d1d;
+  transition: all 0.4s ease 0s;
+  text-transform: capitalize;
+  text-align: center;
+  margin-bottom: 33px;
+}
+
+.title-style h1 span {
+  display: block;
+  font-size: 0.5em;
+  line-height: 1.3;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  line-height: 3em;
+  padding-left: 0.25em;
+  color: rgba(0, 0, 0, 0.4);
+  padding-bottom: 10px;
+}
+
+.title-style h1:before {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 2px;
+  content: "";
+  background-color: #174aa8;
+}
+
+.title-style h1:before {
+  left:50%; margin-left:-30px;
+}
+.modal-content:before {
+    height: 5px;
+    display: block;
+    width: 100%;
+    background-image: linear-gradient( 135deg, #97ABFF 10%, #123597 100%);
+    border-right: 1px white;
+    content: '';
+}
+.title-style-2 h1 {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.5em;
+  padding-bottom: 11px;
+  position: relative;
+  color: #2453bd;
+  margin: 0px;
+}
+.title-style-2 h1:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 5px;
+  width: 55px;
+  background-color: #2453bd;
+}
+.title-style-2 h1:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  height: 1px;
+  width: 95%;
+  max-width: 255px;
+  background-color: #2453bd;
 }

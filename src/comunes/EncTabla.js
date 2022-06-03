@@ -10,11 +10,10 @@ class EncTabla extends Component {
             <React.Fragment>
                 <div className='row'>
                     <div className='col-lg-8 izqq'>
-                        <h6 className="numerosaxul">{titul}</h6>
+                        <div className="title-style-2"><h1>{titul}</h1></div>
                     </div>
                     <div className='col-lg-4 derechas'>
-                    <NavLink className="btn1 botones1" to={link}>
-                    <i className="icon ion-plus-circled"></i> Agregar {titu2}</NavLink>
+                        <NavLink className="btn1 botones1" to={link}><i className="icon ion-plus-round"></i> Agregar {titu2}</NavLink>
                     </div>
                 </div><br></br>
             </React.Fragment>

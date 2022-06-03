@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import MaterialTable from 'material-table';
 import definiciones from '../../../comunes/definiciones';
+import PatchedPagination from '../../../comunes/PatchedPagination';
 import Titulo from '../../../comunes/Titulo';
 import FiltrosConsulta from '../comunes/filtrosConsultas';
 import Chart from "react-google-charts";
@@ -36,19 +37,22 @@ class consolidadosaportanes extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                  <div className='pt-5 m-auto' style={{wigth: "75%", paddingLeft: "6.3em"}}>
+                  <div className='pt-5 m-auto'>
                     <Titulo titulo="Consolidados Entidades aportanes"/>
                     <div className="am-mainpanel">
                       <div className="card pd-20 pd-sm-40">
                         <FiltrosConsulta devuelvedatos={this.dato} devuelvedatos2={this.dato1} titulo='dos'/>
                         <div className='row' style={{width:"98%"}}>
                             <div className="col-lg-6">
-                                <MaterialTable columns={columnas} data={this.state.tabe} title="Consulta Entidades aportantes"
-                                options={{ actionsColumnIndex: -1, rowStyle: { fontSize: 13,}}}
+                                <MaterialTable 
+                                components={{
+                                  Pagination: PatchedPagination,
+                                }}
+                                columns={columnas} data={this.state.tabe} title="Consulta Entidades aportantes"
+                                options={{ actionsColumnIndex: -1, rowStyle: { fontSize: 13 }}}
                                 localization={{ header:{ actions: 'Acciones'}}}
                                 icons={definiciones}
                                 rowsPerPageOptions={[25, 50, 100]}
-
                                 ></MaterialTable> 
                             </div>
                             <div className="col-lg-6 ">

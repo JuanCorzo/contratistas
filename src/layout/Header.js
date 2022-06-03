@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom';
-import logo from '../assets/images/logo-esap_blanco.png';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies(); 
 
@@ -8,12 +7,9 @@ class Header extends Component {
     render() {
         return (
 
-            <div className="am-header" style={{padding: "50px"}}>
-                <div className="am-header-left">&nbsp;&nbsp;
-                    <NavLink to="/Inicio" className="am-logo"><img src={logo} alt="Logo" className='tamaimg' /></NavLink>
-                </div>
-                <div className="logoblanco" style={{marginLeft: "80px"}}>
-                ESAP - SIGIP - Sistema Integrado de Gestión de Ingresos Parafiscales
+            <div className="am-header" style={{padding: "40px"}}>
+                <div className="logoblanco" style={{marginLeft: "129px"}}>
+                    <b>ESAP</b> - <b>SIGIP</b> - Sistema Integrado de Gestión de Ingresos Parafiscales
                 </div>
                 <div className="am-header-left">
                 </div>

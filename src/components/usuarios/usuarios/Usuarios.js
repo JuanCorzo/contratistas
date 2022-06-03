@@ -4,7 +4,6 @@ import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
 import { Redirect } from 'react-router-dom';
-import Titulo from '../../../comunes/Titulo';
 import Script3 from '../../../scripts/scripts3';
 import EncTabla from '../../../comunes/EncTabla';
 import Tabla from '../../../comunes/Tabla';
@@ -40,7 +39,6 @@ class Usuarios extends Component {
                 <Header></Header>
                 <Menulat></Menulat>
                     <div className='pt-5 m-auto'>
-                        <Titulo titulo="Usuarios del sistema"/>
                         <div className="am-mainpanel">
                             <div className="card pd-20 pd-sm-40">
                                 <Script3 tabla="usuarios" devuelvedatos={this.dato} />

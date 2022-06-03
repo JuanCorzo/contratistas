@@ -6,6 +6,7 @@ import { Redirect, NavLink } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import MaterialTable from 'material-table';
 import definiciones from '../../../comunes/definiciones';
+import PatchedPagination from '../../../comunes/PatchedPagination';
 import FiltrosConsulta from '../comunes/filtrosConsultas';
 import Titulo from '../../../comunes/Titulo';
 const cookies = new Cookies(); 
@@ -42,13 +43,17 @@ class aportanes extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                  <div className='pt-5 m-auto' style={{wigth: "75%", paddingLeft: "6.3em"}}>
+                  <div className='pt-5 m-auto'>
                     <Titulo titulo="Consultas de entidades de aportantes"/>
                     <div className="am-mainpanel">
                       <div className="card pd-20 pd-sm-40">
                         <FiltrosConsulta devuelvedatos={this.dato} devuelvedatos2={this.dato1} titulo='uno'/>
-                        <MaterialTable columns={columnas} data={this.state.tabe} title="Consulta Entidades aportantes"
-                          options={{ actionsColumnIndex: -1, rowStyle: { fontSize: 13,}}}
+                        <MaterialTable 
+                          components={{
+                            Pagination: PatchedPagination,
+                          }}
+                          columns={columnas} data={this.state.tabe} title="Consulta Entidades aportantes"
+                          options={{ actionsColumnIndex: -1, rowStyle: { fontSize: 13 }}}
                           localization={{ header:{ actions: 'Acciones'}}}
                           icons={definiciones}
                         ></MaterialTable> 

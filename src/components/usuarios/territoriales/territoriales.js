@@ -35,7 +35,7 @@ class Territoriales extends Component {
         ]
         return (
                 <div>
-                    <div className='m-auto pt-5' style={{wigth: "75%", paddingLeft: "6.3em"}}>
+                    <div className='m-auto pt-5'>
                         <Header></Header>
                         <Menulat></Menulat>
                         <Titulo titulo="Territoriales"/>

@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import MaterialTable from 'material-table';
 import definiciones from '../../../comunes/definiciones';
+import PatchedPagination from '../../../comunes/PatchedPagination';
 import Titulo from '../../../comunes/Titulo';
 import FiltrosConsulta from '../comunes/filtrosConsultas';
 import Chart from "react-google-charts";
@@ -71,8 +72,12 @@ class lineasdetiempo extends Component {
                             </div>
                             <div className='row'>
                                 <div className="col-lg-12">
-                                    <MaterialTable columns={columnas} data={this.state.tabe} title="Líneas de tiempo de documentos y enlaces"
-                                    options={{ actionsColumnIndex: -1, rowStyle: { fontSize: 13,}}}
+                                    <MaterialTable 
+                                    components={{
+                                        Pagination: PatchedPagination,
+                                    }}
+                                    columns={columnas} data={this.state.tabe} title="Líneas de tiempo de documentos y enlaces"
+                                    options={{ actionsColumnIndex: -1, rowStyle: { fontSize: 13 }}}
                                     localization={{ header:{ actions: 'Acciones'}}}
                                     icons={definiciones}
                                     ></MaterialTable> 

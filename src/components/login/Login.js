@@ -62,56 +62,53 @@ class Login extends Component {
         else {}
         return (
             <div className="back">
-    <div className="fixed-background"></div>
-    <main>
-        <div className="container">
-            <div className="row h-100">
-                <div className="col-12 col-md-10 mx-auto my-auto">
-                    <div className="card auth-card cardlogin" >
-                        <div className="position-relative imgside ">
-                        <p className="titullog">SIGIP</p>
-                            <p>{}</p>
-                            <form onSubmit={this.Login} name="forma">
-                                <label className="form-group has-float-label mb-4">
-                                    <input className="form-control" placeholder='Email o usuario' ref={this.Email} type="email" />
-                                </label>
-                                <label className="form-group has-float-label mb-4">
-                                    <input className="form-control" placeholder='Contraseña' ref={this.Contrasena} type="password" />
-                                </label>
-                                <div className="d-flex dere">
-                                    <input className="botonlogin" type="submit" value="Entrar"/>
+                <div className="fixed-background"></div>
+                <main>
+                    <div className="container">
+                        <div className="row h-100">
+                            <div className="col-12 col-md-10 offset-md-1 h-100vh center-div">
+                                <div className="card auth-card cardlogin" >
+                                    <div className="position-relative imgside ">
+                                    <p className="titullog">SIGIP</p>
+                                        <p>{}</p>
+                                        <form onSubmit={this.Login} name="forma">
+                                            <label className="form-group has-float-label mb-4">
+                                                <input className="form-control" placeholder='Email o usuario' ref={this.Email} type="email" />
+                                            </label>
+                                            <label className="form-group has-float-label mb-4">
+                                                <input className="form-control" placeholder='Contraseña' ref={this.Contrasena} type="password" />
+                                            </label>
+                                            <div className="d-flex dere">
+                                                <input className="botonlogin" type="submit" value="Entrar"/>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div className="formside" style={{"backgroundColor":"#016bb7"}}>
+                                        <p className="white mb-0">
+                                        SISTEMA INTEGRADO DE GESTIÓN DE INGRESOS PARAFISCALES
+                                        </p><br></br>
+                                        <div className='linea'></div><br></br>
+                                        <p className='white2'><b>Escuela Superior de Administración Pública</b><br></br>
+                                        At. telefónica en Bogotá (+57601) 7956110, resto del país PBX 018000423713<br></br>
+                                        Sede Principal Calle 44 # 53-37 CAN, Bogotá D.C. - CP: 111321</p>
+                                        <br></br><br></br>
+                                        <table width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td><img src={logo} width='60px' alt='logo'/></td>
+                                                    <td>&nbsp;</td>
+                                                    <td className='white2'>Escuela Superior de Administración Pública</td>
+                                                    <td><img src={govco} width='140px' alt='logo gov'/></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                            </form>
-                        </div>
-                        <div className="formside" style={{"backgroundColor":"#016bb7"}}>
-                            <p className="white mb-0">
-                            SISTEMA INTEGRADO DE GESTIÓN DE INGRESOS PARAFISCALES
-                            </p><br></br>
-                            <div className='linea'></div><br></br>
-                            <p className='white2'><b>Escuela Superior de Administración Pública</b><br></br>
-                            At. telefónica en Bogotá (+57601) 7956110, resto del país PBX 018000423713<br></br>
-                            Sede Principal Calle 44 # 53-37 CAN, Bogotá D.C. - CP: 111321</p>
-                            <br></br><br></br>
-                            <table width="100%">
-                                <tbody>
-                                    <tr>
-                                        <td><img src={logo} width='60px'/></td>
-                                        <td>&nbsp;</td>
-                                        <td className='white2'>Escuela Superior de Administración Pública</td>
-                                        <td><img src={govco} width='140px'/></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            
+                            </div>
                         </div>
                     </div>
-                </div>
+                </main>
             </div>
-        </div>
-    </main>
-</div>
-
-
         );
     }
 }

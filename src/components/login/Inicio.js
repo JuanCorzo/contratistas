@@ -68,9 +68,9 @@ class Inicio extends Component {
             <div>
                 <Header />
                 <Menulat />
-                <div className="am-mainpanel" style={{marginTop: "5em", width:"80%", marginLeft:"auto"}}>
+                <div className="am-mainpanel">
                     <div className="am-pagebody" >
-                        <div className="card pd-20 pd-sm-20">
+                        <div className="card pd-20 pd-sm-40">
                         <div className="row fgris">
                             <div className="col-sm-6 col-lg-3 fblanco">
                                     <div className="widget-content widget-content-mini text-right clearfix">

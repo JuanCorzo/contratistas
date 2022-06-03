@@ -38,8 +38,8 @@ class sedes extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                    <div className=' pt-5 m-auto' style={{wigth: "75%", paddingLeft: "6.3em"}}>
-                        <form  name="forma">
+                    <div className='pt-5 m-auto'>
+                        <form name="forma">
                         <Titulo titulo="Sedes"/>
                         <div className="am-mainpanel">
                             <div className="card pd-20 pd-sm-40">

@@ -10,6 +10,7 @@ import global from '../../../Global';
 import Fila3 from '../../../comunes/fila3';
 import MaterialTable from 'material-table';
 import definiciones from '../../../comunes/definiciones';
+import PatchedPagination from '../../../comunes/PatchedPagination';
 import Moment from 'react-moment';
 import Descargado from '../../../comunes/descargardocs';
 
@@ -115,9 +116,13 @@ class fichaaportante extends Component {
                 <div className="col-lg-6 fflitro">
                     <Titulo3 titulo="Documentos Anexos" volver="0"/>
                     <div className="table-wrapper" id="tablas">
-                        <MaterialTable columns={columnas2} data={this.state.docs} 
-                        style={{"padding": "1px 1px 1px 1px", "fontSize": "12px"}}
-                        title="" options={{ actionsColumnIndex: -1 }}
+                        <MaterialTable 
+                        components={{
+                            Pagination: PatchedPagination,
+                        }}
+                        columns={columnas2} data={this.state.docs} 
+                        style={{"padding": "1px 1px 1px 1px"}}
+                        title="" options={{ actionsColumnIndex: -1,  rowStyle: { fontSize: 12 } }}
                         localization={{ header:{ actions: 'Acciones'}}}
                         icons={definiciones}
                         ></MaterialTable>
@@ -126,10 +131,14 @@ class fichaaportante extends Component {
                 <div className="col-lg-6 fflitro">
                     <Titulo3 titulo="Personas Reponsables" volver="0" />
                     <div className="table-wrapper" id="tablas">
-                        <MaterialTable columns={columnas} data={this.state.rols} 
-                        style={{"padding": "1px 1px 1px 1px", "fontSize": "12px"}}
+                        <MaterialTable 
+                        components={{
+                            Pagination: PatchedPagination,
+                        }}
+                        columns={columnas} data={this.state.rols} 
+                        style={{"padding": "1px 1px 1px 1px"}}
                             title=""
-                            options={{ actionsColumnIndex: -1 }}
+                            options={{ actionsColumnIndex: -1,  rowStyle: { fontSize: 12 } }}
                             localization={{ header:{ actions: 'Acciones'}}}
                             icons={definiciones}
                         ></MaterialTable>
@@ -140,9 +149,13 @@ class fichaaportante extends Component {
                 <div className="col-lg-12">
                     <Titulo3 titulo="Entidades Ejecutoras del gasto" volver="0" />
                     <div className="table-wrapper" id="tablas">
-                        <MaterialTable columns={columnas3} data={this.state.ejec} 
-                        style={{"padding": "1px 1px 1px 1px", "fontSize": "12px"}}
-                        title="" options={{ actionsColumnIndex: -1 }}
+                        <MaterialTable 
+                        components={{
+                            Pagination: PatchedPagination,
+                        }}
+                        columns={columnas3} data={this.state.ejec} 
+                        style={{"padding": "1px 1px 1px 1px"}}
+                        title="" options={{ actionsColumnIndex: -1,  rowStyle: { fontSize: 12 } }}
                         localization={{ header:{ actions: 'Acciones'}}}
                         icons={definiciones}
                         ></MaterialTable>
