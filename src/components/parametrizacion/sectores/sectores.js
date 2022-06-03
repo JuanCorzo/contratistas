@@ -10,6 +10,7 @@ import EncTabla from '../../../comunes/EncTabla';
 import Tabla from '../../../comunes/Tabla';
 import axios from 'axios';
 import global from '../../../Global';
+import Breadcrumb from '../../../layout/Breadcrumb';
 
 const cookies = new Cookies(); 
 class estNomina extends Component {
@@ -32,21 +33,22 @@ class estNomina extends Component {
             { title: 'Código', field: 'sec_codigo', sortable: true },
             { title: 'Nombre', field: 'sec_nombre', sortable: true }
         ]
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"sectores", name:"Clasificación por NIT"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                    <div className='m-auto' style={{width: "90%", paddingLeft: "6em", paddingRight: "6em", paddingTop: "4em"}}>
+                    
                         <Titulo titulo="Clasificación por tipo de NIT"/>
                         <div className="am-mainpanel">
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                             <div className="card pd-20 pd-sm-40">
                                 <Script3 tabla="sectores" devuelvedatos={this.dato} />
                                 <EncTabla titulo="Clasificación por tipo de NIT" link="/crearsect" titulo2="Tipo de NIT" />
                                 <Tabla tabla="sectores" columnas={columnas} valores={this.state.rols} 
                                 redire="/naturaleza-entidades" titulo="Clasificación por tipo de NIT" link="editasect/" />
                             </div>
-                        </div>
-                    </div>    
+                        </div>   
                 <Footer></Footer>
             </div>
         );

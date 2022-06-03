@@ -7,6 +7,7 @@ import Botones from '../../../comunes/Botones';
 import Fila from '../../../comunes/fila';
 import { guarda } from '../../../scripts/scripts';
 import { Redirect } from 'react-router-dom';
+import Breadcrumb from '../../../layout/Breadcrumb';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies(); 
 
@@ -25,13 +26,15 @@ class Crearsect extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8" && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
         if(this.state.status==="Ok"){ return <Redirect to="/naturaleza-entidades"/>; }
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"sectores", name:"Clasificación por NIT"},{href:"Crearsect", name:"Agregar clasificación por tipo de NIT"}];
         return (
             <div>
                 <Header/>
                 <Menulat/>
-                    <div className='w-75 m-auto pt-5'> 
                         <Titulo titulo="Agregar Clasificación por tipo de NIT"/>
                         <div className="am-mainpanel">
+                             <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+
                             <div className="am-pagebody">
                                 <div className="card pd-20 pd-sm-40">
                                     <h6 className="card-body-title">Agregar Clasificación por tipo de NIT</h6>
@@ -46,8 +49,7 @@ class Crearsect extends Component {
                                     </form>
                                 </div>
                             </div>
-                        </div>
-                    </div>    
+                        </div>    
                 <Footer/>
             </div>
         );

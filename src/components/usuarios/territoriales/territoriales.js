@@ -11,6 +11,7 @@ import Tabla from '../../../comunes/Tabla';
 import Tabla3 from '../../../comunes/Tabla3';
 import axios from 'axios';
 import global from '../../../Global';
+import Breadcrumb from '../../../layout/Breadcrumb';
 
 const cookies = new Cookies(); 
 class Territoriales extends Component {
@@ -33,13 +34,15 @@ class Territoriales extends Component {
             { title: 'Territorial', field: 'ter_nombre', sortable: true },
             { title: 'Macrozona', field: 'ter_macrozona', sortable: true },
         ]
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"territoriales", name:"Territoriales"}];
         return (
                 <div>
-                    <div className='m-auto' style={{width: "90%", paddingLeft: "6em", paddingRight: "6em", paddingTop: "3em"}}>
+
                         <Header></Header>
                         <Menulat></Menulat>
                         <Titulo titulo="Territoriales"/>
                         <div className="am-mainpanel">
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                             <div className="card pd-20 pd-sm-40">
                                 <Script3 tabla="aportantes/territoriales/terri" devuelvedatos={this.dato} />
                                 { cookies.get("idroles")==="1"? (
@@ -58,7 +61,7 @@ class Territoriales extends Component {
                             }
                             </div>
                         </div>
-                    </div>    
+  
                 <Footer></Footer>
             </div>
         );

@@ -10,6 +10,7 @@ import EncTabla from '../../../comunes/EncTabla';
 import Tabla from '../../../comunes/Tabla';
 import axios from 'axios';
 import global from '../../../Global';
+import Breadcrumb from '../../../layout/Breadcrumb';
 
 const cookies = new Cookies(); 
 class Roles extends Component {
@@ -31,13 +32,16 @@ class Roles extends Component {
             { title: 'ID', field:'idc', sortable: true },
             { title: 'Rol Nombre', field: 'rol_nombre', sortable: true }
         ]
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Roles", name:"Roles"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
                 <Titulo titulo="Roles de acceso"/>
-                <div className='am-mainpanel m-auto' style={{width: "83%", paddingLeft: "19em",paddingRight: "3em", paddingTop: "8.5em"}}>
+                <div className='am-mainpanel'>
+                <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                     <div className="card pd-20 pd-sm-40">
+                        
                         <Script3 tabla="roles" devuelvedatos={this.dato} />
                         <EncTabla titulo="Roles de acceso" link="/crearrol" titulo2="Rol" />
                         <Tabla tabla="roles" columnas={columnas} valores={this.state.rols} 

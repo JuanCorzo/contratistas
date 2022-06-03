@@ -9,6 +9,7 @@ import ClasificaDocs from '../../../helpers/clasificadocs';
 import { actualiza } from '../../../scripts/scripts';
 import Script2 from '../../../scripts/scripts2';
 import { Redirect } from 'react-router-dom';
+import Breadcrumb from '../../../layout/Breadcrumb';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies(); 
 
@@ -38,12 +39,14 @@ class editatdoc extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8" && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
         if(this.state.status==="Ok"){return <Redirect to="/Tipos-docuemntos"/>;}
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Tipos-docuemntos", name:"Tipos documentos"}, {href:"editatdoc/3", name:"Editar tipo de documento"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
                 <Titulo titulo="Editar Tipos documentos"/>
                 <div className="am-mainpanel">
+                        <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                         <div className="card pd-20 pd-sm-40">
                           <Script2 id={this.props.match.params.id} tabla="tiposdocumentos" devuelvedatos={this.dato} />
                             <h6 className="card-body-title">Editar Tipos documentos</h6>

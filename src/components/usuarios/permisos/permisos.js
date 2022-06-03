@@ -10,6 +10,7 @@ import EncTabla from '../../../comunes/EncTabla';
 import Tabla from '../../../comunes/Tabla';
 import axios from 'axios';
 import global from '../../../Global';
+import Breadcrumb from '../../../layout/Breadcrumb';
 
 const cookies = new Cookies(); 
 class Permisos extends Component {
@@ -35,13 +36,15 @@ class Permisos extends Component {
             { title: 'Editar', field: 'per_editar', sortable: true },
             { title: 'Eliminar', field: 'per_eliminar', sortable: true },
         ]
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"permisos", name:"Permisos"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                    <div className='m-auto' style={{width: "95%", paddingLeft: "6em",paddingRight: "6em", paddingTop: "2em"}}>                
+                                  
                         <Titulo titulo="Permisos"/>
                         <div className="am-mainpanel">
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                             <div className="card pd-20 pd-sm-40">
                                 <Script3 tabla="permisos" devuelvedatos={this.dato} /><br/>
                                 <EncTabla titulo="Permisos" link="/Crearperm" titulo2="Permisos" />
@@ -49,7 +52,7 @@ class Permisos extends Component {
                                 redire="/permisos" titulo="Permisos" link="editaperm/" />
                             </div>
                         </div>
-                    </div>    
+                       
                 <Footer></Footer>
             </div>
         );

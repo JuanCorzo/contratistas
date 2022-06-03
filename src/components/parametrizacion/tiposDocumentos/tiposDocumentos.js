@@ -10,6 +10,7 @@ import EncTabla from '../../../comunes/EncTabla';
 import Tabla from '../../../comunes/Tabla';
 import axios from 'axios';
 import global from '../../../Global';
+import Breadcrumb from '../../../layout/Breadcrumb';
 
 const cookies = new Cookies(); 
 class tiposDocumentos extends Component {
@@ -33,21 +34,21 @@ class tiposDocumentos extends Component {
             { title: 'Nombre', field: 'tid_nombre', sortable: true },
             { title: 'Aprobación', field: 'tid_aprobacion', sortable: true }
         ]
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Tipos-docuemntos", name:"Tipos documentos"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                    <div className='m-auto' style={{width: "90%", paddingLeft: "6em",paddingRight: "6em", paddingTop: "2em"}}>
                         <Titulo titulo="Tipos documentos"/>
                         <div className="am-mainpanel">
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                             <div className="card pd-20 pd-sm-40">
                                 <Script3 tabla="tiposdocumentos" devuelvedatos={this.dato} />
                                 <EncTabla titulo="Tipos documentos" link="/creartdoc" titulo2="Tipos documentos" />
                                 <Tabla tabla="tiposdocumentos" columnas={columnas} valores={this.state.rols} 
                                 redire="/Tipos-docuemntos" titulo="Tipos documentos" link="editatdoc/" />
                             </div>
-                        </div>
-                    </div>    
+                        </div>   
                 <Footer></Footer>
             </div>
         );

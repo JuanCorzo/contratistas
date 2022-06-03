@@ -8,6 +8,7 @@ import Fila from '../../../comunes/fila';
 import { guarda } from '../../../scripts/scripts';
 import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
+import Breadcrumb from '../../../layout/Breadcrumb';
 const cookies = new Cookies(); 
 
 class Creaarrol extends Component {
@@ -22,12 +23,14 @@ class Creaarrol extends Component {
     render() {
         if(cookies.get("idroles")!=="1"){ return <Redirect to="./"/>; }
         if(this.state.status==="Ok"){ return <Redirect to="/macrozonas"/>; }
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"macrozonas", name:"macrozonas"},{href:"Creaarmacr", name:"Crear macrozona"}];
         return (
             <div>
                 <Header/>
                 <Menulat/>
                 <Titulo titulo="Agregar Macrozona"/>
                 <div className="am-mainpanel">
+                    <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
                             <h6 className="card-body-title">Agregar Macrozona</h6>

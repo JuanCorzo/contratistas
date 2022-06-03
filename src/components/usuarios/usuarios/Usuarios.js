@@ -11,6 +11,7 @@ import Tabla from '../../../comunes/Tabla';
 import Moment from 'react-moment';
 import axios from 'axios';
 import global from '../../../Global';
+import Breadcrumb from '../../../layout/Breadcrumb';
 
 const cookies = new Cookies(); 
 class Usuarios extends Component {
@@ -35,21 +36,26 @@ class Usuarios extends Component {
             { title: 'Activo hasta', field:'usu_fechafin', sortable: true, type: 'date',
             render: row => <Moment format="DD MMM YYYY">{ row["usu_fechafin"]}</Moment>},
         ]
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Usuarios", name:"Listado de Usuarios"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                    <div className='m-auto' style={{width: "93%", paddingLeft: "6em", paddingRight: "6em", paddingTop: "3em"}}>
+                    
                         <Titulo titulo="Usuarios del sistema"/>
+                        
+
                         <div className="am-mainpanel">
+                        <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+
                             <div className="card pd-20 pd-sm-40">
+                            
                                 <Script3 tabla="usuarios" devuelvedatos={this.dato} />
                                 <EncTabla titulo="Usuarios del sistema" link="/crearusuario" titulo2="Usuario" />
                                 <Tabla tabla="usuarios" columnas={columnas} valores={this.state.usua} 
                                 titulo="Usuarios del sistema" link="editausuario/" redire="/Usuarios" />
                             </div>
-                        </div>
-                    </div>    
+                        </div>    
                 <Footer></Footer>
             </div>
         );

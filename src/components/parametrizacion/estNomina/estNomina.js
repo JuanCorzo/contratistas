@@ -10,6 +10,7 @@ import EncTabla from '../../../comunes/EncTabla';
 import Tabla from '../../../comunes/Tabla';
 import axios from 'axios';
 import global from '../../../Global';
+import Breadcrumb from '../../../layout/Breadcrumb';
 const cookies = new Cookies(); 
 class estNomina extends Component {
     state = { rols:[], status: null, dato:"" };
@@ -32,21 +33,21 @@ class estNomina extends Component {
             { title: 'Nombre', field: 'est_nombre', sortable: true },
             { title: 'Descripción', field: 'est_descripcion', sortable: true },
         ]
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"EstructuraNomina", name:"Factores salariales"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                    <div className='m-auto' style={{width: "90%", paddingLeft: "6em", paddingRight: "6em", paddingTop: "3em"}}>
                         <Titulo titulo="Factores salariales"/>
                         <div className="am-mainpanel">
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                             <div className="card pd-20 pd-sm-40">
                                 <Script3 tabla="estructuranomnina" devuelvedatos={this.dato} />
                                 <EncTabla titulo="Factores salariales" link="/crearestn" titulo2="Factores salariales" />
                                 <Tabla tabla="estructuranomnina" columnas={columnas} valores={this.state.rols} 
                                 redire="/EstructuraNomina" titulo="Factores salariales" link="editaestn/" />
                             </div>
-                        </div>
-                    </div>    
+                        </div>    
                 <Footer></Footer>
             </div>
         );

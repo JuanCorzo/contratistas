@@ -9,6 +9,7 @@ import { actualiza } from '../../../scripts/scripts';
 import Script2 from '../../../scripts/scripts2';
 import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
+import Breadcrumb from '../../../layout/Breadcrumb';
 
 const cookies = new Cookies(); 
 
@@ -41,6 +42,7 @@ class editapais extends Component {
         if(this.state.status==="Ok"){
             return <Redirect to="/Paises"/>;
         }
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Paises", name:"Paises"},{href:"editarpais", name:"Editar país"}];
         return (
             <div>
                 <Header></Header>
@@ -48,6 +50,7 @@ class editapais extends Component {
                 <Titulo titulo="Editar País"/>
                 <Script2 id={this.props.match.params.id} tabla="paises" devuelvedatos={this.dato} />
                 <div className="am-mainpanel">
+                    <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
                             <h6 className="card-body-title">Editar País</h6>

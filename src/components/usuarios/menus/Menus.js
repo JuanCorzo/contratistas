@@ -10,6 +10,7 @@ import EncTabla from '../../../comunes/EncTabla';
 import Tabla from '../../../comunes/Tabla';
 import axios from 'axios';
 import global from '../../../Global';
+import Breadcrumb from '../../../layout/Breadcrumb';
 
 const cookies = new Cookies(); 
 class Menus extends Component {
@@ -33,21 +34,23 @@ class Menus extends Component {
         { title: 'Orden', field: 'men_orden', sortable: true },
         { title: 'Categoría', field: 'men_categoria', sortable: true },
       ]
+      let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Menus", name:"Menús"}];
       return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                    <div className='m-auto' style={{width: "90%", paddingLeft: "6em", paddingRight: "6em", paddingTop: "4em"}}>
                         <Titulo titulo="Menus"/>
                         <div className="am-mainpanel">
+                        <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                             <div className="card pd-20 pd-sm-40">
+                            
                                 <Script3 tabla="menus" devuelvedatos={this.dato} />
                                 <EncTabla titulo="Menus" link="/Crearmenu" titulo2="Menus" />
                                 <Tabla tabla="menus" columnas={columnas} valores={this.state.rols} 
                                 redire="/Menus" titulo="Menu" link="editamenu/" />
                             </div>
                         </div>
-                    </div>    
+      
             <Footer></Footer>
             </div>
         );

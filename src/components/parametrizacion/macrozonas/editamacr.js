@@ -9,6 +9,7 @@ import { actualiza } from '../../../scripts/scripts';
 import Script2 from '../../../scripts/scripts2';
 import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
+import Breadcrumb from '../../../layout/Breadcrumb';
 const cookies = new Cookies(); 
 
 
@@ -30,12 +31,14 @@ class editamacr extends Component {
     render() {
         if(cookies.get("idroles")!=="1"){return <Redirect to="./"/>;}
         if(this.state.status==="Ok"){return <Redirect to="/macrozonas"/>;}
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"macrozonas", name:"macrozonas"},{href:"editarmacr", name:"Editar macrozona"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
                 <Titulo titulo="Editar Macrozonas"/>
                 <div className="am-mainpanel">
+                    <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                         <div className="card pd-20 pd-sm-40">
                           <Script2 id={this.props.match.params.id} tabla="macrozonas" devuelvedatos={this.dato} />
                             <h6 className="card-body-title">Editar Macrozonas</h6>

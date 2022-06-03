@@ -10,6 +10,7 @@ import { actualiza } from '../../../scripts/scripts';
 import Script2 from '../../../scripts/scripts2';
 import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
+import Breadcrumb from '../../../layout/Breadcrumb';
 
 const cookies = new Cookies(); 
 
@@ -44,12 +45,14 @@ class editadpto extends Component {
         if(this.state.status==="Ok"){
             return <Redirect to="/Departamentos"/>;
         }
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Departementos", name:"Departamentos"},{href:"editadpto", name:"Editar departamento"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
                 <Titulo titulo="Editar Departamento"/>
                 <div className="am-mainpanel">
+                    <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
                             <h6 className="card-body-title">Editar Departamento</h6>

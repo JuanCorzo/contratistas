@@ -10,6 +10,7 @@ import Script2 from '../../../scripts/scripts2';
 import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import Departamento from '../../../helpers/departamentos';
+import Breadcrumb from '../../../layout/Breadcrumb';
 
 const cookies = new Cookies(); 
 
@@ -44,12 +45,15 @@ class Crearmuni extends Component {
         if(this.state.status==="Ok"){
             return <Redirect to="/Municipios"/>;
         }
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Municipios", name:"Municipios"},{href:"editamuni", name:"Editar municipio"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
                 <Titulo titulo="Editar Municipio"/>
                 <div className="am-mainpanel">
+                <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
                             <h6 className="card-body-title">Editar Municipio</h6>

@@ -8,6 +8,8 @@ import Fila from '../../../comunes/fila';
 import ClasificaDocs from '../../../helpers/clasificadocs';
 import { guarda } from '../../../scripts/scripts';
 import { Redirect } from 'react-router-dom';
+import Breadcrumb from '../../../layout/Breadcrumb';
+
 import Cookies from 'universal-cookie';
 const cookies = new Cookies(); 
 
@@ -27,12 +29,14 @@ class Creartipd extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8" && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
         if(this.state.status==="Ok"){ return <Redirect to="/Tipos-docuemntos"/>; }
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Tipos-docuemntos", name:"Tipos documentos"}, {href:"creartdoc", name:"Agregar tipo de documento"}];
         return (
             <div>
                 <Header/>
                 <Menulat/>
                 <Titulo titulo="Agregar Tipos docuemntos"/>
                 <div className="am-mainpanel">
+                    <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
                             <h6 className="card-body-title">Agregar Tipo docuemnto</h6>

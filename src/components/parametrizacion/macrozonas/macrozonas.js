@@ -11,6 +11,8 @@ import Tabla from '../../../comunes/Tabla';
 import Tabla3 from '../../../comunes/Tabla3';
 import axios from 'axios';
 import global from '../../../Global';
+import Breadcrumb from '../../../layout/Breadcrumb';
+
 
 const cookies = new Cookies(); 
 class Roles extends Component {
@@ -32,13 +34,14 @@ class Roles extends Component {
             { title: 'ID', field:'idc', sortable: true },
             { title: 'Macrozona', field: 'mac_nombre', sortable: true }
         ]
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"macrozonas", name:"macrozonas"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <div className='m-auto' style={{width: "80%", paddingLeft: "6em",paddingRight: "6em", paddingTop: "3em"}}>
                         <Titulo titulo="Macrozonas"/>
                         <div className="am-mainpanel">
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                             <div className="card pd-20 pd-sm-40">
                                 <Script3 tabla="macrozonas" devuelvedatos={this.dato} />
                                 { cookies.get("idroles")==="1"? (
@@ -57,7 +60,7 @@ class Roles extends Component {
                                 )
                             }
                             </div>
-                        </div>
+                    
                         <Footer></Footer>
                     </div>
             </div>        

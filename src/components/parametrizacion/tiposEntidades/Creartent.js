@@ -7,6 +7,7 @@ import Botones from '../../../comunes/Botones';
 import Fila from '../../../comunes/fila';
 import { guarda } from '../../../scripts/scripts';
 import { Redirect } from 'react-router-dom';
+import Breadcrumb from '../../../layout/Breadcrumb';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies(); 
 
@@ -25,12 +26,14 @@ class Creartent extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8" && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
         if(this.state.status==="Ok"){ return <Redirect to="/Tipos-entidades"/>; }
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Tipos-Entidades", name:"Orden entidades"},{href:"Creartent", name:"Agregar orden de entidades"}];
         return (
             <div>
                 <Header/>
                 <Menulat/>
                 <Titulo titulo="Agregar Tipos Entidades"/>
                 <div className="am-mainpanel">
+                    <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
                             <h6 className="card-body-title">Agregar Orden Entidad</h6>
