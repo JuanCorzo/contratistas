@@ -12,6 +12,7 @@ import global from '../../../Global';
 import Cookies from 'universal-cookie';
 import Menus from '../../../helpers/menus';
 import Rol from '../../../helpers/roles';
+import Breadcrumb from '../../../layout/Breadcrumb';
 const cookies = new Cookies(); 
 
 class Crearperm extends Component {
@@ -40,12 +41,14 @@ class Crearperm extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="26"){ return <Redirect to="./"/>; }
         if(this.state.status==="Ok"){ return <Redirect to="/permisos"/>; }
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"permisos", name:"Permisos"}, {href:"Crearperm", name:"Crear permiso"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
                 <Titulo titulo="Agregar Permisos"/>
                 <div className="am-mainpanel">
+                <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
                             <h6 className="card-body-title">Agregar Permisos</h6>

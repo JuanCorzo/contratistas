@@ -67,14 +67,16 @@ class Creaarrol extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="26"){ return <Redirect to="./"/>; }
         if(this.state.status==="Ok"){ return <Redirect to="/Usuarios"/>; }
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Usuarios", name:"Listado de Usuarios"}];
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Usuarios", name:"Listado de Usuarios"},{href:"Crearusuario", name:"Crear usuario"}];
 
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>                
                 <div className="am-mainpanel">
+                <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                     <div className="am-pagebody">
+                   
                         <div className="card pd-20 pd-sm-40">
                             <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
 

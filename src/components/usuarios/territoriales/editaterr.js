@@ -11,6 +11,7 @@ import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import Pais from '../../../helpers/paises';
 import Macrozona from '../../../helpers/macrozonas';
+import Breadcrumb from '../../../layout/Breadcrumb';
 
 const cookies = new Cookies(); 
 
@@ -41,12 +42,14 @@ class editaterr extends Component {
     render() {
         if(cookies.get("idroles")!=="1"){ return <Redirect to="./"/>; }
         if(this.state.status==="Ok"){ return <Redirect to="/territoriales"/>; }
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"territoriales", name:"Territoriales"},{href:"editaterr", name:"Editar territorial"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
                 <Titulo titulo="Editar Territorial"/>
                 <div className="am-mainpanel">
+                     <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
                             <h6 className="card-body-title">Editar Territorial</h6>

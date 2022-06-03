@@ -7,7 +7,9 @@ import Botones from '../../../comunes/Botones';
 import Fila from '../../../comunes/fila';
 import { guarda } from '../../../scripts/scripts';
 import { Redirect } from 'react-router-dom';
+import Breadcrumb from '../../../layout/Breadcrumb';
 import Cookies from 'universal-cookie';
+
 const cookies = new Cookies(); 
 
 class Creaarestn extends Component {
@@ -26,6 +28,7 @@ class Creaarestn extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8" && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
         if(this.state.status==="Ok"){ return <Redirect to="/EstructuraNomina"/>; }
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"EstructuraNomina", name:"Factores salariales"},{href:"Crearestn", name:"Agregar factor salarial"}];
         return (
             <div>
                 <Header/>
@@ -33,6 +36,7 @@ class Creaarestn extends Component {
                 <Titulo titulo="Agregar Factor Salarial"/>
                 <div className="am-mainpanel">
                     <div className="am-pagebody">
+                        <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                         <div className="card pd-20 pd-sm-40">
                             <h6 className="card-body-title">Agregar Factor Salarial</h6>
                             <form  name="forma" onSubmit={this.guardar}>

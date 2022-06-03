@@ -8,6 +8,7 @@ import Fila from '../../../comunes/fila';
 import { actualiza } from '../../../scripts/scripts';
 import Script2 from '../../../scripts/scripts2';
 import { Redirect } from 'react-router-dom';
+import Breadcrumb from '../../../layout/Breadcrumb';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies(); 
 
@@ -36,12 +37,14 @@ class editacapo extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8"  && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
         if(this.state.status==="Ok"){return <Redirect to="/Clasificacion-aportantes"/>;}
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"clasificaAportantes", name:"Clasificación de aportantes"},{href:"Crearcapo", name:"Editar clasificación de aportantes"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
                 <Titulo titulo="Editar Clasificación de aportantes por obligatoriedad"/>
                 <div className="am-mainpanel">
+                        <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                         <div className="card pd-20 pd-sm-40">
                           <Script2 id={this.props.match.params.id} tabla="clasificacionesaportantes" devuelvedatos={this.dato} />
                             <h6 className="card-body-title">Editar Clasificación de aportantes por obligatoriedad</h6>

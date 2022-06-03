@@ -10,6 +10,7 @@ import EncTabla from '../../../comunes/EncTabla';
 import Tabla from '../../../comunes/Tabla';
 import axios from 'axios';
 import global from '../../../Global';
+import Breadcrumb from '../../../layout/Breadcrumb';
 const cookies = new Cookies(); 
 class clasificaAportantes extends Component {
     state = { rols:[], status: null, dato:"" };
@@ -31,13 +32,14 @@ class clasificaAportantes extends Component {
             { title: 'Código', field: 'cla_codigo', sortable: true },
             { title: 'Nombre', field: 'cla_nombre', sortable: true }
         ]
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"clasificaAportantes", name:"Clasificación de aportantes"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                    <div className='m-auto pt-5'>
                         <Titulo titulo="Clasificación de aportantes por obligatoriedad"/>
                         <div className="am-mainpanel">
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb> 
                             <div className="card pd-20 pd-sm-40">
                                 <Script3 tabla="clasificacionesaportantes" devuelvedatos={this.dato} />
                                 <EncTabla titulo="Clasificación de aportantes por obligatoriedad" link="/crearcapo" titulo2="Clasificación Aportantes" />
@@ -45,7 +47,6 @@ class clasificaAportantes extends Component {
                                 redire="/Clasificacion-aportantes" titulo="" link="editacapo/" />
                             </div>
                         </div>
-                    </div>
 
                 <Footer></Footer>
             </div>

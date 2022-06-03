@@ -8,6 +8,7 @@ import Fila from '../../../comunes/fila';
 import { actualiza } from '../../../scripts/scripts';
 import Script2 from '../../../scripts/scripts2';
 import { Redirect } from 'react-router-dom';
+import Breadcrumb from '../../../layout/Breadcrumb';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies(); 
 
@@ -32,20 +33,24 @@ class editarol extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
         if(this.state.status==="Ok"){return <Redirect to="/Roles"/>;}
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Roles", name:"Roles"},{href:"editarol", name:"Editar rol"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
                 <Titulo titulo="Editar Rol"/>
                 <div className="am-mainpanel">
+                        <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                         <div className="card pd-20 pd-sm-40">
                           <Script2 id={this.props.match.params.id} tabla="roles" devuelvedatos={this.dato} />
                             <h6 className="card-body-title">Editar Rol</h6>
                             <form  name="forma" onSubmit={this.guardar}>
+
                                 <div className="modal-content tx-size-sm">
                                     <div className="modal-body pd-20">
                                         <Fila nombre="Nombre rol" refer="Rol" tipo="1" defecto={this.state.rol_nombre}/>
                                     </div>
+                                    
                                     <Botones enlace='/Roles'/>    
                                 </div>
                             </form>

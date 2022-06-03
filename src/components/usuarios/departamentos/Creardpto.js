@@ -10,6 +10,7 @@ import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import global from '../../../Global';
 import Cookies from 'universal-cookie';
+import Breadcrumb from '../../../layout/Breadcrumb';
 import Territorial from '../../../helpers/territoriales';
 const cookies = new Cookies(); 
 
@@ -37,12 +38,14 @@ class Creardpto extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="26"){ return <Redirect to="./"/>; }
         if(this.state.status==="Ok"){ return <Redirect to="/Departamentos"/>; }
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Departamentos", name:"Departamentos"},{href:"Creardpto", name:"Crear departamento"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
                 <Titulo titulo="Agregar Departamento"/>
                 <div className="am-mainpanel">
+                    <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
                             <h6 className="card-body-title">Agregar Departamento</h6>

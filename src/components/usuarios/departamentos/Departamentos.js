@@ -11,6 +11,7 @@ import Tabla from '../../../comunes/Tabla';
 //import Territorial from '../../../helpers/territoriales';
 import axios from 'axios';
 import global from '../../../Global';
+import Breadcrumb from '../../../layout/Breadcrumb';
 
 const cookies = new Cookies(); 
 class Departamento extends Component {
@@ -33,22 +34,27 @@ class Departamento extends Component {
             { title: 'Código', field:'dep_codigo', sortable: true},
             { title: 'Departamento', field: 'dep_nombre', sortable: true }
         ]
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Departamentos", name:"Departamentos"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
+<<<<<<< HEAD
                     <div className='m-auto pt-5'>
+=======
+>>>>>>> 994a213ba350bf910fb706ff1ecb24b1c3b3931c
                         <Titulo titulo="Departamentos"/>
                         <div className="am-mainpanel">
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                             <div className="card pd-20 pd-sm-40">
-                                {/*<Territorial devuelvedatos={this.dato}  /><br/> */ }
+                                {/* <Territorial devuelvedatos={this.dato} /><br/>  */}
                                 <Script3 tabla="departamentos" devuelvedatos={this.dato} />
                                 <EncTabla titulo="Departamentos" link="/Creardpto" titulo2="Departamentos" />
                                 <Tabla tabla="departamentos" columnas={columnas} valores={this.state.tabl} 
                                 redire="/Departamentos" titulo="Departamentos" link="editadpto/" />
                             </div>
                         </div>
-                    </div>    
+    
                 <Footer></Footer>
             </div>
         );

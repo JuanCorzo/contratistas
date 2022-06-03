@@ -7,6 +7,7 @@ import Botones from '../../../comunes/Botones';
 import Fila from '../../../comunes/fila';
 import { guarda } from '../../../scripts/scripts';
 import { Redirect } from 'react-router-dom';
+import Breadcrumb from '../../../layout/Breadcrumb';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies(); 
 
@@ -24,12 +25,14 @@ class Crearpais extends Component {
     render() {
         if(cookies.get("idroles")!=="1") { return <Redirect to="./"/>; }
         if(this.state.status==="Ok"){ return <Redirect to="/Paises"/>; }
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Paises", name:"Paises"},{href:"Crearpais", name:"Crear país"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
                 <Titulo titulo="Agregar País"/>
                 <div className="am-mainpanel">
+                    <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
                             <h6 className="card-body-title">Agregar País</h6>
