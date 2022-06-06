@@ -37,11 +37,6 @@ class Territoriales extends Component {
         let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"territoriales", name:"Territoriales"}];
         return (
                 <div>
-<<<<<<< HEAD
-                    <div className='m-auto pt-5'>
-=======
-
->>>>>>> 994a213ba350bf910fb706ff1ecb24b1c3b3931c
                         <Header></Header>
                         <Menulat></Menulat>
                         <Titulo titulo="Territoriales"/>

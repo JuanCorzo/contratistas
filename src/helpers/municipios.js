@@ -27,11 +27,13 @@ class Roles extends Component {
     }
     render() { 
         const valor = this.props.valor;
+        const col1 = this.props.col1 || 12;
+        const col2 = this.props.col2 ||12;
         return( 
             <div>
                 <div className="row">
-                    <div className="col-md-6 izqq">Departamento</div>
-                    <div className="col-md-6 derechas">
+                    <div className={`col-md-${(col1)} col-input-style`}>
+                        <label>Departamento</label>
                         <select name="Departamento" onChange={this.cambiodep} className="form-control">
                             <option>Seleccione...</option>
                             {
@@ -43,10 +45,8 @@ class Roles extends Component {
                             )}
                         </select>
                     </div>
-                </div>
-                <div className="row">
-                    <div className="col-md-6 izqq">Municipio</div>
-                    <div className="col-md-6 derechas">
+                    <div className={`col-md-${(col2)} col-input-style`}>
+                        <label>Municipio</label>
                         <select name="Municipio" className="form-control" required>
                             <option>Seleccione...</option>
                             {

@@ -38,10 +38,6 @@ class estNomina extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-<<<<<<< HEAD
-                    <div className='m-auto pt-5' >
-=======
->>>>>>> 994a213ba350bf910fb706ff1ecb24b1c3b3931c
                         <Titulo titulo="Factores salariales"/>
                         <div className="am-mainpanel">
                             <Breadcrumb links={linksBreadcrumb}></Breadcrumb>

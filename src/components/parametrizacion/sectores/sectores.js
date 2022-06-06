@@ -38,21 +38,16 @@ class estNomina extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-<<<<<<< HEAD
-                    <div className='m-auto pt-5'>
-=======
-                    
->>>>>>> 994a213ba350bf910fb706ff1ecb24b1c3b3931c
-                        <Titulo titulo="Clasificación por tipo de NIT"/>
-                        <div className="am-mainpanel">
-                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
-                            <div className="card pd-20 pd-sm-40">
-                                <Script3 tabla="sectores" devuelvedatos={this.dato} />
-                                <EncTabla titulo="Clasificación por tipo de NIT" link="/crearsect" titulo2="Tipo de NIT" />
-                                <Tabla tabla="sectores" columnas={columnas} valores={this.state.rols} 
-                                redire="/naturaleza-entidades" titulo="Clasificación por tipo de NIT" link="editasect/" />
-                            </div>
-                        </div>   
+                <Titulo titulo="Clasificación por tipo de NIT"/>
+                <div className="am-mainpanel">
+                    <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                    <div className="card pd-20 pd-sm-40">
+                        <Script3 tabla="sectores" devuelvedatos={this.dato} />
+                        <EncTabla titulo="Clasificación por tipo de NIT" link="/crearsect" titulo2="Tipo de NIT" />
+                        <Tabla tabla="sectores" columnas={columnas} valores={this.state.rols} 
+                        redire="/naturaleza-entidades" titulo="Clasificación por tipo de NIT" link="editasect/" />
+                    </div>
+                </div>   
                 <Footer></Footer>
             </div>
         );

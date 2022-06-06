@@ -32,34 +32,21 @@ class Roles extends Component {
             { title: 'ID', field:'idc', sortable: true },
             { title: 'Rol Nombre', field: 'rol_nombre', sortable: true }
         ]
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Roles", name:"Roles"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-<<<<<<< HEAD
                 <div className='pt-5 m-auto'>
-                    <Titulo titulo="Roles de acceso"/>
-                    <div className="am-mainpanel">
+                    <div className='am-mainpanel'>
                         <div className="card pd-20 pd-sm-40">
                             <Script3 tabla="roles" devuelvedatos={this.dato} />
                             <EncTabla titulo="Roles de acceso" link="/crearrol" titulo2="Rol" />
                             <Tabla tabla="roles" columnas={columnas} valores={this.state.rols} 
                             titulo="Roles de acceso" link="editarol/" redire="/Roles" />
                         </div>
-=======
-                <Titulo titulo="Roles de acceso"/>
-                <div className='am-mainpanel'>
-                <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
-                    <div className="card pd-20 pd-sm-40">
-                        
-                        <Script3 tabla="roles" devuelvedatos={this.dato} />
-                        <EncTabla titulo="Roles de acceso" link="/crearrol" titulo2="Rol" />
-                        <Tabla tabla="roles" columnas={columnas} valores={this.state.rols} 
-                        titulo="Roles de acceso" link="editarol/" redire="/Roles" />
->>>>>>> 994a213ba350bf910fb706ff1ecb24b1c3b3931c
                     </div>
                 </div>
+                
                 <Footer></Footer>
             </div>
         );

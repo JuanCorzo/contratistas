@@ -43,11 +43,7 @@ class aportanes extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-<<<<<<< HEAD
-                  <div className='pt-5 m-auto'>
-=======
                   <div className='m-auto' style={{width: "100%", paddingLeft: "6em",paddingRight: "6em", paddingTop: "3em"}}>
->>>>>>> 994a213ba350bf910fb706ff1ecb24b1c3b3931c
                     <Titulo titulo="Consultas de entidades de aportantes"/>
                     <div className="am-mainpanel">
                       <div className="card pd-20 pd-sm-40">

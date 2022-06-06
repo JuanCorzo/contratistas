@@ -39,20 +39,16 @@ class tiposDocumentos extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-<<<<<<< HEAD
-                    <div className='m-auto pt-5'>
-=======
->>>>>>> 994a213ba350bf910fb706ff1ecb24b1c3b3931c
-                        <Titulo titulo="Tipos documentos"/>
-                        <div className="am-mainpanel">
-                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
-                            <div className="card pd-20 pd-sm-40">
-                                <Script3 tabla="tiposdocumentos" devuelvedatos={this.dato} />
-                                <EncTabla titulo="Tipos documentos" link="/creartdoc" titulo2="Tipos documentos" />
-                                <Tabla tabla="tiposdocumentos" columnas={columnas} valores={this.state.rols} 
-                                redire="/Tipos-docuemntos" titulo="Tipos documentos" link="editatdoc/" />
-                            </div>
-                        </div>   
+                <Titulo titulo="Tipos documentos"/>
+                <div className="am-mainpanel">
+                    <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                    <div className="card pd-20 pd-sm-40">
+                        <Script3 tabla="tiposdocumentos" devuelvedatos={this.dato} />
+                        <EncTabla titulo="Tipos documentos" link="/creartdoc" titulo2="Tipos documentos" />
+                        <Tabla tabla="tiposdocumentos" columnas={columnas} valores={this.state.rols} 
+                        redire="/Tipos-docuemntos" titulo="Tipos documentos" link="editatdoc/" />
+                    </div>
+                </div>   
                 <Footer></Footer>
             </div>
         );

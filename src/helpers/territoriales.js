@@ -14,26 +14,22 @@ class Territorial extends Component {
     }
     render() { 
         const valor = this.props.valor;
+        let col = this.props.col || 12;
         return( 
-            <div >
-                <div className="row">
-                    <div className="col-md-6 izqq">Nombre de territorial</div>
-                    <div className="col-md-6 derechas">
-                        <select name="idterritorial" className="form-control" required>
-                            <option>Seleccione...</option>
-                            {
-                                this.state.role.map((arr, i) => {
-                                return (
-                                    arr.id===valor ? (
-                                        <option key={i} value={arr.id} selected>{arr.nombre} </option> ) 
-                                        :(<option key={i} value={arr.id}>{arr.nombre} </option> )
-                                    )
-                                })
-                            }
-                        </select>
-
-                    </div>
-                </div>
+            <div className={`col-md-${(col)} col-input-style`}>
+                <label>Nombre de territorial</label>
+                <select name="idterritorial" className="form-control" required>
+                    <option>Seleccione...</option>
+                    {
+                        this.state.role.map((arr, i) => {
+                        return (
+                            arr.id===valor ? (
+                                <option key={i} value={arr.id} selected>{arr.nombre} </option> ) 
+                                :(<option key={i} value={arr.id}>{arr.nombre} </option> )
+                            )
+                        })
+                    }
+                </select>
             </div>
         ) 
     }

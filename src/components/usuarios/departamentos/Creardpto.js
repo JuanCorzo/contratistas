@@ -4,6 +4,7 @@ import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
 import Titulo from '../../../comunes/Titulo';
 import Botones from '../../../comunes/Botones';
+import TituloModal from '../../../comunes/TituloModal';
 import Fila from '../../../comunes/fila';
 import { guarda } from '../../../scripts/scripts';
 import { Redirect } from 'react-router-dom';
@@ -38,25 +39,30 @@ class Creardpto extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="26"){ return <Redirect to="./"/>; }
         if(this.state.status==="Ok"){ return <Redirect to="/Departamentos"/>; }
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Departamentos", name:"Departamentos"},{href:"Creardpto", name:"Crear departamento"}];
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Departamentos", name:"Departamentos"},{href:"#", name:"Crear Departamento"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Agregar Departamento"/>
                 <div className="am-mainpanel">
-                    <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
-                            <h6 className="card-body-title">Agregar Departamento</h6>
+
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+
                             <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
-                                    <div className="modal-body pd-20">
-                                    <Territorial valor={this.state.idterritorial}/>
-                                    <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" />
-                                    <Fila nombre="Departamento" refer="Nombre" tipo="1" arreglo="" />
-                                </div>
-                                <Botones enlace='/Departamentos'/>    
+                                <div className="modal-content tx-size-sm mt-3">
+                                    <div className="modal-body p-6">
+
+                                        <TituloModal titulo="Agregar Departamento"/>        
+
+                                        <div className="row">
+                                            <Territorial valor={this.state.idterritorial} col="5"/>
+                                            <Fila nombre="Código" refer="Codigo" tipo="1" col="3" arreglo="" />
+                                            <Fila nombre="Departamento" refer="Nombre" tipo="1" col="4" arreglo="" />
+                                        </div>
+                                    </div>
+                                    <Botones enlace='/Departamentos'/>    
                                 </div>
                             </form>
                         </div>
