@@ -7,11 +7,11 @@ import Cookies from 'universal-cookie';
 import MaterialTable from 'material-table';
 import definiciones from '../../../comunes/definiciones';
 import PatchedPagination from '../../../comunes/PatchedPagination';
-import Titulo from '../../../comunes/Titulo';
 import FiltrosConsulta from '../comunes/filtrosConsultas';
 import Chart from "react-google-charts";
 import Moment from "react-moment";
 import Descargado from '../../../comunes/descargardocs';
+import EncTabla from '../../../comunes/EncTabla';
 
 const cookies = new Cookies(); 
 
@@ -21,9 +21,9 @@ class lineasdetiempo extends Component {
     dato = (tabe) => {  this.setState({ tabe });  }
     dato1 = (tabe1) => { 
         const columns = [
-            { type: "string", id: "President" },
-            { type: "string", id: "President" },
-            { type: "string", id: "President" },
+            { type: "string", id: "Presidsent" },
+            { type: "string", id: "Preswident" },
+            { type: "string", id: "Presiedent" },
             { type: "date", id: "Start" },
             { type: "date", id: "End" },
           ];
@@ -55,36 +55,36 @@ class lineasdetiempo extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                    <div  className='m-auto' style={{width: "100%", paddingLeft: "6em",paddingRight: "6em", paddingTop: "3em"}}>
-                        <Titulo titulo="Líneas de tiempo"/>
+                    <div className='pt-5 m-auto'>
                         <div className="am-mainpanel">
-                        <div className="card pd-20 pd-sm-40">
-                            <FiltrosConsulta devuelvedatos={this.dato} devuelvedatos2={this.dato1} titulo='tres'/>
-                            <div className='row'>
-                                <div className="col-lg-12">
-                                    <Chart
-                                    width={'100%'} height={'350px'}
-                                    chartType="Timeline" loader={<div>Loading Chart</div>}
-                                    data={this.state.tabe1}
-                                    options={{ showRowNumber: true}}
-                                    rootProps={{ 'data-testid': '1' }} />                        
+                            <div className="card pd-20 pd-sm-40 pt-3">
+                                <EncTabla titulo="Linea de Tiempo" showButton="false" />
+                                <FiltrosConsulta devuelvedatos={this.dato} devuelvedatos2={this.dato1} titulo='tres'/>
+                                <div className='row'>
+                                    <div className="col-lg-12">
+                                        <Chart
+                                        width={'100%'} height={'350px'}
+                                        chartType="Timeline" loader={<div>Loading Chart</div>}
+                                        data={this.state.tabe1}
+                                        options={{ showRowNumber: true}}
+                                        rootProps={{ 'data-testid': '1' }} />                        
+                                    </div>
                                 </div>
-                            </div>
-                            <div className='row'>
-                                <div className="col-lg-12">
-                                    <MaterialTable 
-                                    components={{
-                                        Pagination: PatchedPagination,
-                                    }}
-                                    columns={columnas} data={this.state.tabe} title="Líneas de tiempo de documentos y enlaces"
-                                    options={{ actionsColumnIndex: -1, rowStyle: { fontSize: 13 }}}
-                                    localization={{ header:{ actions: 'Acciones'}}}
-                                    icons={definiciones}
-                                    ></MaterialTable> 
+                                <div className='row'>
+                                    <div className="col-lg-12">
+                                        <MaterialTable 
+                                        components={{
+                                            Pagination: PatchedPagination,
+                                        }}
+                                        columns={columnas} data={this.state.tabe} title="Líneas de tiempo de documentos y enlaces"
+                                        options={{ actionsColumnIndex: -1, rowStyle: { fontSize: 13 }}}
+                                        localization={{ header:{ actions: 'Acciones'}}}
+                                        icons={definiciones}
+                                        ></MaterialTable> 
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     </div>    
               <Footer></Footer>
             </div>

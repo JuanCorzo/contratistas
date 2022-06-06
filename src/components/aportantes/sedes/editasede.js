@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
-import Titulo from '../../../comunes/Titulo';
+import Breadcrumb from '../../../layout/Breadcrumb';
+import TituloModal from '../../../comunes/TituloModal';
 import Botones from '../../../comunes/Botones';
 import Fila from '../../../comunes/fila';
 import { actualiza } from '../../../scripts/scripts';
@@ -44,24 +45,32 @@ class editasede extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="26") { return <Redirect to="./"/>; }
         if(this.state.status==="Ok"){ return <Redirect to="/sedes"/>; }
+        let linksBreadcrumb = [{href:"../inicio", name:"Inicio"}, {href:"../sedes", name:"Listado de Sedes"}, {href:"#", name:"Editar Sede"}];
+
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Editar Sede"/>
                 <div className="am-mainpanel">
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
-                            <h6 className="card-body-title">Editar Sede</h6>
+                            
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+
                             <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
-                                    <div className="modal-body pd-20">
-                                    <Departamento valor={this.state.iddepartamentos}/>
-                                    <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" defecto={this.state.sed_codigo} />
-                                    <Fila nombre="Nombre sede" refer="Nombre" tipo="1" arreglo="" defecto={this.state.sed_nombre} />
-                                    <Fila nombre="Dirección" refer="Direcc" tipo="1" arreglo="" defecto={this.state.sed_direccion} />
-                                </div>
-                                <Botones enlace='/sedes'/>    
+                                <div className="modal-content tx-size-sm mt-3">
+                                    <div className="modal-body p-6">
+
+                                        <TituloModal titulo="Editar Sede"/> 
+
+                                        <Departamento valor={this.state.iddepartamentos} col1="6" col2="6"/>
+                                        <div className="row mt-4">
+                                            <Fila nombre="Código" refer="Codigo" tipo="1" col="3" arreglo="" defecto={this.state.sed_codigo} />
+                                            <Fila nombre="Nombre sede" refer="Nombre" tipo="1" col="5" arreglo="" defecto={this.state.sed_nombre} />
+                                            <Fila nombre="Dirección" refer="Direcc" tipo="1" col="4" arreglo="" defecto={this.state.sed_direccion} />
+                                        </div>
+                                    </div>
+                                    <Botones enlace='/sedes'/>    
                                 </div>
                             </form>
                         </div>

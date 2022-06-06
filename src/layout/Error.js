@@ -9,10 +9,10 @@ class Error extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <div class="am-mainpanel">
-                    <div class="am-pagebody">
-                        <div class="card pd-20 pd-sm-40">
-                            <h4>Página no encontrada</h4>
+                <div className="am-mainpanel">
+                    <div className="am-pagebody">
+                        <div className="card pd-20 pd-sm-40 center-div" style={{height: '800px'}}>
+                            <h3 className="title-not-found">Página no encontrada</h3>
                         </div>
                     </div>
                 </div>

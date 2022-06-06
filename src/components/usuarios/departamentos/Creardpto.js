@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
-import Titulo from '../../../comunes/Titulo';
 import Botones from '../../../comunes/Botones';
 import TituloModal from '../../../comunes/TituloModal';
 import Fila from '../../../comunes/fila';

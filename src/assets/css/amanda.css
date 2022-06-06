@@ -56591,7 +56591,7 @@ a.hover-white-8:hover, a.hover-white-8:focus {
   max-width: 1350px;
 }
 
-.col-input-style label{
+.col-input-style > label{
   text-align: left;
   float: left;
   color: #3861bbe6;
@@ -56688,4 +56688,11 @@ a.hover-white-8:hover, a.hover-white-8:focus {
   width: 95%;
   max-width: 255px;
   background-color: #2453bd;
+}
+.title-not-found{
+  color: #6c757d75 !important;
+  font-size: 31px;
+  letter-spacing: 2px;
+  background: #ededed;
+  padding: 25px 40px;
 }

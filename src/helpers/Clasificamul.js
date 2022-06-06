@@ -46,7 +46,7 @@ class Clasificamul extends Component {
   render() {
     return (
       <span
-        class="d-inline-block selectdin"
+        className="d-inline-block selectdin"
         data-toggle="popover"
         data-trigger="focus"
         data-content="Please selecet account(s)"

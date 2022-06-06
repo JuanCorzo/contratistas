@@ -10,7 +10,6 @@ import EncTabla from '../../../comunes/EncTabla';
 import Tabla from '../../../comunes/Tabla';
 import axios from 'axios';
 import global from '../../../Global';
-import Breadcrumb from '../../../layout/Breadcrumb';
 
 const cookies = new Cookies(); 
 class Roles extends Component {

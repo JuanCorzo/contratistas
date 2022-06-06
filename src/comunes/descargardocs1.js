@@ -17,7 +17,7 @@ class Descargardocs1 extends Component {
     render() {
         return (
             <React.Fragment>
-                <button className="btn btn-primary" onClick={() => this.handleDownload()} download>Descargar</button>
+                <button className="btn btn-success" onClick={() => this.handleDownload()} download>Descargar</button>
             </React.Fragment>
         )
     }
