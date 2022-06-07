@@ -213,20 +213,22 @@ class anexos extends Component {
                       this.state.dent.map((sin, i) => {
                         return (
                             <React.Fragment>
+                                <br />
                             <Titulo3 volver="1" titulo={sin.apo_nombre }/>
                             <div className='row'>
-                            <div className='col-lg-4 izqq1 fflitro'>
-                            <div className='row'>
-                                <Fila3 ancho="col-lg-6 izqq1 textrse" valor={ sin.apo_sufijo===""?( sin.apo_identificacion):
-                                sin.apo_sufijo==="0"?(sin.apo_identificacion):(sin.apo_identificacion +"-"+sin.apo_sufijo )} 
-                                nombre="NIT"></Fila3>
-                                <Fila3 ancho="col-lg-6 izqq1 textrse1" valor={sin.ter_macrozona } nombre="Macrozona"></Fila3>
-                                <Fila3 ancho="col-lg-6 izqq1 textrse1" valor={sin.ter_nombre } nombre="Territorial"></Fila3>
-                                <Fila3 ancho="col-lg-6 izqq1 textrse1" valor={sin.dep_codigo +"-"+sin.dep_nombre } nombre="Departamento"></Fila3>
-                                <Fila3 ancho="col-lg-6 izqq1 textrse1" valor={sin.ciu_codigo +"-"+ sin.ciu_nombre } nombre="Municipio"></Fila3>
+                            <div className='col-lg-12 fflitro'>
+                                <div className='row'>
+                                    <Fila3 ancho="col-lg-3 izqq1 font-15" valor={ sin.apo_sufijo===""?( sin.apo_identificacion):
+                                    sin.apo_sufijo==="0"?(sin.apo_identificacion):(sin.apo_identificacion +"-"+sin.apo_sufijo )} 
+                                    nombre="NIT"></Fila3>
+                                    <Fila3 ancho="col-lg-3 izqq1 font-15" valor={sin.ter_macrozona } nombre="Macrozona"></Fila3>
+                                    <Fila3 ancho="col-lg-3 izqq1 font-15" valor={sin.ter_nombre } nombre="Territorial"></Fila3>
+                                    <Fila3 ancho="col-lg-3 izqq1 font-15" valor={sin.dep_codigo +"-"+sin.dep_nombre } nombre="Departamento"></Fila3>
+                                    <Fila3 ancho="col-lg-3 izqq1 font-15" valor={sin.ciu_codigo +"-"+ sin.ciu_nombre } nombre="Municipio"></Fila3>
+                                </div>
+                                <br />
                             </div>
-                            </div>
-                            <div className='col-lg-8'>
+                            <div className='col-lg-12 mt-3'>
                             <Script3 tabla={"documentosaportantes/aportante/"+this.props.match.params.id} devuelvedatos={this.dato} />
                             { cookies.get("idroles")==="1" || cookies.get("idroles")==="3"? (
                             <React.Fragment>
@@ -257,11 +259,14 @@ class anexos extends Component {
                             cookies.get("idroles")==="1" || cookies.get("idroles")==="3"? (
                                 <div className='fflitro'>
                                 <h6 className="actions">Reportar una Transición de la entidad</h6>
-                                <Fila nombre="Tipo de cambio" refer="tipo" tipo="6" arreglo={this.state.tipos} />
-                                <Fila nombre="Observaciones" refer="observacion" tipo="1" arreglo="" />
+                                <hr />
                                 <div className="row">
-                                    <div className="col-md-6 izqq">Soporte de modificación</div>
-                                    <div className="col-md-6 derechas">
+                                    <Fila nombre="Tipo de cambio" refer="tipo" tipo="6" col="12" arreglo={this.state.tipos} />
+                                    <Fila nombre="Observaciones" refer="observacion" tipo="1" col="12" arreglo="" />
+                                </div>
+                                <div className="row mt-3">
+                                    <div className="col-md-5 izqq">Soporte de modificación</div>
+                                    <div className="col-md-7 derechas">
                                     <input type="file" className="form-control" onChange={this.handleImagePreview} name="docs_aportantes"/>
                                     </div>
                                 </div>
@@ -285,9 +290,9 @@ class anexos extends Component {
                         </div>
                         <div className="col-lg-6 izqq">
                             <div className='row'>
-                                <div className="col-lg-12 " style={{"backgroundColor":"#FFF", "borderRadius":"10px"}}>
-                                <h6 className="actions" style={{"paddingTop":"20px"}}>Cambios en clasificación por NIT</h6>
-                                <br></br>
+                                <div className="col-lg-12 p-3" style={{"backgroundColor":"#FFF", "borderRadius":"10px"}}>
+                                <h6 className="actions" style={{"paddingTop":"10px"}}>Cambios en clasificación por NIT</h6>
+                                <hr />
                                 <div className='timeline'>
                                 <div class="v-line"></div>
                                 {
@@ -306,9 +311,9 @@ class anexos extends Component {
                                 </div>                      
                             </div><br></br>
                             <div className='row'>
-                                <div className="col-lg-12 " style={{"backgroundColor":"#FFF", "borderRadius":"10px"}}>
-                                <h6 className="actions" style={{"paddingTop":"20px"}}>Clasificación por obligatoriedad</h6>
-                                <br></br>
+                                <div className="col-lg-12 p-3" style={{"backgroundColor":"#FFF", "borderRadius":"10px"}}>
+                                <h6 className="actions" style={{"paddingTop":"10px"}}>Clasificación por obligatoriedad</h6>
+                                <hr />
                                 <div className='timeline'>
                                 <div class="v-line"></div>
                                 {
@@ -318,12 +323,12 @@ class anexos extends Component {
                                             <div className='col-lg-3'><b>{con.fecha.substr(0,10)}</b><br></br></div>
                                             <div className='col-lg-1 izqq'><i className="icon ion-clock"></i></div>
                                             <div className='col-lg-6'><b>{con.tipo}</b><br></br></div>
-                                            <div className='col-lg-1'><Descargado docid="1" tipo="responsable" /><br></br></div>
+                                            <div className='col-lg-1'><Descargado docid="1" tipo="responsable" /><br/></div>
                                         </div>
                                         )
                                     })
                                 }
-                                </div><br></br><br></br>
+                                </div><br></br>
                                 </div> 
                             </div>
                         </div>

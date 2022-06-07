@@ -180,43 +180,45 @@ class clasificaAportantes extends Component {
                       this.state.dent.map((sin, i) => {
                         return (
                             <React.Fragment>
+                                <br />
                             <Titulo3 volver="1" titulo={sin.apo_nombre }/>
                             <div className='row'>
-                            <div className='col-lg-4 izqq1 fflitro'>
-                            <div className='row'>
-                                <Fila3 ancho="col-lg-6 izqq1 textrse" valor={ sin.apo_sufijo===""?( sin.apo_identificacion):
-                                sin.apo_sufijo==="0"?(sin.apo_identificacion):(sin.apo_identificacion +"-"+sin.apo_sufijo )} 
-                                nombre="NIT"></Fila3>
-                                <Fila3 ancho="col-lg-6 izqq1 textrse1" valor={sin.ter_macrozona } nombre="Macrozona"></Fila3>
-                                <Fila3 ancho="col-lg-6 izqq1 textrse1" valor={sin.ter_nombre } nombre="Territorial"></Fila3>
-                                <Fila3 ancho="col-lg-6 izqq1 textrse1" valor={sin.dep_codigo +"-"+sin.dep_nombre } nombre="Departamento"></Fila3>
-                                <Fila3 ancho="col-lg-6 izqq1 textrse1" valor={sin.ciu_codigo +"-"+ sin.ciu_nombre } nombre="Municipio"></Fila3>
-                            </div>
-                            </div>
-                            <div className='col-lg-8'>
-                            <Script3 tabla={"responsables/aportante/"+this.props.match.params.id} devuelvedatos={this.dato} />
-                            { cookies.get("idroles")==="1" || cookies.get("idroles")==="3"? (
-                            <React.Fragment>
-                                <EncTabla titulo="Enlaces de la entidad aportante" link={"/crearresp/"+this.state.idd} titulo2="Enlace" />
-                                <br></br>
-                                <Tabla tabla="responsables" columnas={columnas} valores={this.state.rols} 
-                                redire="/aportantes" titulo="Enlaces" link="/editaresp/" />
-                            </React.Fragment> ) : (
-                            <React.Fragment>
-                                <h6 className="card-body-title">Enlaces de la entidad aportante</h6>
-                                <Tabla3 tabla="responsables" columnas={columnas} valores={this.state.rols} 
-                                redire="/aportantes" titulo="Enlaces" link="/editaresp/" />
-                            </React.Fragment>
-                            )
-                            }
-                            </div>
+                                <div className='col-lg-12 fflitro'>
+                                    <div className='row'>
+                                        <Fila3 ancho="col-lg-3 izqq1 font-15" valor={ sin.apo_sufijo===""?( sin.apo_identificacion):
+                                        sin.apo_sufijo==="0"?(sin.apo_identificacion):(sin.apo_identificacion +"-"+sin.apo_sufijo )} 
+                                        nombre="NIT"></Fila3>
+                                        <Fila3 ancho="col-lg-3 izqq1 font-15" valor={sin.ter_macrozona } nombre="Macrozona"></Fila3>
+                                        <Fila3 ancho="col-lg-3 izqq1 font-15" valor={sin.ter_nombre } nombre="Territorial"></Fila3>
+                                        <Fila3 ancho="col-lg-3 izqq1 font-15" valor={sin.dep_codigo +"-"+sin.dep_nombre } nombre="Departamento"></Fila3>
+                                        <Fila3 ancho="col-lg-3 izqq1 font-15" valor={sin.ciu_codigo +"-"+ sin.ciu_nombre } nombre="Municipio"></Fila3>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div className='col-lg-12 mt-3'>
+                                <Script3 tabla={"responsables/aportante/"+this.props.match.params.id} devuelvedatos={this.dato} />
+                                { cookies.get("idroles")==="1" || cookies.get("idroles")==="3"? (
+                                <React.Fragment>
+                                    <EncTabla titulo="Enlaces de la entidad aportante" link={"/crearresp/"+this.state.idd} titulo2="Enlace" />
+                                    <br></br>
+                                    <Tabla tabla="responsables" columnas={columnas} valores={this.state.rols} 
+                                    redire="/aportantes" titulo="Enlaces" link="/editaresp/" />
+                                </React.Fragment> ) : (
+                                <React.Fragment>
+                                    <h6 className="card-body-title">Enlaces de la entidad aportante</h6>
+                                    <Tabla3 tabla="responsables" columnas={columnas} valores={this.state.rols} 
+                                    redire="/aportantes" titulo="Enlaces" link="/editaresp/" />
+                                </React.Fragment>
+                                )
+                                }
+                                </div>
                             </div>
                             </React.Fragment>
                         )
                       })
                     }<br></br>
-                    <div className="row">
-                        <div className="col-md-6 izqq fflitro">
+                    <div className="row fflitro">
+                        <div className="col-md-6">
                             <h6 className='actions'>Factores salariales certificados</h6>
                             {
                                 this.state.facs.map((con, i) => {
@@ -257,7 +259,7 @@ class clasificaAportantes extends Component {
                                 </React.Fragment> ):(<React.Fragment></React.Fragment>)
                             }
                         </div>
-                        <div className="col-lg-6 izqq ffiltro" style={{
+                        <div className="col-lg-6" style={{
                         "backgroundColor":"#FFF"}}>
                                 <h6 className="actions" style={{"paddingTop":"18px"}}>Línea de tiempo enlaces</h6>
                                 <div className='timeline'>
@@ -276,6 +278,7 @@ class clasificaAportantes extends Component {
                                     })
                                 }
                                 </div>
+                                <br />
                                 <h6 className="actions">Línea de tiempo factores salariales</h6>
                                 <br></br>
                                     <div className='timeline'>
