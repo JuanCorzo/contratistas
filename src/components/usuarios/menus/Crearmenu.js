@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
-import Titulo from '../../../comunes/Titulo';
 import TituloModal from '../../../comunes/TituloModal';
 import Botones from '../../../comunes/Botones';
 import Fila from '../../../comunes/fila';
@@ -37,17 +36,15 @@ class Crearpais extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Agregar País"/>
                 <div className="am-mainpanel">
-                
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
                             
                             <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
 
-                            <form  name="forma" onSubmit={this.guardar} className="center-div">
-                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
-                                    <div className="modal-body pd-20">
+                            <form  name="forma" onSubmit={this.guardar}>
+                                <div className="modal-content tx-size-sm mt-3">
+                                    <div className="modal-body p-6">
 
                                          <TituloModal titulo="Agregar Menú"/>
                                         <div className='row'>

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
-import Titulo from '../../../comunes/Titulo';
 import Botones from '../../../comunes/Botones';
 import Fila from '../../../comunes/fila';
 import { guarda } from '../../../scripts/scripts';
@@ -34,24 +33,22 @@ class Creaarestn extends Component {
             <div>
                 <Header/>
                 <Menulat/>
-                <Titulo titulo="Agregar Factor Salarial"/>
                 <div className="am-mainpanel">
                     <div className="am-pagebody">
-                        
                         <div className="card pd-20 pd-sm-40">
                             
                             <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
 
                             <form  name="forma" onSubmit={this.guardar} className="center-div">
-                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
-                                    <div className="modal-body pd-20">
+                                <div className="modal-content tx-size-sm mt-3" style={{width: '700px'}}>
+                                    <div className="modal-body p-6">
 
                                         <TituloModal titulo="Agregar Factor Salarial"/>
+
                                         <div className='row'>
                                             <Fila nombre="Código" refer="Codigo" tipo="1" arreglo=""  col="4"/>
                                             <Fila nombre="Nombre" refer="Nombre" tipo="1" arreglo="" col="8"/>
                                         </div>
-                                        
                                         <div className='row'>
                                             <Fila nombre="Descripción" refer="Desc" tipo="1" arreglo="" col="12"/>
                                         </div>

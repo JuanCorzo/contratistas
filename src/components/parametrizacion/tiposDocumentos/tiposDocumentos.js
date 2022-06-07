@@ -4,13 +4,11 @@ import Cookies from 'universal-cookie';
 import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
-import Titulo from '../../../comunes/Titulo';
 import Script3 from '../../../scripts/scripts3';
 import EncTabla from '../../../comunes/EncTabla';
 import Tabla from '../../../comunes/Tabla';
 import axios from 'axios';
 import global from '../../../Global';
-import Breadcrumb from '../../../layout/Breadcrumb';
 
 const cookies = new Cookies(); 
 class tiposDocumentos extends Component {
@@ -34,7 +32,6 @@ class tiposDocumentos extends Component {
             { title: 'Nombre', field: 'tid_nombre', sortable: true },
             { title: 'Aprobación', field: 'tid_aprobacion', sortable: true }
         ]
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Tipos-docuemntos", name:"Tipos documentos"}];
         return (
             <div>
                 <Header></Header>

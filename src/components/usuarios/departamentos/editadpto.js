@@ -3,7 +3,6 @@ import Territorial from '../../../helpers/territoriales';
 import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
-import Titulo from '../../../comunes/Titulo';
 import Botones from '../../../comunes/Botones';
 import Fila from '../../../comunes/fila';
 import { actualiza } from '../../../scripts/scripts';
@@ -51,7 +50,6 @@ class editadpto extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Editar Departamento"/>
                 <div className="am-mainpanel">
                     
                     <div className="am-pagebody">
@@ -59,19 +57,19 @@ class editadpto extends Component {
                             
                             <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
 
-                            <form  name="forma" onSubmit={this.guardar}className="center-div">
-                                <div className="modal-content tx-size-sm"style={{width: '700px'}}>
+                            <form  name="forma" onSubmit={this.guardar}>
+                                <div className="modal-content tx-size-sm mt-3">
+                                    <div className="modal-body p-6">
 
-                                    <div className="modal-body pd-20">
-
-                                    <TituloModal titulo="Editar Departamento"/>
-                                    <div className='row'>
-                                        <Territorial valor={this.state.idterritorial} col="5"/>
-                                        <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" defecto={this.state.dep_codigo} col="3"/>
-                                        <Fila nombre="Departamento" refer="Nombre" tipo="1" arreglo="" defecto={this.state.dep_nombre} col="4"/>
+                                        <TituloModal titulo="Editar Departamento"/>
+                                        
+                                        <div className='row'>
+                                            <Territorial valor={this.state.idterritorial} col="5"/>
+                                            <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" defecto={this.state.dep_codigo} col="3"/>
+                                            <Fila nombre="Departamento" refer="Nombre" tipo="1" arreglo="" defecto={this.state.dep_nombre} col="4"/>
+                                        </div>
                                     </div>
-                                </div>
-                                <Botones enlace='/Departamentos'/>    
+                                    <Botones enlace='/Departamentos'/>    
                                 </div>
                             </form>
                         </div>

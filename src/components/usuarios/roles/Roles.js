@@ -4,7 +4,6 @@ import Cookies from 'universal-cookie';
 import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
-import Titulo from '../../../comunes/Titulo';
 import Script3 from '../../../scripts/scripts3';
 import EncTabla from '../../../comunes/EncTabla';
 import Tabla from '../../../comunes/Tabla';

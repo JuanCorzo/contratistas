@@ -3,7 +3,6 @@ import Roles from '../../../helpers/roles';
 import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
-import Titulo from '../../../comunes/Titulo';
 import TituloModal from '../../../comunes/TituloModal';
 import Botones from '../../../comunes/Botones';
 import Fila from '../../../comunes/fila';
@@ -93,7 +92,6 @@ class editausuario extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Editar Usuario"/>
                 <div className="am-mainpanel">
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
@@ -101,27 +99,26 @@ class editausuario extends Component {
                             <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
 
                         
-                            <form  name="forma" onSubmit={this.guardar} className="center-div" >
-                                <div className="modal-content tx-size-sm" style={{width:'800px'}}>
-                                    <div className="modal-body pd-20" >
+                            <form  name="forma" onSubmit={this.guardar}>
+                                <div className="modal-content tx-size-sm mt-3">
+                                    <div className="modal-body p-6">
 
                                     <TituloModal titulo="Editar Usuario"/>
 
                                     
                                         <div className='row'>
-                                        <Roles valor={this.state.idroles} col="4"/>
-                                        <Fila nombre="Nombre" refer="Nombre" tipo="1" arreglo="" defecto={this.state.usu_nombre} id="" col="8"/>
+                                            <Roles valor={this.state.idroles} col="4"/>
+                                            <Fila nombre="Nombre" refer="Nombre" tipo="1" arreglo="" defecto={this.state.usu_nombre} id="" col="8"/>
                                         </div>
                                         <div className='row'>
-                                        <Fila nombre="Email" refer="Email" tipo="3" arreglo="" id="" defecto={this.state.usu_email} col="6" />
-                                    
-                                        <Fila nombre="Contraseña" refer="Password" tipo="4" arreglo="" id="" defecto="" col="6" />
+                                            <Fila nombre="Email" refer="Email" tipo="3" arreglo="" id="" defecto={this.state.usu_email} col="6" />
+                                            <Fila nombre="Contraseña" refer="Password" tipo="4" arreglo="" id="" defecto="" col="6" />
                                         </div>
 
                                         <div className='row'>
-                                        <Fila nombre="Celular" refer="Celular" tipo="1" arreglo="" id="" defecto={this.state.usu_telefono} col="4"/>
-                                        <Fila nombre="Activo desde" refer="Desde" tipo="7" arreglo="" id="" defecto={this.state.usu_telefono} col="4" />
-                                        <Fila nombre="Activo hasta" refer="Hasta" tipo="7" arreglo="" id="" defecto={this.state.usu_telefono} col="4" />
+                                            <Fila nombre="Celular" refer="Celular" tipo="1" arreglo="" id="" defecto={this.state.usu_telefono} col="4"/>
+                                            <Fila nombre="Activo desde" refer="Desde" tipo="7" arreglo="" id="" defecto={this.state.usu_telefono} col="4" />
+                                            <Fila nombre="Activo hasta" refer="Hasta" tipo="7" arreglo="" id="" defecto={this.state.usu_telefono} col="4" />
                                         </div>
                                         
                                         <div className='row pt-2'>

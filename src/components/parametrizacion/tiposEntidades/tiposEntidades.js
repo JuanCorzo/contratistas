@@ -4,12 +4,10 @@ import Cookies from 'universal-cookie';
 import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
-import Titulo from '../../../comunes/Titulo';
 import Script3 from '../../../scripts/scripts3';
 import EncTabla from '../../../comunes/EncTabla';
 import Tabla from '../../../comunes/Tabla';
 import axios from 'axios';
-import Breadcrumb from '../../../layout/Breadcrumb';
 import global from '../../../Global';
 const cookies = new Cookies(); 
 class tiposEntidades extends Component {
@@ -32,7 +30,6 @@ class tiposEntidades extends Component {
             { title: 'Código', field: 'tad_codigo', sortable: true },
             { title: 'Orden', field: 'tad_descripcion', sortable: true }
         ]
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Tipos-Entidades", name:"Orden entidades"}];
         return (
             <div>
                 <Header></Header>

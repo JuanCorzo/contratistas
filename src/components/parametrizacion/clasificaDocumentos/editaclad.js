@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
-import Titulo from '../../../comunes/Titulo';
 import Botones from '../../../comunes/Botones';
 import Fila from '../../../comunes/fila';
 import { actualiza } from '../../../scripts/scripts';
@@ -37,17 +36,18 @@ class editaclad extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Editar Clasificación documentos"/>
                 <div className="am-mainpanel">
-                        
+                    <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
                             <Script2 id={this.props.match.params.id} tabla="clasificas" devuelvedatos={this.dato} />
+                            
                             <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
-                            <form  name="forma" onSubmit={this.guardar} className="center-div">
-                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
-                                    <div className="modal-body pd-20">
 
-                                         <TituloModal titulo="Editar clasificación de documentos"/>
+                            <form  name="forma" onSubmit={this.guardar} className="center-div">
+                                <div className="modal-content tx-size-sm mt-3" style={{width: '700px'}}>
+                                    <div className="modal-body p-6">
+
+                                        <TituloModal titulo="Editar clasificación de documentos"/>
                                         <div className='row'>
                                             <Fila nombre="Nombre clasificación" refer="Rol" tipo="1" col="12"/>
                                         </div>
@@ -56,6 +56,7 @@ class editaclad extends Component {
                                 </div>
                             </form>
                         </div>
+                    </div>
                 </div>
                 <Footer></Footer>
             </div>

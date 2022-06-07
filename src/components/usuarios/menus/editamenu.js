@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
-import Titulo from '../../../comunes/Titulo';
 import TituloModal from '../../../comunes/TituloModal';
 import Breadcrumb from '../../../layout/Breadcrumb';
 import Botones from '../../../comunes/Botones';
@@ -50,12 +49,11 @@ class editamenu extends Component {
         if(this.state.status==="Ok"){
             return <Redirect to="/menus"/>;
         }
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../menus", name:"Menus"},{href:"#", name:"Eitar menú"}];
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../menus", name:"Menus"},{href:"#", name:"Editar menú"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Editar Menus"/>
                 <Script2 id={this.props.match.params.id} tabla="menus" devuelvedatos={this.dato} />
                 <div className="am-mainpanel">
                     <div className="am-pagebody">
@@ -63,9 +61,9 @@ class editamenu extends Component {
 
                             <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
 
-                            <form  name="forma" onSubmit={this.guardar} className="center-div">
-                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
-                                    <div className="modal-body pd-20">
+                            <form  name="forma" onSubmit={this.guardar}>
+                                <div className="modal-content tx-size-sm mt-3">
+                                    <div className="modal-body p-6">
 
                                         <TituloModal titulo="Editar Menú"/>
 

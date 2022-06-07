@@ -14,7 +14,7 @@ class Inicio extends Component {
     state = { tabe:[], status: null, tabe1: [], tabe2: [], tabe3: [], tabe4: [] };
     componentDidMount(){
         var ruta="reportes";
-        console.log(global.url+ruta);
+        //console.log(global.url+ruta);
         axios.get(global.url + ruta, global.autentica ).then((res) => {
           var tabe = res.data;
           this.setState({ tabe });
@@ -81,11 +81,11 @@ class Inicio extends Component {
                                         {
                                             this.state.tabe.map((cons, i) => {
                                             return (
-                                                <strong key={i} ><span data-toggle="counter" data-to={cons.macros}>{cons.macros}</span></strong>
+                                                <strong key={i}><span data-toggle="counter" data-to={cons.macros}>{cons.macros}</span></strong>
                                             )
                                             })
                                         }
-                                        <span className="text-muted textprep"> Macrozonas</span>
+                                        <span className="text-muted font-15"> Macrozonas</span>
                                         </div>
                                         <div className='numerosaxul'>
                                         {
@@ -95,7 +95,7 @@ class Inicio extends Component {
                                             )
                                             })
                                         }
-                                        <span className="text-muted textprep"> Aportantes</span>
+                                        <span className="text-muted font-15"> Aportantes</span>
                                         </div>
                                     </div>
                             </div>
@@ -110,11 +110,11 @@ class Inicio extends Component {
                                                 <React.Fragment key={i}>
                                                 <div className='numerosaxul'>
                                                 <strong><span data-toggle="counter" data-to="1">1 </span></strong> 
-                                                <span className="text-muted textprep"> Sede central</span>
+                                                <span className="text-muted font-15"> Sede central</span>
                                                 </div>
                                                 <div className='numerosaxul'>
                                                 <strong><span data-toggle="counter" data-to={cons.sedes1}>{cons.sedes1} </span> </strong>
-                                                <span className="text-muted textprep"> Territoriales</span>
+                                                <span className="text-muted font-15"> Territoriales</span>
                                                 </div>
                                                 </React.Fragment>
                                             )
@@ -134,12 +134,12 @@ class Inicio extends Component {
                                                 <React.Fragment key={i}>
                                                 <div className='numerosaxul'>
                                                 <strong><span data-toggle="counter" data-to={cons.principales}>{cons.principales} </span> </strong> 
-                                                <span className="text-muted textprep"> Entidades con NIT principal</span>
+                                                <span className="text-muted font-11"> Entidades con NIT principal</span>
                                                 </div>
                                                 
                                                 <div className='numerosaxul'>
                                                 <strong><span data-toggle="counter" data-to={cons.adscritos}>{cons.adscritos} </span> </strong>
-                                                <span className="text-muted textprep"> Unidades ejecutoras del gasto</span>
+                                                <span className="text-muted font-11"> Unidades ejecutoras del gasto</span>
                                                 </div>
 
                                                 </React.Fragment>
@@ -159,12 +159,12 @@ class Inicio extends Component {
                                                 <React.Fragment key={i}>
                                                 <div className='numerosaxul'>
                                                 <strong><span data-toggle="counter" data-to={cons.principales}>{cons.oblig2} </span> </strong> 
-                                                <span className="text-muted textprep"> Entidades Obligadas</span>
+                                                <span className="text-muted font-11"> Entidades Obligadas</span>
                                                 </div>
                                                 
                                                 <div className='numerosaxul'>
                                                 <strong><span data-toggle="counter" data-to={cons.adscritos}>{cons.estudio} </span> </strong>
-                                                <span className="text-muted textprep"> Entidades en estudio de obligatoriedad</span>
+                                                <span className="text-muted font-11"> Entidades en estudio de obligatoriedad</span>
                                                 </div>
 
                                                 </React.Fragment>

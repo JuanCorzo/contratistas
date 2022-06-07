@@ -7,7 +7,7 @@ class EncTabla extends Component {
         const titu2 = this.props.titulo2 || null;
         const link = this.props.link || "";
         let showButton = this.props.showButton || true;
-        if(showButton == "false") showButton = false;
+        if(showButton === "false") showButton = false;
         return (
             <React.Fragment>
                 <div className='row'>

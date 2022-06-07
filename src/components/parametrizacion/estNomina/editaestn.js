@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
-import Titulo from '../../../comunes/Titulo';
 import Botones from '../../../comunes/Botones';
 import Fila from '../../../comunes/fila';
 import { actualiza } from '../../../scripts/scripts';
@@ -40,9 +39,8 @@ class editaestn extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Editar Factor Salarial"/>
                 <div className="am-mainpanel">
-                          
+                    <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
 
                         <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
@@ -50,24 +48,24 @@ class editaestn extends Component {
                           <Script2 id={this.props.match.params.id} tabla="estructuranomnina" devuelvedatos={this.dato} />
                             
                             <form  name="forma" onSubmit={this.guardar} className="center-div">
-                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
-                                    <div className="modal-body pd-20">
+                                <div className="modal-content tx-size-sm mt-3" style={{width: '700px'}}>
+                                    <div className="modal-body p-6">
                                     
-                                    <TituloModal titulo="Editar Factor Salarial"/>
+                                        <TituloModal titulo="Editar Factor Salarial"/>
                                     
-                                    <div className='row'>
-                                        <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" defecto={this.state.est_codigo}  col="4"/>
-                                        <Fila nombre="Nombre" refer="Nombre" tipo="1" arreglo="" defecto={this.state.est_nombre} col="8"/>
-                                    </div>
-                                    <div className='row'>
-                                        <Fila nombre="Descripción" refer="Desc" tipo="1" arreglo="" defecto={this.state.est_descripcion} col="12"/>
-                                    </div>
-                                    
+                                        <div className='row'>
+                                            <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" defecto={this.state.est_codigo}  col="4"/>
+                                            <Fila nombre="Nombre" refer="Nombre" tipo="1" arreglo="" defecto={this.state.est_nombre} col="8"/>
+                                        </div>
+                                        <div className='row'>
+                                            <Fila nombre="Descripción" refer="Desc" tipo="1" arreglo="" defecto={this.state.est_descripcion} col="12"/>
+                                        </div>
                                     </div>
                                     <Botones enlace='/EstructuraNomina'/>    
                                 </div>
                             </form>
                         </div>
+                    </div>
                 </div>
                 <Footer></Footer>
             </div>

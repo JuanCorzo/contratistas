@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
-import Titulo from '../../../comunes/Titulo';
 import Botones from '../../../comunes/Botones';
 import Fila from '../../../comunes/fila';
 import { guarda } from '../../../scripts/scripts';
@@ -40,30 +39,26 @@ class Crearterr extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Agregar Territorial"/>
                 <div className="am-mainpanel">
-                    
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
                             <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
                             <form  name="forma" onSubmit={this.guardar} className="center-div">
-                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
-                                    <div className="modal-body pd-20">
+                                <div className="modal-content tx-size-sm mt-3" style={{width: '700px'}}>
+                                    <div className="modal-body p-6">
 
-                                    <TituloModal titulo="Agregar Territorial"/>
+                                        <TituloModal titulo="Agregar Territorial"/>
                                     
                                         <div className='row'>
-                                            <Pais valor={this.state.paises_idpaises} col="6"/>
-                                            <Fila nombre="Código" refer="Codigo" tipo="1" arreglo=""  col="6"/>
+                                            <Pais valor={this.state.paises_idpaises} col="8"/>
+                                            <Fila nombre="Código" refer="Codigo" tipo="1" arreglo=""  col="4"/>
                                         </div>
-                                        <div className='row'>
+                                        <div className='row mt-4'>
                                             <Fila nombre="Terrirorial" refer="Nombre" tipo="1" arreglo="" col="6"/>
                                             <Macrozona col="6"/>
                                         </div>
-                                
-                                    
-                                </div>
-                                <Botones enlace='/territoriales'/>    
+                                    </div>
+                                    <Botones enlace='/territoriales'/>    
                                 </div>
                             </form>
                         </div>

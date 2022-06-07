@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
-import Titulo from '../../../comunes/Titulo';
 import Botones from '../../../comunes/Botones';
 import Fila from '../../../comunes/fila';
 import { actualiza } from '../../../scripts/scripts';
@@ -38,35 +37,35 @@ class editacapo extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8"  && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
         if(this.state.status==="Ok"){return <Redirect to="/Clasificacion-aportantes"/>;}
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../clasificaAportantes", name:"Clasificación de aportantes"},{href:"#", name:"Editar clasificación de aportantes"}];
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../Clasificacion-aportantes", name:"Clasificación de aportantes"},{href:"#", name:"Editar clasificación de aportantes"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Editar Clasificación de aportantes por obligatoriedad"/>
                 <div className="am-mainpanel">
-                        
+                    <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
                         
-                        <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
 
-                          <Script2 id={this.props.match.params.id} tabla="clasificacionesaportantes" devuelvedatos={this.dato} />
+                            <Script2 id={this.props.match.params.id} tabla="clasificacionesaportantes" devuelvedatos={this.dato} />
                             
                             <form  name="forma" onSubmit={this.guardar} className="center-div">
-                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
-                                    <div className="modal-body pd-20">
+                                <div className="modal-content tx-size-sm mt-3" style={{width: '700px'}}>
+                                    <div className="modal-body p-6">
 
-                                    <TituloModal titulo="Editar Clasificación de Aportante"/>
+                                        <TituloModal titulo="Editar Clasificación de Aportante"/>
 
-                                    <div className='row'>
-                                        <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" defecto={this.state.cla_codigo} col="6" />
-                                        <Fila nombre="Clasificación" refer="Nombre" tipo="1" arreglo="" defecto={this.state.cla_nombre} col="6"/>
-                                    </div>
+                                        <div className='row'>
+                                            <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" defecto={this.state.cla_codigo} col="4" />
+                                            <Fila nombre="Clasificación" refer="Nombre" tipo="1" arreglo="" defecto={this.state.cla_nombre} col="8"/>
+                                        </div>
                                     </div>
                                     <Botones enlace='/Clasificacion-aportantes'/>    
                                 </div>
                             </form>
                         </div>
+                    </div>
                 </div>
                 <Footer></Footer>
             </div>

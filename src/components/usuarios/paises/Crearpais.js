@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
-import Titulo from '../../../comunes/Titulo';
 import Botones from '../../../comunes/Botones';
 import Fila from '../../../comunes/fila';
 import { guarda } from '../../../scripts/scripts';
@@ -31,7 +30,6 @@ class Crearpais extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Agregar País"/>
                 <div className="am-mainpanel">
                     
                     <div className="am-pagebody">
@@ -40,12 +38,13 @@ class Crearpais extends Component {
                             <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
 
                             <form  name="forma" onSubmit={this.guardar} className="center-div">
-                                <div className="modal-content tx-size-sm"style={{width: '700px'}}>
-                                    <div className="modal-body pd-20">
+                                <div className="modal-content tx-size-sm mt-3" style={{width: '700px'}}>
+                                    <div className="modal-body p-6">
+
                                         <TituloModal titulo="Agregar País"/>
                                         <div className='row'>
-                                            <Fila nombre="Código" refer="Codigo" tipo="1" arreglo=""  col="6"/>
-                                            <Fila nombre="Nombre" refer="Nombre" tipo="1" arreglo=""  col="6"/>
+                                            <Fila nombre="Código" refer="Codigo" tipo="1" arreglo=""  col="4"/>
+                                            <Fila nombre="Nombre" refer="Nombre" tipo="1" arreglo=""  col="8"/>
                                         </div>
                                     </div>
                                     <Botones enlace='/Paises'/>    

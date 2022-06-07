@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
-import Titulo from '../../../comunes/Titulo';
 import Botones from '../../../comunes/Botones';
 import Fila from '../../../comunes/fila';
 import { actualiza } from '../../../scripts/scripts';
@@ -41,28 +40,28 @@ class editatent extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Editar Orden Entidades"/>
                 <div className="am-mainpanel">
-                        
+                    <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
                           <Script2 id={this.props.match.params.id} tabla="tipoadscrita" devuelvedatos={this.dato} />
                           <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
 
                             <form  name="forma" onSubmit={this.guardar} className="center-div">
-                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
-                                    <div className="modal-body pd-20">
+                                <div className="modal-content tx-size-sm mt-3" style={{width: '700px'}}>
+                                    <div className="modal-body p-6">
                                     
-                                    <TituloModal titulo="Editar Orden de Entidades"/>
+                                        <TituloModal titulo="Editar Orden de Entidades"/>
 
-                                    <div className='row'>
-                                        <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" defecto={this.state.tad_codigo}  col="6"/>
-                                        <Fila nombre="Descripción" refer="Descripcion" tipo="1" arreglo="" defecto={this.state.tad_descripcion} col="6"/>
-                                    </div>
+                                        <div className='row'>
+                                            <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" defecto={this.state.tad_codigo}  col="4"/>
+                                            <Fila nombre="Descripción" refer="Descripcion" tipo="1" arreglo="" defecto={this.state.tad_descripcion} col="8"/>
+                                        </div>
                                     </div>
                                     <Botones enlace='/Tipos-entidades'/>    
                                 </div>
                             </form>
                         </div>
+                    </div>
                 </div>
                 <Footer></Footer>
             </div>

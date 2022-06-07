@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
-import Titulo from '../../../comunes/Titulo';
 import Botones from '../../../comunes/Botones';
 import Fila from '../../../comunes/fila';
 import { guarda } from '../../../scripts/scripts';
@@ -32,32 +31,29 @@ class Crearsect extends Component {
             <div>
                 <Header/>
                 <Menulat/>
-                        <Titulo titulo="Agregar Clasificación por tipo de NIT"/>
-                        <div className="am-mainpanel">
-                             
+                <div className="am-mainpanel">
+                    <div className="am-pagebody">
+                        <div className="card pd-20 pd-sm-40">
+                            
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
 
-                            <div className="am-pagebody">
-                                <div className="card pd-20 pd-sm-40">
-                                    
-                                    <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
-
-                                    <form  name="forma" onSubmit={this.guardar} className="center-div">
-                                        <div className="modal-content tx-size-sm" style={{width: '700px'}}>
-                                            <div className="modal-body pd-20">
-                                                
-                                                <TituloModal titulo="Agregar Clasificación por tipo de NIT"/>
-                                                <div className='row'>
-                                                    <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" col="6"  />
-                                                    <Fila nombre="Clasificación por tipo de NIT" refer="Nombre" tipo="1" arreglo="" col="6"/>
-                                                </div>
-                                            </div>
-                                            <Botones enlace='/naturaleza-entidades'/>    
+                            <form  name="forma" onSubmit={this.guardar} className="center-div">
+                                <div className="modal-content tx-size-sm mt-3" style={{width: '700px'}}>
+                                    <div className="modal-body p-6">
+                                        
+                                        <TituloModal titulo="Agregar Clasificación por tipo de NIT"/>
+                                        
+                                        <div className='row'>
+                                            <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" col="4"/>
+                                            <Fila nombre="Clasificación por tipo de NIT" refer="Nombre" tipo="1" arreglo="" col="8"/>
                                         </div>
-                                       
-                                    </form>
+                                    </div>
+                                    <Botones enlace='/naturaleza-entidades'/>    
                                 </div>
-                            </div>
-                        </div>    
+                            </form>
+                        </div>
+                    </div>
+                </div>    
                 <Footer/>
             </div>
         );

@@ -4,13 +4,11 @@ import Cookies from 'universal-cookie';
 import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
-import Titulo from '../../../comunes/Titulo';
 import Script3 from '../../../scripts/scripts3';
 import EncTabla from '../../../comunes/EncTabla';
 import Tabla from '../../../comunes/Tabla';
 import axios from 'axios';
 import global from '../../../Global';
-import Breadcrumb from '../../../layout/Breadcrumb';
 
 const cookies = new Cookies(); 
 class estNomina extends Component {
@@ -33,7 +31,6 @@ class estNomina extends Component {
             { title: 'Código', field: 'sec_codigo', sortable: true },
             { title: 'Nombre', field: 'sec_nombre', sortable: true }
         ]
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"sectores", name:"Clasificación por NIT"}];
         return (
             <div>
                 <Header></Header>

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
-import Titulo from '../../../comunes/Titulo';
 import Botones from '../../../comunes/Botones';
 import Fila from '../../../comunes/fila';
 import ClasificaDocs from '../../../helpers/clasificadocs';
@@ -45,31 +44,32 @@ class editatdoc extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Editar Tipos documentos"/>
                 <div className="am-mainpanel">
-                        
+                    <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
-                          <Script2 id={this.props.match.params.id} tabla="tiposdocumentos" devuelvedatos={this.dato} />
-                          <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                            <Script2 id={this.props.match.params.id} tabla="tiposdocumentos" devuelvedatos={this.dato} />
+                          
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                            
                             <form  name="forma" onSubmit={this.guardar} className="center-div">
-                                <div className="modal-content tx-size-sm" style={{width:"700px"}}>
-                                    <div className="modal-body pd-20">
+                                <div className="modal-content tx-size-sm mt-3" style={{width: '700px'}}>
+                                    <div className="modal-body p-6">
                                         
-                                         <TituloModal titulo="Editar clasificación de documento" col="12"/>
+                                        <TituloModal titulo="Editar Tipo de documento" col="12"/>
 
                                         <div className='row'>
-                                        
                                             <ClasificaDocs col="6"/>
                                             <Fila nombre="Tipo Documento" refer="Codigo" tipo="1" arreglo="" defecto={this.state.tid_nombre} col="6"/>
                                         </div>
-                                        <div className='row'>
-                                            <Fila nombre="Tipo aporbacion" refer="aprob" tipo="6" arreglo={this.state.apro} defecto={this.state.tid_aprobacion} col="6" />
+                                        <div className='row mt-4'>
+                                            <Fila nombre="Tipo aporbacion" refer="aprob" tipo="6" arreglo={this.state.apro} defecto={this.state.tid_aprobacion} col="12" />
                                         </div>
                                     </div>
                                     <Botones enlace='/Tipos-docuemntos'/>    
                                 </div>
                             </form>
                         </div>
+                    </div>
                 </div>
                 <Footer></Footer>
             </div>

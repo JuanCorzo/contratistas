@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
-import Titulo from '../../../comunes/Titulo';
 import Botones from '../../../comunes/Botones';
 import Fila from '../../../comunes/fila';
 import ClasificaDocs from '../../../helpers/clasificadocs';
@@ -34,31 +33,28 @@ class Creartipd extends Component {
             <div>
                 <Header/>
                 <Menulat/>
-                <Titulo titulo="Agregar Tipos docuemntos"/>
                 <div className="am-mainpanel">
-                    
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
+
                             <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                            
                             <form  name="forma" onSubmit={this.guardar} className="center-div">
-                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
-                                    <div className="modal-body pd-20">
+                                <div className="modal-content tx-size-sm mt-3" style={{width: '700px'}}>
+                                    <div className="modal-body p-6">
+
                                         <TituloModal titulo="Agregar Tipo de documento"/>
                                         
-                                        <div style={{paddingRight:"1em",paddingLeft:"1em"}}>
-                                       
-                                        </div>
                                         <div className='row'>
                                             <ClasificaDocs col="6"/>
                                             <Fila nombre="Tipo Documento" refer="Codigo" tipo="1" arreglo=""  col="6"/>
                                         </div>
-                                        <div className='row'>   
-                                            <Fila nombre="Tipo aporbacion" refer="aprob" tipo="6" arreglo={this.state.apro} col="6" />
+                                        <div className='row mt-4'>   
+                                            <Fila nombre="Tipo aporbacion" refer="aprob" tipo="6" arreglo={this.state.apro} col="12" />
                                         </div>
                                     </div>
                                     <Botones enlace='/Tipos-docuemntos'/>    
                                 </div>
-                                
                             </form>
                         </div>
                     </div>
