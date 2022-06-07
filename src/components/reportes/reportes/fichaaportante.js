@@ -79,6 +79,7 @@ class fichaaportante extends Component {
                   this.state.enti.map((sin, i) => {
                   return (
                     <React.Fragment key={i}>
+                        <br />
                     <Titulo3 volver="1" titulo={ 
                         sin.apo_sufijo===""?( sin.apo_nombre + " NIT: " + sin.apo_identificacion):
                         sin.apo_sufijo==="0"?( sin.apo_nombre + " NIT: " + sin.apo_identificacion)
@@ -112,9 +113,10 @@ class fichaaportante extends Component {
                     )
                 })
             }<br></br>
-            <div className="row">
-                <div className="col-lg-6 fflitro">
+            <div className="row fflitro">
+                <div className="col-lg-6">
                     <Titulo3 titulo="Documentos Anexos" volver="0"/>
+                    <hr className="mb-4 mt-2"/>
                     <div className="table-wrapper" id="tablas">
                         <MaterialTable 
                         components={{
@@ -128,8 +130,9 @@ class fichaaportante extends Component {
                         ></MaterialTable>
                     </div>
                 </div>
-                <div className="col-lg-6 fflitro">
-                    <Titulo3 titulo="Personas Reponsables" volver="0" />
+                <div className="col-lg-6">
+                    <Titulo3 titulo="Personas Responsables" volver="0" />
+                    <hr className="mb-4 mt-2"/>
                     <div className="table-wrapper" id="tablas">
                         <MaterialTable 
                         components={{
@@ -148,6 +151,7 @@ class fichaaportante extends Component {
             <div className="row fflitro">
                 <div className="col-lg-12">
                     <Titulo3 titulo="Entidades Ejecutoras del gasto" volver="0" />
+                    <hr className="mb-4 mt-2"/>
                     <div className="table-wrapper" id="tablas">
                         <MaterialTable 
                         components={{
