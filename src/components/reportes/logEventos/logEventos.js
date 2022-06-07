@@ -4,9 +4,9 @@ import Cookies from 'universal-cookie';
 import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
-import Titulo from '../../../comunes/Titulo';
 import Script3 from '../../../scripts/scripts3';
 import Tabla3 from '../../../comunes/Tabla3';
+import EncTabla from '../../../comunes/EncTabla';
 const cookies = new Cookies(); 
 class Roles extends Component {
     state = { rols:[], status: null, dato:"" };
@@ -26,11 +26,11 @@ class Roles extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                    <div className='m-auto' style={{width: "90%", paddingLeft: "6em",paddingRight: "6em", paddingTop: "4em"}}>
-                        <Titulo titulo="Logs de eventos"/>
+                    <div className='pt-5 m-auto'>
                         <div className="am-mainpanel">
                             <div className="card pd-20 pd-sm-40">
                                 <Script3 tabla="logs" devuelvedatos={this.dato} />
+                                <EncTabla titulo="Logs de Eventos" showButton="false" />
                                 <Tabla3 tabla="logs" columnas={columnas} valores={this.state.rols} titulo="Logs de eventos" link="/" />
                             </div>
                         </div>

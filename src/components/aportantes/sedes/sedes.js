@@ -4,7 +4,6 @@ import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
 import { Redirect } from 'react-router-dom';
-import Titulo from '../../../comunes/Titulo';
 import Script3 from '../../../scripts/scripts3';
 import EncTabla from '../../../comunes/EncTabla';
 import Tabla from '../../../comunes/Tabla';
@@ -40,15 +39,14 @@ class sedes extends Component {
                 <Menulat></Menulat>
                     <div className='pt-5 m-auto'>
                         <form name="forma">
-                        <Titulo titulo="Sedes"/>
-                        <div className="am-mainpanel">
-                            <div className="card pd-20 pd-sm-40">
-                                <Script3 tabla="sedes" devuelvedatos={this.dato} />
-                                <EncTabla titulo="Sedes" link="/Crearsede" titulo2="Sedes" />
-                                <Tabla tabla="sedes" columnas={columnas} valores={this.state.tabl} 
-                                redire="/sedes" titulo="Sedes" link="editasede/" />
+                            <div className="am-mainpanel">
+                                <div className="card pd-20 pd-sm-40">
+                                    <Script3 tabla="sedes" devuelvedatos={this.dato} />
+                                    <EncTabla titulo="Sedes" link="/Crearsede" titulo2="Sedes" />
+                                    <Tabla tabla="sedes" columnas={columnas} valores={this.state.tabl} 
+                                    redire="/sedes" titulo="Sedes" link="editasede/" />
+                                </div>
                             </div>
-                        </div>
                         </form>
                     </div>    
                 <Footer></Footer>

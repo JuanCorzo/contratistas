@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
-import Titulo from '../../../comunes/Titulo';
+import Breadcrumb from '../../../layout/Breadcrumb';
+import TituloModal from '../../../comunes/TituloModal';
 import Botones from '../../../comunes/Botones';
 import Fila from '../../../comunes/fila';
 import { actualiza } from '../../../scripts/scripts';
@@ -69,33 +70,47 @@ class editaapor extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8"){return <Redirect to="./"/>;}
         if(this.state.status==="Ok"){ return <Redirect to="/aportantes"/>; }
+        let linksBreadcrumb = [{href:"../inicio", name:"Inicio"}, {href:"../aportantes", name:"Listado de Entidades Aportantes"}, {href:"#", name:"Editar Aportante"}];
+
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Editar Entidad Aportante"/>
                 <div className="am-mainpanel">
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
-                            <h6 className="card-body-title">Editar Municipio</h6>
-                            <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
-                                    <div className="modal-body pd-20">
-                                    <Fila nombre="Identificación" refer="Identificacion" tipo="1" arreglo="" />
-                                    <Fila nombre="Sufijo" refer="Sufijo" tipo="12" arreglo="" />
-                                    <Fila nombre="Nombre" refer="Nombre" tipo="1" arreglo="" />
-                                    <Departamento valor={this.state.iddepartamentos}/>
-                                    <Paramsaporta valor1="" valor2="" valor3="" valor4="" />
-                                    <Fila nombre="Email" refer="Email" tipo="3" arreglo="" />
-                                    <Fila nombre="Teléfono" refer="Celular" tipo="1" arreglo="" />
-                                    <Fila nombre="Dirección" refer="Direccion" tipo="1" arreglo="" />
-                                    <Fila nombre="Representante legal" refer="Fax" tipo="1" arreglo="" />
-                                    <Fila nombre="Identificación representante legal" refer="Tippoi" tipo="1" arreglo="" />
-                                    <Fila nombre="Promedio IBC entidad" refer="Firma" tipo="2" arreglo="" />
-                                    <Fila nombre="Promedio empleados entidad" refer="Emple" tipo="2" arreglo="" />
-                                    <Fila nombre="Sucursal" refer="sucur" tipo="1" arreglo="" />
-                                </div>
-                                <Botones enlace='/aportantes'/>    
+
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+
+                            <form name="forma" onSubmit={this.guardar}>
+                                <div className="modal-content tx-size-sm mt-3">
+                                    <div className="modal-body p-6">
+
+                                        <TituloModal titulo="Editar Entidad Aportante"/> 
+
+                                        <Departamento valor={this.state.iddepartamentos} col1="6" col2="6"/>
+                                        <Paramsaporta valor1="" valor2="" valor3="" valor4="" />
+                                        <div className="row mt-4">
+                                            <Fila nombre="Identificación" refer="Identificacion" tipo="1" col="3" arreglo="" />
+                                            <Fila nombre="Nombre" refer="Nombre" tipo="1" col="5" arreglo="" />
+                                            <Fila nombre="Email" refer="Email" tipo="3" col="4" arreglo="" />
+                                        </div>
+                                        <div className="row mt-4">
+                                            <Fila nombre="Teléfono" refer="Celular" tipo="1" col="3" arreglo="" />
+                                            <Fila nombre="Sufijo" refer="Sufijo" tipo="12" col="2" arreglo="" />
+                                            <Fila nombre="Dirección" refer="Direccion" tipo="1" col="7" arreglo="" />
+                                        </div>
+                                        <div className="row mt-4">
+                                            <Fila nombre="Representante legal" refer="Fax" tipo="1" col="7" arreglo="" />
+                                            <Fila nombre="Identificación representante legal" refer="Tippoi" tipo="1" col="5" arreglo="" />
+                                        </div>
+                                        <div className="row mt-4">
+                                            <Fila nombre="Promedio IBC entidad" refer="Firma" tipo="2" col="4" arreglo="" />
+                                            <Fila nombre="Promedio empleados entidad" refer="Emple" tipo="2" col="4" arreglo="" />
+                                            <Fila nombre="Sucursal" refer="sucur" tipo="1" col="4" arreglo="" />
+                                        </div>
+                                    </div>
+                                    <Botones enlace='/aportantes'/>    
                                 </div>
                             </form>
                         </div>

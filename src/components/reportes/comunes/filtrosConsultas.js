@@ -222,36 +222,38 @@ class FiltrosConsulta extends Component {
     render() {
         return (
             <React.Fragment>
-                <form name="forma" className='fflitro'>
+                <form name="forma" className='fflitro shadow-sm'>
                     <div className="row">
                     {
                         this.props.titulo==="dos"?
                         (
-                            <div className="col-lg-3 filtrot">Reporte
-                            <select name="orde" className="form-control" onChange={this.arma}>
-                                <option value="0">Reporte</option>
-                                {
-                                    this.state.reportes.map((cons, i) => {
-                                    return (
-                                        <option key={i} value={cons}>{cons}</option> ) 
-                                    })
-                                }
-                            </select>
-                        </div>
+                            <div className="col-lg-6 mb-2 filtrot col-input-style">
+                                <label>Reporte</label>
+                                <select name="orde" className="form-control" onChange={this.arma}>
+                                    <option value="0">Reporte</option>
+                                    {
+                                        this.state.reportes.map((cons, i) => {
+                                        return (
+                                            <option key={i} value={cons}>{cons}</option> ) 
+                                        })
+                                    }
+                                </select>
+                            </div>
                         ) :
                         this.props.titulo==="tres"?
                         (
-                            <div className="col-lg-3 filtrot">Líneas de tiempo
-                            <select name="orde" className="form-control" onChange={this.arma}>
-                                <option value="0">Líneas de tiempo</option>
-                                {
-                                    this.state.lineas.map((cons, i) => {
-                                    return (
-                                            <option key={i} value={cons}>{cons}</option> ) 
-                                    })
-                                }
-                            </select>
-                        </div>
+                            <div className="col-lg-6 mb-2 filtrot col-input-style">
+                                <label>Líneas de tiempo</label>
+                                <select name="orde" className="form-control" onChange={this.arma}>
+                                    <option value="0">Líneas de tiempo</option>
+                                    {
+                                        this.state.lineas.map((cons, i) => {
+                                        return (
+                                                <option key={i} value={cons}>{cons}</option> ) 
+                                        })
+                                    }
+                                </select>
+                            </div>
                         ) : (
                             <React.Fragment>
                                 <input type='hidden' name='orde'/>
@@ -260,87 +262,96 @@ class FiltrosConsulta extends Component {
                     }
                     </div>
                     <div className="row">
-                    <div className="col-lg-3 filtrot">Clasificación por obligatoriedad<br></br>
-                    <Clasifmul devuelveclasif={this.clasi} />
+                        <div className="col-lg-3 filtrot col-input-style">
+                            <label className="m-0">Clasificación por obligatoriedad</label>
+                            <Clasifmul devuelveclasif={this.clasi} />
+                        </div>
+                        <div className="col-lg-3 filtrot col-input-style">
+                            <label className="m-0">Factores Salariales</label>
+                            <Salarials devuelvefacts={this.facsa} />
+                        </div>
+                        <div className="col-lg-3 filtrot col-input-style">
+                            <label className="m-0">Clasificación por tipo de NIT</label>
+                            <Tiponitmul devuelvetipomul={this.tipni} />
+                        </div>
+                        <div className="col-lg-3 filtrot col-input-style">
+                            <label className="m-0">Orden de las entidades</label>
+                            <Ordenmul devuelveorden={this.ordea} />
+                        </div>
                     </div>
-                    <div className="col-lg-3 filtrot">Factores Salariales<br></br>
-                    <Salarials devuelvefacts={this.facsa} />
-                    </div>
-                    <div className="col-lg-3 filtrot">Clasificación por tipo de NIT<br></br>
-                    <Tiponitmul devuelvetipomul={this.tipni} />
-                    </div>
-                    <div className="col-lg-3 filtrot">Orden de las entidades<br></br>
-                        <Ordenmul devuelveorden={this.ordea} />
-                    </div>
-                    <div className="col-lg-3 filtrot">Macrozona
-                        <select className="form-control" ref={this.Macrozona} 
-                        name="macro" onChange={this.llenater} required>
-                            <option vaule="0">Macrozona</option>
-                            {
-                                this.state.macr.map((con, i) => {
-                                return (
-                                    <option key={i} value={con.ter_macrozona}>{con.ter_macrozona} </option> ) 
-                                })
-                            }
-                        </select>
-                    </div>
-                    <div className="col-lg-3 filtrot">Territorial
-                        <select className="form-control" ref={this.Territorial} 
-                        name="terr" onChange={this.llenadep} required>
-                            <option vaule="0">Territorial</option>
-                            {
-                                this.state.terr.map((con, i) => {
-                                return (
-                                    <option key={i} value={con.idterritorial}>{con.ter_nombre} </option> ) 
-                                })
-                            }
-                        </select>
-                    </div>
-                    <div className="col-lg-3 filtrot">Departamento
-                        <select className="form-control" ref={this.Departamento} 
-                        name="depa" onChange={this.llenamun} required>
-                            <option vaule="0">Departamento</option>
-                            {
-                                this.state.dept.map((con, i) => {
-                                return (
-                                    <option key={i} value={con.iddepartamentos}>{con.dep_nombre} </option> ) 
-                                })
-                            }
-                        </select>
-                    </div>
-                    <div className="col-lg-3 filtrot">Municipio
-                        <select className="form-control" ref="Municipio" onChange={this.arma} name="ciud">
-                            <option vaule="0">Municipio</option>
-                            {
-                                this.state.ciud.map((con, i) => {
-                                return (
-                                    this.props.titulo==="tres"?
-                                    (<option key={i} value={con.idaportantes}>{con.apo_nombre} </option> ) :
-                                    ( <option key={i} value={con.idciudades}>{con.ciu_nombre} </option> )
-                                )    
-                                })
-                            }
-                        </select>
+                    <div className="row mt-2">
+                        <div className="col-lg-3 filtrot col-input-style">
+                            <label>Macrozona</label>
+                            <select className="form-control" ref={this.Macrozona} name="macro" onChange={this.llenater} required>
+                                <option vaule="0">Macrozona</option>
+                                {
+                                    this.state.macr.map((con, i) => {
+                                    return (
+                                        <option key={i} value={con.ter_macrozona}>{con.ter_macrozona} </option> ) 
+                                    })
+                                }
+                            </select>
+                        </div>
+                        <div className="col-lg-3 filtrot col-input-style">
+                            <label>Territorial</label>
+                            <select className="form-control" ref={this.Territorial} 
+                            name="terr" onChange={this.llenadep} required>
+                                <option vaule="0">Territorial</option>
+                                {
+                                    this.state.terr.map((con, i) => {
+                                    return (
+                                        <option key={i} value={con.idterritorial}>{con.ter_nombre} </option> ) 
+                                    })
+                                }
+                            </select>
+                        </div>
+                        <div className="col-lg-3 filtrot col-input-style">
+                            <label>Departamento</label>
+                            <select className="form-control" ref={this.Departamento} 
+                            name="depa" onChange={this.llenamun} required>
+                                <option vaule="0">Departamento</option>
+                                {
+                                    this.state.dept.map((con, i) => {
+                                    return (
+                                        <option key={i} value={con.iddepartamentos}>{con.dep_nombre} </option> ) 
+                                    })
+                                }
+                            </select>
+                        </div>
+                        <div className="col-lg-3 filtrot col-input-style">
+                            <label>Municipio</label>
+                            <select className="form-control" ref="Municipio" onChange={this.arma} name="ciud">
+                                <option vaule="0">Municipio</option>
+                                {
+                                    this.state.ciud.map((con, i) => {
+                                    return (
+                                        this.props.titulo==="tres"?
+                                        (<option key={i} value={con.idaportantes}>{con.apo_nombre} </option> ) :
+                                        ( <option key={i} value={con.idciudades}>{con.ciu_nombre} </option> )
+                                    )    
+                                    })
+                                }
+                            </select>
+                        </div>
                     </div>
                     {
                         this.props.titulo==="uno"?
                         (
-                            <React.Fragment>
+                            <div className="row mt-3">
                                 <div className='col-lg-6 izqq filtrot'>
-                                <b>Total registros:</b> { this.state.pane.map((con, i) => {return ( con.total)})}
-                                <br></br>
-                                <b>Total NIT principal:</b> { this.state.pane2.map((con, i) => {return ( con.total)})}
+                                    <label className="mb-1"><b>Total registros:</b> <big>{ this.state.pane.map((con, i) => {return ( con.total)})}</big></label>
+                                    <br/>
+                                    <label className="m-0"><b>Total NIT principal:</b> <big>{ this.state.pane2.map((con, i) => {return ( con.total)})}</big></label>
                                 </div>
 
                                 <div className="col-lg-6 derechas" style={{top:"5px"}}>
-                                <input type='button' className="btn btn-primary" onClick={this.arma} value='Consultar' />
-                                &nbsp;&nbsp;&nbsp;<Descarga/>
+                                    <input type='button' className="btn btn-primary mr-2" onClick={this.arma} value='Consultar' />
+                                    <Descarga/>
                                 </div>
-                            </React.Fragment>
+                            </div>
                         ) :
                         ( <div></div> )
                     }
-                </div>
                 </form>
                 <br></br>
             </React.Fragment>

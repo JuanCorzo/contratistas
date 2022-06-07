@@ -83,7 +83,7 @@ class Mapas extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                    <div className='m-auto' style={{width: "95%", paddingLeft: "6em",paddingRight: "6em", paddingTop: "3em"}}>
+                    <div className='m-auto' style={{paddingLeft: "3em",paddingRight: "3em", paddingTop: "3em"}}>
                         <div className="am-mainpanel">
                             <div className="am-pagebody">
                                 <div className="card pd-20 pd-sm-40">
