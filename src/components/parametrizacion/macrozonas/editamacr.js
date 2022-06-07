@@ -10,6 +10,7 @@ import Script2 from '../../../scripts/scripts2';
 import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import Breadcrumb from '../../../layout/Breadcrumb';
+import TituloModal from '../../../comunes/TituloModal';
 const cookies = new Cookies(); 
 
 
@@ -31,21 +32,27 @@ class editamacr extends Component {
     render() {
         if(cookies.get("idroles")!=="1"){return <Redirect to="./"/>;}
         if(this.state.status==="Ok"){return <Redirect to="/macrozonas"/>;}
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"macrozonas", name:"macrozonas"},{href:"editarmacr", name:"Editar macrozona"}];
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../macrozonas", name:"Macrozonas"},{href:"#", name:"Editar macrozona"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
                 <Titulo titulo="Editar Macrozonas"/>
                 <div className="am-mainpanel">
-                    <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                    
                         <div className="card pd-20 pd-sm-40">
+                            
+                        <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+
                           <Script2 id={this.props.match.params.id} tabla="macrozonas" devuelvedatos={this.dato} />
-                            <h6 className="card-body-title">Editar Macrozonas</h6>
-                            <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
+                            
+                            <form  name="forma" onSubmit={this.guardar} className="center-div">
+                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
                                     <div className="modal-body pd-20">
-                                        <Fila nombre="Nombre macrozona" refer="Rol" tipo="1" />
+
+                                    <TituloModal titulo="Editar Macrozona"/>
+
+                                        <Fila nombre="Nombre macrozona" refer="Rol" tipo="1" col="12"/>
                                     </div>
                                     <Botones enlace='/macrozonas'/>    
                                 </div>

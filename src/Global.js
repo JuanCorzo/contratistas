@@ -3,7 +3,7 @@ const cookies = new Cookies();
 
 var Global = {
     // url: 'http://172.16.202.198:4000/api/',
-    //url: 'https://contratistas-back-end.herokuapp.com/api/',
+    // url: 'https://contratistas-back-end.herokuapp.com/api/',
     url: 'http://localhost:4000/api/',
     consg: "Indef",
     autentica:  { 'Authorization': 'Bearer '+ cookies.get("token"),

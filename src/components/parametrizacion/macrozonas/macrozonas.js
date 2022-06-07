@@ -11,7 +11,6 @@ import Tabla from '../../../comunes/Tabla';
 import Tabla3 from '../../../comunes/Tabla3';
 import axios from 'axios';
 import global from '../../../Global';
-import Breadcrumb from '../../../layout/Breadcrumb';
 
 
 const cookies = new Cookies(); 
@@ -34,33 +33,35 @@ class Roles extends Component {
             { title: 'ID', field:'idc', sortable: true },
             { title: 'Macrozona', field: 'mac_nombre', sortable: true }
         ]
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"macrozonas", name:"macrozonas"}];
+        
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Macrozonas"/>
-                <div className="am-mainpanel">
-                    <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
-                    <div className="card pd-20 pd-sm-40">
-                        <Script3 tabla="macrozonas" devuelvedatos={this.dato} />
-                        { cookies.get("idroles")==="1"? (
-                                <React.Fragment>
-                                    <EncTabla titulo="Macrozonas" link="/crearmacr" titulo2="Macrozona" />
-                                    <Tabla tabla="macrozonas" columnas={columnas} valores={this.state.rols}
-                                    redire="/macrozonas" titulo="Macrozonas" link="editamacr/" />
-                                </React.Fragment>
-                            ): (
-                                <React.Fragment>
-                                    <h6 className="card-body-title">Macrozonas</h6>
-                                    <Tabla3 tabla="macrozonas" columnas={columnas} valores={this.state.rols}
-                                    redire="/macrozonas" titulo="Macrozonas" link="editamacr/" />
-                                </React.Fragment>
+                    <div className='pt-5 m-auto'>
+                    <Titulo titulo="Macrozonas"/>
+                    <div className="am-mainpanel">
+                        
+                        <div className="card pd-20 pd-sm-40">
+                            <Script3 tabla="macrozonas" devuelvedatos={this.dato} />
+                            { cookies.get("idroles")==="1"? (
+                                    <React.Fragment>
+                                        <EncTabla titulo="Macrozonas" link="/crearmacr" titulo2="Macrozona" />
+                                        <Tabla tabla="macrozonas" columnas={columnas} valores={this.state.rols}
+                                        redire="/macrozonas" titulo="Macrozonas" link="editamacr/" />
+                                    </React.Fragment>
+                                ): (
+                                    <React.Fragment>
+                                        <h6 className="card-body-title">Macrozonas</h6>
+                                        <Tabla3 tabla="macrozonas" columnas={columnas} valores={this.state.rols}
+                                        redire="/macrozonas" titulo="Macrozonas" link="editamacr/" />
+                                    </React.Fragment>
 
-                            )
-                        }
+                                )
+                            }
+                        </div>
                     </div>
-                </div>
+                </div>    
                 <Footer></Footer>
             </div>        
         );

@@ -9,6 +9,7 @@ import { actualiza } from '../../../scripts/scripts';
 import Script2 from '../../../scripts/scripts2';
 import { Redirect } from 'react-router-dom';
 import Breadcrumb from '../../../layout/Breadcrumb';
+import TituloModal from '../../../comunes/TituloModal';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies(); 
 
@@ -37,22 +38,30 @@ class editacapo extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8"  && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
         if(this.state.status==="Ok"){return <Redirect to="/Clasificacion-aportantes"/>;}
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"clasificaAportantes", name:"Clasificación de aportantes"},{href:"Crearcapo", name:"Editar clasificación de aportantes"}];
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../clasificaAportantes", name:"Clasificación de aportantes"},{href:"#", name:"Editar clasificación de aportantes"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
                 <Titulo titulo="Editar Clasificación de aportantes por obligatoriedad"/>
                 <div className="am-mainpanel">
-                        <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                        
                         <div className="card pd-20 pd-sm-40">
+                        
+                        <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+
                           <Script2 id={this.props.match.params.id} tabla="clasificacionesaportantes" devuelvedatos={this.dato} />
-                            <h6 className="card-body-title">Editar Clasificación de aportantes por obligatoriedad</h6>
-                            <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
+                            
+                            <form  name="forma" onSubmit={this.guardar} className="center-div">
+                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
                                     <div className="modal-body pd-20">
-                                    <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" defecto={this.state.cla_codigo}  />
-                                    <Fila nombre="Clasificación" refer="Nombre" tipo="1" arreglo="" defecto={this.state.cla_nombre} />
+
+                                    <TituloModal titulo="Editar Clasificación de Aportante"/>
+
+                                    <div className='row'>
+                                        <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" defecto={this.state.cla_codigo} col="6" />
+                                        <Fila nombre="Clasificación" refer="Nombre" tipo="1" arreglo="" defecto={this.state.cla_nombre} col="6"/>
+                                    </div>
                                     </div>
                                     <Botones enlace='/Clasificacion-aportantes'/>    
                                 </div>

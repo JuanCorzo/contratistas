@@ -31,9 +31,9 @@ class Creaarrol extends Component {
                 <div className="am-mainpanel">
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
-
+                            
                             <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
-
+                            
                             <form  name="forma" onSubmit={this.guardar} className="center-div">
                                 <div className="modal-content tx-size-sm mt-3" style={{width: '700px'}}>
                                     <div className="modal-body p-6">

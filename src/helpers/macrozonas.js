@@ -12,11 +12,12 @@ class Macrozonas extends Component {
         });
     }
     render() { 
+        
+        var col = this.props.col || 3;
         return( 
-            <div>
-                <div className="row">
-                    <div className="col-md-6 izqq">Macrozonas</div>
-                    <div className="col-md-6 derechas">
+            
+                <div className={`col-md-${(col)} col-input-style`}>
+                        <label>Macrozonas</label>
                         <select name="Macro" className="form-control" required>
                             <option>Seleccione...</option>
                             {
@@ -28,8 +29,7 @@ class Macrozonas extends Component {
                             }
                         </select>
                     </div>
-                </div>
-            </div>
+                
         ) 
     }
 }

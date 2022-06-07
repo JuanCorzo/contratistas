@@ -8,6 +8,7 @@ import Fila from '../../../comunes/fila';
 import { guarda } from '../../../scripts/scripts';
 import { Redirect } from 'react-router-dom';
 import Breadcrumb from '../../../layout/Breadcrumb';
+import TituloModal from '../../../comunes/TituloModal';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies(); 
 
@@ -32,15 +33,20 @@ class Crearpais extends Component {
                 <Menulat></Menulat>
                 <Titulo titulo="Agregar País"/>
                 <div className="am-mainpanel">
-                    <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                    
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
-                            <h6 className="card-body-title">Agregar País</h6>
-                            <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
+                            
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+
+                            <form  name="forma" onSubmit={this.guardar} className="center-div">
+                                <div className="modal-content tx-size-sm"style={{width: '700px'}}>
                                     <div className="modal-body pd-20">
-                                        <Fila nombre="Código" refer="Codigo" tipo="1" arreglo=""  />
-                                        <Fila nombre="Nombre" refer="Nombre" tipo="1" arreglo=""  />
+                                        <TituloModal titulo="Agregar País"/>
+                                        <div className='row'>
+                                            <Fila nombre="Código" refer="Codigo" tipo="1" arreglo=""  col="6"/>
+                                            <Fila nombre="Nombre" refer="Nombre" tipo="1" arreglo=""  col="6"/>
+                                        </div>
                                     </div>
                                     <Botones enlace='/Paises'/>    
                                 </div>

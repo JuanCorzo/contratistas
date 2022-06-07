@@ -9,6 +9,7 @@ import { guarda } from '../../../scripts/scripts';
 import { Redirect } from 'react-router-dom';
 import Breadcrumb from '../../../layout/Breadcrumb';
 import Cookies from 'universal-cookie';
+import TituloModal from '../../../comunes/TituloModal';
 
 const cookies = new Cookies(); 
 
@@ -28,7 +29,7 @@ class Creaarestn extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8" && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
         if(this.state.status==="Ok"){ return <Redirect to="/EstructuraNomina"/>; }
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"EstructuraNomina", name:"Factores salariales"},{href:"Crearestn", name:"Agregar factor salarial"}];
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"EstructuraNomina", name:"Factores salariales"},{href:"#", name:"Agregar factor salarial"}];
         return (
             <div>
                 <Header/>
@@ -36,18 +37,28 @@ class Creaarestn extends Component {
                 <Titulo titulo="Agregar Factor Salarial"/>
                 <div className="am-mainpanel">
                     <div className="am-pagebody">
-                        <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                        
                         <div className="card pd-20 pd-sm-40">
-                            <h6 className="card-body-title">Agregar Factor Salarial</h6>
-                            <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
+                            
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+
+                            <form  name="forma" onSubmit={this.guardar} className="center-div">
+                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
                                     <div className="modal-body pd-20">
-                                        <Fila nombre="Código" refer="Codigo" tipo="1" arreglo=""  />
-                                        <Fila nombre="Nombre" refer="Nombre" tipo="1" arreglo="" />
-                                        <Fila nombre="Descripción" refer="Desc" tipo="1" arreglo="" />
+
+                                        <TituloModal titulo="Agregar Factor Salarial"/>
+                                        <div className='row'>
+                                            <Fila nombre="Código" refer="Codigo" tipo="1" arreglo=""  col="4"/>
+                                            <Fila nombre="Nombre" refer="Nombre" tipo="1" arreglo="" col="8"/>
+                                        </div>
+                                        
+                                        <div className='row'>
+                                            <Fila nombre="Descripción" refer="Desc" tipo="1" arreglo="" col="12"/>
+                                        </div>
                                     </div>
+                                    <Botones enlace='/EstructuraNomina'/>    
                                 </div>
-                                <Botones enlace='/EstructuraNomina'/>    
+                                
                             </form>
                         </div>
                     </div>

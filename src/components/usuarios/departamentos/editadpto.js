@@ -11,6 +11,7 @@ import Script2 from '../../../scripts/scripts2';
 import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import Breadcrumb from '../../../layout/Breadcrumb';
+import TituloModal from '../../../comunes/TituloModal';
 
 const cookies = new Cookies(); 
 
@@ -45,23 +46,30 @@ class editadpto extends Component {
         if(this.state.status==="Ok"){
             return <Redirect to="/Departamentos"/>;
         }
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Departementos", name:"Departamentos"},{href:"editadpto", name:"Editar departamento"}];
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../departamentos", name:"Departamentos"},{href:"#", name:"Editar departamento"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
                 <Titulo titulo="Editar Departamento"/>
                 <div className="am-mainpanel">
-                    <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                    
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
-                            <h6 className="card-body-title">Editar Departamento</h6>
-                            <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
+                            
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+
+                            <form  name="forma" onSubmit={this.guardar}className="center-div">
+                                <div className="modal-content tx-size-sm"style={{width: '700px'}}>
+
                                     <div className="modal-body pd-20">
-                                    <Territorial valor={this.state.idterritorial}/>
-                                    <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" defecto={this.state.dep_codigo} />
-                                    <Fila nombre="Departamento" refer="Nombre" tipo="1" arreglo="" defecto={this.state.dep_nombre} />
+
+                                    <TituloModal titulo="Editar Departamento"/>
+                                    <div className='row'>
+                                        <Territorial valor={this.state.idterritorial} col="5"/>
+                                        <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" defecto={this.state.dep_codigo} col="3"/>
+                                        <Fila nombre="Departamento" refer="Nombre" tipo="1" arreglo="" defecto={this.state.dep_nombre} col="4"/>
+                                    </div>
                                 </div>
                                 <Botones enlace='/Departamentos'/>    
                                 </div>

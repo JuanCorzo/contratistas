@@ -10,6 +10,7 @@ import { actualiza } from '../../../scripts/scripts';
 import Script2 from '../../../scripts/scripts2';
 import { Redirect } from 'react-router-dom';
 import Breadcrumb from '../../../layout/Breadcrumb';
+import TituloModal from '../../../comunes/TituloModal';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies(); 
 
@@ -39,23 +40,31 @@ class editatdoc extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8" && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
         if(this.state.status==="Ok"){return <Redirect to="/Tipos-docuemntos"/>;}
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Tipos-docuemntos", name:"Tipos documentos"}, {href:"editatdoc/3", name:"Editar tipo de documento"}];
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../tipos-docuemntos", name:"Tipos documentos"}, {href:"editatdoc/3", name:"Editar tipo de documento"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
                 <Titulo titulo="Editar Tipos documentos"/>
                 <div className="am-mainpanel">
-                        <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                        
                         <div className="card pd-20 pd-sm-40">
                           <Script2 id={this.props.match.params.id} tabla="tiposdocumentos" devuelvedatos={this.dato} />
-                            <h6 className="card-body-title">Editar Tipos documentos</h6>
-                            <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
+                          <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                            <form  name="forma" onSubmit={this.guardar} className="center-div">
+                                <div className="modal-content tx-size-sm" style={{width:"700px"}}>
                                     <div className="modal-body pd-20">
-                                        <ClasificaDocs/>
-                                        <Fila nombre="Tipo Documento" refer="Codigo" tipo="1" arreglo="" defecto={this.state.tid_nombre}  />
-                                        <Fila nombre="Tipo aporbacion" refer="aprob" tipo="6" arreglo={this.state.apro} defecto={this.state.tid_aprobacion}  />
+                                        
+                                         <TituloModal titulo="Editar clasificación de documento" col="12"/>
+
+                                        <div className='row'>
+                                        
+                                            <ClasificaDocs col="6"/>
+                                            <Fila nombre="Tipo Documento" refer="Codigo" tipo="1" arreglo="" defecto={this.state.tid_nombre} col="6"/>
+                                        </div>
+                                        <div className='row'>
+                                            <Fila nombre="Tipo aporbacion" refer="aprob" tipo="6" arreglo={this.state.apro} defecto={this.state.tid_aprobacion} col="6" />
+                                        </div>
                                     </div>
                                     <Botones enlace='/Tipos-docuemntos'/>    
                                 </div>

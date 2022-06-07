@@ -10,7 +10,6 @@ import EncTabla from '../../../comunes/EncTabla';
 import Tabla from '../../../comunes/Tabla';
 import axios from 'axios';
 import global from '../../../Global';
-import Breadcrumb from '../../../layout/Breadcrumb';
 
 const cookies = new Cookies(); 
 class Paises extends Component {
@@ -31,22 +30,23 @@ class Paises extends Component {
         { title: 'Código', field:'pai_codigo', sortable: true},
         { title: 'Nombre', field: 'pai_nombre', sortable: true },
       ]
-      let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Paises", name:"Paises"}];
+    
       return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-            
+                <div className='pt-5 m-auto'>
                         <Titulo titulo="Paises"/>
                         <div className="am-mainpanel">
-                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                        
                             <div className="card pd-20 pd-sm-40">
                                 <Script3 tabla="paises" devuelvedatos={this.dato} />
                                 <EncTabla titulo="Paises" link="/Crearpais" titulo2="Paises" />
                                 <Tabla tabla="paises" columnas={columnas} valores={this.state.tabl} 
                                 redire="/Paises" titulo="Pais" link="editapais/" />
                             </div>
-                        </div>    
+                        </div> 
+                </div>          
                 <Footer></Footer>
             </div>
         );

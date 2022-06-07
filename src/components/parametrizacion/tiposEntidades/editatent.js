@@ -9,6 +9,7 @@ import { actualiza } from '../../../scripts/scripts';
 import Script2 from '../../../scripts/scripts2';
 import { Redirect } from 'react-router-dom';
 import Breadcrumb from '../../../layout/Breadcrumb';
+import TituloModal from '../../../comunes/TituloModal';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies(); 
 
@@ -35,22 +36,28 @@ class editatent extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8" && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
         if(this.state.status==="Ok"){return <Redirect to="/Tipos-entidades"/>;}
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Tipos-Entidades", name:"Orden entidades"},{href:"editartent", name:"Editar orden de entidades"}];
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../tipos-Entidades", name:"Orden entidades"},{href:"#", name:"Editar orden de entidades"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
                 <Titulo titulo="Editar Orden Entidades"/>
                 <div className="am-mainpanel">
-                        <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                        
                         <div className="card pd-20 pd-sm-40">
                           <Script2 id={this.props.match.params.id} tabla="tipoadscrita" devuelvedatos={this.dato} />
-                            <h6 className="card-body-title">Editar Orden Entidades</h6>
-                            <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
+                          <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+
+                            <form  name="forma" onSubmit={this.guardar} className="center-div">
+                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
                                     <div className="modal-body pd-20">
-                                    <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" defecto={this.state.tad_codigo}  />
-                                    <Fila nombre="Descripción" refer="Descripcion" tipo="1" arreglo="" defecto={this.state.tad_descripcion} />
+                                    
+                                    <TituloModal titulo="Editar Orden de Entidades"/>
+
+                                    <div className='row'>
+                                        <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" defecto={this.state.tad_codigo}  col="6"/>
+                                        <Fila nombre="Descripción" refer="Descripcion" tipo="1" arreglo="" defecto={this.state.tad_descripcion} col="6"/>
+                                    </div>
                                     </div>
                                     <Botones enlace='/Tipos-entidades'/>    
                                 </div>

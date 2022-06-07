@@ -10,6 +10,7 @@ import Script2 from '../../../scripts/scripts2';
 import { Redirect } from 'react-router-dom';
 import Breadcrumb from '../../../layout/Breadcrumb';
 import Cookies from 'universal-cookie';
+import TituloModal from '../../../comunes/TituloModal';
 const cookies = new Cookies(); 
 
 
@@ -34,23 +35,33 @@ class editaestn extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8" && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
         if(this.state.status==="Ok"){return <Redirect to="/EstructuraNomina"/>;}
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"EstructuraNomina", name:"Factores salariales"},{href:"editaestn", name:"Editar Factores salariales"}];
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../estructuraNomina", name:"Factores salariales"},{href:"#", name:"Editar Factores salariales"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
                 <Titulo titulo="Editar Factor Salarial"/>
                 <div className="am-mainpanel">
-                        <Breadcrumb links={linksBreadcrumb}></Breadcrumb>   
+                          
                         <div className="card pd-20 pd-sm-40">
+
+                        <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+
                           <Script2 id={this.props.match.params.id} tabla="estructuranomnina" devuelvedatos={this.dato} />
-                            <h6 className="card-body-title">Editar Factor Salarial</h6>
-                            <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
+                            
+                            <form  name="forma" onSubmit={this.guardar} className="center-div">
+                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
                                     <div className="modal-body pd-20">
-                                    <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" defecto={this.state.est_codigo}  />
-                                    <Fila nombre="Nombre" refer="Nombre" tipo="1" arreglo="" defecto={this.state.est_nombre} />
-                                    <Fila nombre="Descripción" refer="Desc" tipo="1" arreglo="" defecto={this.state.est_descripcion} />
+                                    
+                                    <TituloModal titulo="Editar Factor Salarial"/>
+                                    
+                                    <div className='row'>
+                                        <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" defecto={this.state.est_codigo}  col="4"/>
+                                        <Fila nombre="Nombre" refer="Nombre" tipo="1" arreglo="" defecto={this.state.est_nombre} col="8"/>
+                                    </div>
+                                    <div className='row'>
+                                        <Fila nombre="Descripción" refer="Desc" tipo="1" arreglo="" defecto={this.state.est_descripcion} col="12"/>
+                                    </div>
                                     
                                     </div>
                                     <Botones enlace='/EstructuraNomina'/>    

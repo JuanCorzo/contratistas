@@ -3,6 +3,7 @@ import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
 import Titulo from '../../../comunes/Titulo';
+import TituloModal from '../../../comunes/TituloModal';
 import Botones from '../../../comunes/Botones';
 import Fila from '../../../comunes/fila';
 import { guarda } from '../../../scripts/scripts';
@@ -31,25 +32,34 @@ class Crearpais extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="26") { return <Redirect to="./"/>; }
         if(this.state.status==="Ok"){ return <Redirect to="/Menus"/>; }
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Menus", name:"Menus"},{href:"Crearmenu", name:"Crear menu"}];
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Menus", name:"Menus"},{href:"#", name:"Agregar menú"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
                 <Titulo titulo="Agregar País"/>
                 <div className="am-mainpanel">
-                <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
-                            <h6 className="card-body-title">Agregar Menú</h6>
-                            <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
+                            
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+
+                            <form  name="forma" onSubmit={this.guardar} className="center-div">
+                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
                                     <div className="modal-body pd-20">
-                                        <Fila nombre="Nombre" refer="Nombre" tipo="1" arreglo=""  />
-                                        <Fila nombre="Ruta" refer="Ruta" tipo="1" arreglo=""  />
-                                        <Fila nombre="Orden" refer="Orden" tipo="2" arreglo=""  />
-                                        <Fila nombre="Categoria" refer="Categoria" tipo="1" arreglo=""  />
-                                        <Fila nombre="Orden Categoría" refer="Ordenm" tipo="2" arreglo="" defecto={this.state.men_orden} />
+
+                                         <TituloModal titulo="Agregar Menú"/>
+                                        <div className='row'>
+                                            <Fila nombre="Nombre" refer="Nombre" tipo="1" arreglo="" col="6" />
+                                            <Fila nombre="Ruta" refer="Ruta" tipo="1" arreglo=""  col="3"/>
+                                            <Fila nombre="Orden" refer="Orden" tipo="2" arreglo="" col="3" />
+                                        </div>
+
+                                        <div className='row'>
+                                            <Fila nombre="Categoria" refer="Categoria" tipo="1" arreglo=""  col="6"/>
+                                            <Fila nombre="Orden Categoría" refer="Ordenm" tipo="2" arreglo="" defecto={this.state.men_orden} col="6" />
+                                        </div>
                                     </div>
                                     <Botones enlace='/Menus'/>    
                                 </div>

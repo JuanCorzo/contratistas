@@ -37,16 +37,17 @@ class tiposEntidades extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                <Titulo titulo="Orden de las entidades aportantes según la estructura del estado colombiano"/>
-                <div className="am-mainpanel">
-                    <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
-                    <div className="card pd-20 pd-sm-40">
-                        <Script3 tabla="tipoadscrita" devuelvedatos={this.dato} />
-                        <EncTabla titulo="Orden entidades" link="/creartent" titulo2="Orden entidades" />
-                        <Tabla tabla="tipoadscrita" columnas={columnas} valores={this.state.rols} 
-                        redire="/Tipos-entidades" titulo="Orden entidades" link="editatent/" />
+                <div className='pt-5 m-auto'>
+                    <div className="am-mainpanel">
+                        
+                        <div className="card pd-20 pd-sm-40">
+                            <Script3 tabla="tipoadscrita" devuelvedatos={this.dato} />
+                            <EncTabla titulo="Orden entidades" link="/creartent" titulo2="Orden entidades" />
+                            <Tabla tabla="tipoadscrita" columnas={columnas} valores={this.state.rols} 
+                            redire="/Tipos-entidades" titulo="Orden entidades" link="editatent/" />
+                        </div>
                     </div>
-                </div>
+                </div>   
                 <Footer></Footer>
             </div>      
         );

@@ -110,6 +110,7 @@ class Creaarrol extends Component {
                                                     }
                                                 </select>
                                             </div>
+                                            
                                             <div className="col-md-3 col-input-style">
                                                 <label>Territorial</label>
                                                 <select className="form-control" name="terr" required>

@@ -11,6 +11,7 @@ import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import Departamento from '../../../helpers/departamentos';
 import Breadcrumb from '../../../layout/Breadcrumb';
+import TituloModal from '../../../comunes/TituloModal';
 
 const cookies = new Cookies(); 
 
@@ -45,24 +46,31 @@ class Crearmuni extends Component {
         if(this.state.status==="Ok"){
             return <Redirect to="/Municipios"/>;
         }
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Municipios", name:"Municipios"},{href:"editamuni", name:"Editar municipio"}];
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../municipios", name:"Municipios"},{href:"#", name:"Editar municipio"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
                 <Titulo titulo="Editar Municipio"/>
                 <div className="am-mainpanel">
-                <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                
 
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
-                            <h6 className="card-body-title">Editar Municipio</h6>
-                            <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
+
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+
+                            <form  name="forma" onSubmit={this.guardar} className="center-div">
+                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
                                     <div className="modal-body pd-20">
-                                    <Departamento valor={this.state.iddepartamentos}/>
-                                    <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" defecto={this.state.mun_codigo} />
-                                    <Fila nombre="Nombre" refer="Municipio" tipo="1" arreglo="" defecto={this.state.mun_nombre} />
+                                    
+                                    <TituloModal titulo="Editar Municipio"/>
+
+                                    <div className='row'>
+                                        <Departamento valor={this.state.iddepartamentos} col="5"/>
+                                        <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" defecto={this.state.mun_codigo} col="3" />
+                                        <Fila nombre="Nombre" refer="Municipio" tipo="1" arreglo="" defecto={this.state.mun_nombre} col="4"/>
+                                    </div>
                                 </div>
                                 <Botones enlace='/Municipios'/>    
                                 </div>

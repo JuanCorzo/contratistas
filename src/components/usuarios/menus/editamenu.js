@@ -3,6 +3,8 @@ import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
 import Titulo from '../../../comunes/Titulo';
+import TituloModal from '../../../comunes/TituloModal';
+import Breadcrumb from '../../../layout/Breadcrumb';
 import Botones from '../../../comunes/Botones';
 import Fila from '../../../comunes/fila';
 import { actualiza } from '../../../scripts/scripts';
@@ -48,6 +50,7 @@ class editamenu extends Component {
         if(this.state.status==="Ok"){
             return <Redirect to="/menus"/>;
         }
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../menus", name:"Menus"},{href:"#", name:"Eitar menú"}];
         return (
             <div>
                 <Header></Header>
@@ -57,15 +60,24 @@ class editamenu extends Component {
                 <div className="am-mainpanel">
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
-                            <h6 className="card-body-title">Editar Menus</h6>
-                            <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
+
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+
+                            <form  name="forma" onSubmit={this.guardar} className="center-div">
+                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
                                     <div className="modal-body pd-20">
-                                        <Fila nombre="Nombre" refer="Nombre" tipo="1" arreglo="" defecto={this.state.men_nombre} />
-                                        <Fila nombre="Ruta" refer="Ruta" tipo="1" arreglo="" defecto={this.state.men_ruta} />
-                                        <Fila nombre="Orden" refer="Orden" tipo="2" arreglo="" defecto={this.state.men_orden} />
-                                        <Fila nombre="Categoria" refer="Categoria" tipo="1" arreglo="" defecto={this.state.men_categoria}  />
-                                        <Fila nombre="Orden Categoría" refer="Ordenm" tipo="2" arreglo="" defecto={this.state.men_orden} />
+
+                                        <TituloModal titulo="Editar Menú"/>
+
+                                        <div className='row'>
+                                            <Fila nombre="Nombre" refer="Nombre" tipo="1" arreglo="" defecto={this.state.men_nombre} col="6"/>
+                                            <Fila nombre="Ruta" refer="Ruta" tipo="1" arreglo="" defecto={this.state.men_ruta} col="3"/>
+                                            <Fila nombre="Orden" refer="Orden" tipo="2" arreglo="" defecto={this.state.men_orden} col="3"/>
+                                        </div>
+                                        <div className='row'>
+                                            <Fila nombre="Categoria" refer="Categoria" tipo="1" arreglo="" defecto={this.state.men_categoria} col="6" />
+                                            <Fila nombre="Orden Categoría" refer="Ordenm" tipo="2" arreglo="" defecto={this.state.men_orden} col="6"/>
+                                        </div>
                                     </div>
                                     <Botones enlace='/Menus'/>    
                                 </div>

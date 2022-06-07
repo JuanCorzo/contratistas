@@ -9,6 +9,7 @@ import { actualiza } from '../../../scripts/scripts';
 import Script2 from '../../../scripts/scripts2';
 import { Redirect } from 'react-router-dom';
 import Breadcrumb from '../../../layout/Breadcrumb';
+import TituloModal from '../../../comunes/TituloModal';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies(); 
 
@@ -31,21 +32,25 @@ class editaclad extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
         if(this.state.status==="Ok"){return <Redirect to="/clasificacion-documento"/>;}
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"clasificacion-documento", name:"Clasificación Documentos"}, {href:"editaclad/2", name:"Editar Clasificación Documentos"}];
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../clasificacion-documento", name:"Clasificación Documentos"}, {href:"#", name:"Editar Clasificación Documentos"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
                 <Titulo titulo="Editar Clasificación documentos"/>
                 <div className="am-mainpanel">
-                        <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                        
                         <div className="card pd-20 pd-sm-40">
                             <Script2 id={this.props.match.params.id} tabla="clasificas" devuelvedatos={this.dato} />
-                            <h6 className="card-body-title">Editar Clasificación documentos</h6>
-                            <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                            <form  name="forma" onSubmit={this.guardar} className="center-div">
+                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
                                     <div className="modal-body pd-20">
-                                        <Fila nombre="Nombre clasificación" refer="Rol" tipo="1" />
+
+                                         <TituloModal titulo="Editar clasificación de documentos"/>
+                                        <div className='row'>
+                                            <Fila nombre="Nombre clasificación" refer="Rol" tipo="1" col="12"/>
+                                        </div>
                                     </div>
                                     <Botones enlace='/clasificacion-documento'/>    
                                 </div>

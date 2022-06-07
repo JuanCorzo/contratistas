@@ -12,6 +12,7 @@ import Cookies from 'universal-cookie';
 import Pais from '../../../helpers/paises';
 import Macrozona from '../../../helpers/macrozonas';
 import Breadcrumb from '../../../layout/Breadcrumb';
+import TituloModal from '../../../comunes/TituloModal';
 
 const cookies = new Cookies(); 
 
@@ -42,24 +43,35 @@ class editaterr extends Component {
     render() {
         if(cookies.get("idroles")!=="1"){ return <Redirect to="./"/>; }
         if(this.state.status==="Ok"){ return <Redirect to="/territoriales"/>; }
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"territoriales", name:"Territoriales"},{href:"editaterr", name:"Editar territorial"}];
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../territoriales", name:"Territoriales"},{href:"#", name:"Editar territorial"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
                 <Titulo titulo="Editar Territorial"/>
                 <div className="am-mainpanel">
-                     <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                     
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
-                            <h6 className="card-body-title">Editar Territorial</h6>
-                            <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
+                            
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+
+                            <form  name="forma" onSubmit={this.guardar} className="center-div">
+                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
+
                                     <div className="modal-body pd-20">
-                                    <Pais />
-                                    <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" defecto={this.state.ter_cod} />
-                                    <Fila nombre="Terrirorial" refer="Nombre" tipo="1" arreglo="" defecto={this.state.ter_nombre} />
-                                    <Macrozona />
+                                    
+                                    <TituloModal titulo="Editar Territorial"/>
+                                   
+                                    <div className='row'>
+                                        <Pais col="6"/>
+                                        <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" defecto={this.state.ter_cod} col="6"/>
+                                    </div>
+
+                                    <div className='row'>
+                                        <Fila nombre="Terrirorial" refer="Nombre" tipo="1" arreglo="" defecto={this.state.ter_nombre} col="6"/>
+                                        <Macrozona col="6"/>
+                                    </div>
                                 </div>
                                 <Botones enlace='/territoriales'/>    
                                 </div>

@@ -9,7 +9,7 @@ import ClasificaDocs from '../../../helpers/clasificadocs';
 import { guarda } from '../../../scripts/scripts';
 import { Redirect } from 'react-router-dom';
 import Breadcrumb from '../../../layout/Breadcrumb';
-
+import TituloModal from '../../../comunes/TituloModal';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies(); 
 
@@ -29,26 +29,36 @@ class Creartipd extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8" && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
         if(this.state.status==="Ok"){ return <Redirect to="/Tipos-docuemntos"/>; }
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Tipos-docuemntos", name:"Tipos documentos"}, {href:"creartdoc", name:"Agregar tipo de documento"}];
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Tipos-docuemntos", name:"Tipos documentos"}, {href:"#", name:"Agregar tipo de documento"}];
         return (
             <div>
                 <Header/>
                 <Menulat/>
                 <Titulo titulo="Agregar Tipos docuemntos"/>
                 <div className="am-mainpanel">
-                    <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                    
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
-                            <h6 className="card-body-title">Agregar Tipo docuemnto</h6>
-                            <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                            <form  name="forma" onSubmit={this.guardar} className="center-div">
+                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
                                     <div className="modal-body pd-20">
-                                        <ClasificaDocs/>
-                                        <Fila nombre="Tipo Documento" refer="Codigo" tipo="1" arreglo=""  />
-                                        <Fila nombre="Tipo aporbacion" refer="aprob" tipo="6" arreglo={this.state.apro}  />
+                                        <TituloModal titulo="Agregar Tipo de documento"/>
+                                        
+                                        <div style={{paddingRight:"1em",paddingLeft:"1em"}}>
+                                       
+                                        </div>
+                                        <div className='row'>
+                                            <ClasificaDocs col="6"/>
+                                            <Fila nombre="Tipo Documento" refer="Codigo" tipo="1" arreglo=""  col="6"/>
+                                        </div>
+                                        <div className='row'>   
+                                            <Fila nombre="Tipo aporbacion" refer="aprob" tipo="6" arreglo={this.state.apro} col="6" />
+                                        </div>
                                     </div>
+                                    <Botones enlace='/Tipos-docuemntos'/>    
                                 </div>
-                                <Botones enlace='/Tipos-docuemntos'/>    
+                                
                             </form>
                         </div>
                     </div>

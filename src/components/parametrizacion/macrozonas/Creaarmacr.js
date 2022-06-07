@@ -9,6 +9,7 @@ import { guarda } from '../../../scripts/scripts';
 import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import Breadcrumb from '../../../layout/Breadcrumb';
+import TituloModal from '../../../comunes/TituloModal';
 const cookies = new Cookies(); 
 
 class Creaarrol extends Component {
@@ -23,24 +24,30 @@ class Creaarrol extends Component {
     render() {
         if(cookies.get("idroles")!=="1"){ return <Redirect to="./"/>; }
         if(this.state.status==="Ok"){ return <Redirect to="/macrozonas"/>; }
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"macrozonas", name:"macrozonas"},{href:"Creaarmacr", name:"Crear macrozona"}];
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"macrozonas", name:"macrozonas"},{href:"#", name:"Crear macrozona"}];
         return (
             <div>
                 <Header/>
                 <Menulat/>
                 <Titulo titulo="Agregar Macrozona"/>
                 <div className="am-mainpanel">
-                    <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                    
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
-                            <h6 className="card-body-title">Agregar Macrozona</h6>
-                            <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
+                            
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+
+                            <form  name="forma" onSubmit={this.guardar} className="center-div">
+                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
                                     <div className="modal-body pd-20">
-                                        <Fila nombre="Nombre macrozona" refer="Rol" tipo="1" />
+                                    
+                                        <TituloModal titulo="Agregar Macrozona"/>
+
+                                        <Fila nombre="Nombre macrozona" refer="Rol" tipo="1" col="12"/>
                                     </div>
+                                    <Botones enlace='/macrozonas'/>
                                 </div>
-                                <Botones enlace='/macrozonas'/>    
+                                    
                             </form>
                         </div>
                     </div>

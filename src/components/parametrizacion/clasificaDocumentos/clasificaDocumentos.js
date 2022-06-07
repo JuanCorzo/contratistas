@@ -37,14 +37,16 @@ class Roles extends Component {
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
-                        <Titulo titulo="Clasificación de documentos"/>
-                        <div className="am-mainpanel">
-                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
-                            <div className="card pd-20 pd-sm-40">
-                                <Script3 tabla="clasificas" devuelvedatos={this.dato} />
-                                <EncTabla titulo="Clasificación de documentos" link="/crearclad" titulo2="Clasificación documento" />
-                                <Tabla tabla="clasificas" columnas={columnas} valores={this.state.rols} 
-                                redire="/clasificacion-documento" titulo="Clasificación documento" link="editaclad/" />
+
+                        <div className='pt-5 m-auto'>
+                            <div className="am-mainpanel">
+                                
+                                <div className="card pd-20 pd-sm-40">
+                                    <Script3 tabla="clasificas" devuelvedatos={this.dato} />
+                                    <EncTabla titulo="Clasificación de documentos" link="/crearclad" titulo2="Clasificación documento" />
+                                    <Tabla tabla="clasificas" columnas={columnas} valores={this.state.rols} 
+                                    redire="/clasificacion-documento" titulo="Clasificación documento" link="editaclad/" />
+                                </div>
                             </div>
                         </div>    
                 <Footer></Footer>

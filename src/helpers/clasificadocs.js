@@ -11,12 +11,11 @@ class Menus extends Component {
             this.setState({ role });
         });
     }
-    render() { 
+    render() {
+        var col = this.props.col || 3;
         return( 
-            <div>
-                <div className="row">
-                    <div className="col-md-6 izqq">Clasificación documento</div>
-                    <div className="col-md-6 derechas">
+                <div className={`col-md-${(col)} col-input-style`}>
+                        <label>Clasificación documento</label>
                         <select name="clas" className="form-control" required>
                             <option>Seleccione...</option>
                             {
@@ -27,8 +26,7 @@ class Menus extends Component {
                             }
                         </select>
                     </div>
-                </div>
-            </div>
+                
         ) 
     }
 }

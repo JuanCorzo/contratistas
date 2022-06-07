@@ -10,7 +10,6 @@ import EncTabla from '../../../comunes/EncTabla';
 import Tabla from '../../../comunes/Tabla';
 import axios from 'axios';
 import global from '../../../Global';
-import Breadcrumb from '../../../layout/Breadcrumb';
 
 //import Departamento from '../../../helpers/departamentos';
 
@@ -35,22 +34,23 @@ class Municipios extends Component {
             { title: 'Departamento', field: 'dep_nombre', sortable: true },
             { title: 'Municipio', field: 'ciu_nombre', sortable: true },
         ]
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Municipios", name:"Municipios"}];
         return (
-            <div>
+            <div className='pt-5 m-auto'>
                 <Header></Header>
                 <Menulat></Menulat>
                         <Titulo titulo="Municipios"/>
-                        <div className="am-mainpanel">
-                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
-                            <div className="card pd-20 pd-sm-40">
-                                {/*<Departamento devuelvedatos={this.dato}  />*/}
-                                <Script3 tabla="ciudades" devuelvedatos={this.dato} />
-                                <EncTabla titulo="Municipios" link="/Crearmuni" titulo2="Municipios" />
-                                <Tabla tabla="ciudades" columnas={columnas} valores={this.state.tabl} 
-                                redire="/Municipios" titulo="Municipios" link="editamuni/" />
+                        <div>
+                            <div className="am-mainpanel">
+                                
+                                <div className="card pd-20 pd-sm-40">
+                                    {/*<Departamento devuelvedatos={this.dato}  />*/}
+                                    <Script3 tabla="ciudades" devuelvedatos={this.dato} />
+                                    <EncTabla titulo="Municipios" link="/Crearmuni" titulo2="Municipios" />
+                                    <Tabla tabla="ciudades" columnas={columnas} valores={this.state.tabl} 
+                                    redire="/Municipios" titulo="Municipios" link="editamuni/" />
+                                </div>
                             </div>
-                        </div>  
+                </div>              
                 <Footer></Footer>
             </div>
         );

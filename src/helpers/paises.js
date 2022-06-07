@@ -14,11 +14,10 @@ class Paises extends Component {
     }
     render() { 
         const valor = this.props.valor;
+        var col = this.props.col || 3;
         return( 
-            <div>
-                <div className="row">
-                    <div className="col-md-6 izqq">Nombre de país</div>
-                    <div className="col-md-6 derechas">
+                <div className={`col-lg-${(col)} col-input-style`}>
+                        <label>País</label>
                         <select name="idpais" className="form-control" required>
                             <option>Seleccione...</option>
                             {
@@ -31,10 +30,7 @@ class Paises extends Component {
                                 })
                             }
                         </select>
-
                     </div>
-                </div>
-            </div>
         ) 
     }
 }

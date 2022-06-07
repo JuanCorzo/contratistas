@@ -8,6 +8,7 @@ import Fila from '../../../comunes/fila';
 import { guarda } from '../../../scripts/scripts';
 import { Redirect } from 'react-router-dom';
 import Breadcrumb from '../../../layout/Breadcrumb';
+import TituloModal from '../../../comunes/TituloModal';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies(); 
 
@@ -22,24 +23,31 @@ class Creaarrol extends Component {
     }
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="26"){ return <Redirect to="./"/>; }
-        if(this.state.status==="Ok"){ return <Redirect to="/clasificacion-documento"/>; }let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"clasificacion-documento", name:"Clasificación Documentos"}, {href:"Crearclad", name:"Agregar clasificación Documentos"}];
+        if(this.state.status==="Ok"){ return <Redirect to="/clasificacion-documento"/>; }let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"clasificacion-documento", name:"Clasificación Documentos"}, {href:"#", name:"Agregar clasificación Documentos"}];
         return (
             <div>
                 <Header/>
                 <Menulat/>
                 <Titulo titulo="Agregar Clasificación documentos"/>
                 <div className="am-mainpanel">
-                    <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                    
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
-                            <h6 className="card-body-title">Agregar Clasificación documentos</h6>
-                            <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+
+                            <form  name="forma" onSubmit={this.guardar} className="center-div">
+                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
                                     <div className="modal-body pd-20">
-                                        <Fila nombre="Nombre clasificación" refer="Rol" tipo="1" />
+
+                                        <TituloModal titulo="Agregar clasificación de documento" col="12"/>
+                                        
+                                        <div className='row'>
+                                            <Fila nombre="Nombre clasificación" refer="Rol" tipo="1" col="12" />
+                                        </div>
                                     </div>
+                                    <Botones enlace='/clasificacion-documento'/>
                                 </div>
-                                <Botones enlace='/clasificacion-documento'/>    
+                                    
                             </form>
                         </div>
                     </div>

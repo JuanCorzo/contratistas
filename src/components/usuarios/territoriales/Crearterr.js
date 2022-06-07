@@ -11,6 +11,7 @@ import Cookies from 'universal-cookie';
 import Pais from '../../../helpers/paises';
 import Macrozona from '../../../helpers/macrozonas';
 import Breadcrumb from '../../../layout/Breadcrumb';
+import TituloModal from '../../../comunes/TituloModal';
 const cookies = new Cookies(); 
 
 class Crearterr extends Component {
@@ -34,24 +35,33 @@ class Crearterr extends Component {
     render() {
         if(cookies.get("idroles")!=="1"){ return <Redirect to="./"/>; }
         if(this.state.status==="Ok"){ return <Redirect to="/territoriales"/>; }
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"territoriales", name:"Territoriales"},{href:"Crearterr", name:"Crear Territorial"}];
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"territoriales", name:"Territoriales"},{href:"#", name:"Crear Territorial"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
                 <Titulo titulo="Agregar Territorial"/>
                 <div className="am-mainpanel">
-                    <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                    
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
-                            <h6 className="card-body-title">Agregar Territorial</h6>
-                            <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                            <form  name="forma" onSubmit={this.guardar} className="center-div">
+                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
                                     <div className="modal-body pd-20">
-                                    <Pais valor={this.state.paises_idpaises}/>
-                                    <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" />
-                                    <Fila nombre="Terrirorial" refer="Nombre" tipo="1" arreglo="" />
-                                    <Macrozona />
+
+                                    <TituloModal titulo="Agregar Territorial"/>
+                                    
+                                        <div className='row'>
+                                            <Pais valor={this.state.paises_idpaises} col="6"/>
+                                            <Fila nombre="Código" refer="Codigo" tipo="1" arreglo=""  col="6"/>
+                                        </div>
+                                        <div className='row'>
+                                            <Fila nombre="Terrirorial" refer="Nombre" tipo="1" arreglo="" col="6"/>
+                                            <Macrozona col="6"/>
+                                        </div>
+                                
+                                    
                                 </div>
                                 <Botones enlace='/territoriales'/>    
                                 </div>

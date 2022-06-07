@@ -8,6 +8,7 @@ import Fila from '../../../comunes/fila';
 import { guarda } from '../../../scripts/scripts';
 import { Redirect } from 'react-router-dom';
 import Breadcrumb from '../../../layout/Breadcrumb';
+import TituloModal from '../../../comunes/TituloModal';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies(); 
 
@@ -26,26 +27,33 @@ class Crearcapo extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8" && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
         if(this.state.status==="Ok"){ return <Redirect to="/Clasificacion-aportantes"/>; }
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"clasificaAportantes", name:"Clasificación de aportantes"},{href:"Crearcapo", name:"Agregar clasificación de aportantes"}];
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"clasificaAportantes", name:"Clasificación de aportantes"},{href:"#", name:"Agregar clasificación de aportantes"}];
         return (
             <div>
                 <Header/>
                 <Menulat/>
                 <Titulo titulo="Agregar Clasificación de aportantes por obligatoriedad"/>
                 <div className="am-mainpanel">
-                    <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                    
                     <div className="am-pagebody">
 
                         <div className="card pd-20 pd-sm-40">
-                            <h6 className="card-body-title">Agregar Clasificación de aportantes por obligatoriedad</h6>
-                            <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
+
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+
+                            <form  name="forma" onSubmit={this.guardar} className="center-div">
+                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
                                     <div className="modal-body pd-20">
-                                        <Fila nombre="Código" refer="Codigo" tipo="1" arreglo=""  />
-                                        <Fila nombre="Clasificación" refer="Nombre" tipo="1" arreglo="" />
+
+                                     <TituloModal titulo="Agregar Clasificación de Aportantes"/>
+                                        <div className='row'>
+                                            <Fila nombre="Código" refer="Codigo" tipo="1" arreglo=""  col="6"/>
+                                            <Fila nombre="Clasificación" refer="Nombre" tipo="1" arreglo="" col="6"/>
+                                        </div>
                                     </div>
+                                    <Botones enlace='/Clasificacion-aportantes'/>
                                 </div>
-                                <Botones enlace='/Clasificacion-aportantes'/>    
+                                    
                             </form>
                         </div>
                     </div>

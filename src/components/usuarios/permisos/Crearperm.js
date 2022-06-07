@@ -3,6 +3,7 @@ import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
 import Titulo from '../../../comunes/Titulo';
+import TituloModal from '../../../comunes/TituloModal';
 import Botones from '../../../comunes/Botones';
 import Fila from '../../../comunes/fila';
 import { guarda } from '../../../scripts/scripts';
@@ -41,27 +42,41 @@ class Crearperm extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="26"){ return <Redirect to="./"/>; }
         if(this.state.status==="Ok"){ return <Redirect to="/permisos"/>; }
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"permisos", name:"Permisos"}, {href:"Crearperm", name:"Crear permiso"}];
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"permisos", name:"Permisos"}, {href:"#", name:"Crear permiso"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
                 <Titulo titulo="Agregar Permisos"/>
                 <div className="am-mainpanel">
-                <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
-                            <h6 className="card-body-title">Agregar Permisos</h6>
-                            <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
+
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+
+                            <form  name="forma" onSubmit={this.guardar} className="center-div">
+                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
+
                                     <div className="modal-body pd-20">
-                                    <Menus valor={this.state.idmenus}/>
-                                    <Rol valor={this.state.idroles}/>
-                                    <Fila nombre="Crear" refer="Crear" tipo="6" arreglo={this.state.sino} />
-                                    <Fila nombre="Editar" refer="Editar" tipo="6" arreglo={this.state.sino} />
-                                    <Fila nombre="Eliminar" refer="Eliminar" tipo="6" arreglo={this.state.sino} />
-                                </div>
-                                <Botones enlace='/permisos'/>    
+
+                                        <TituloModal titulo="Agregar Permiso"/>
+                                        <div className='row'>
+                                            <Menus valor={this.state.idmenus} col="6"/>
+                                       
+                                            <Rol valor={this.state.idroles} col="6"/>
+                                        </div>    
+                                        <div className='row'>
+                                            <Fila nombre="Crear" refer="Crear" tipo="6" arreglo={this.state.sino} col="6"/>
+                                        
+                                            <Fila nombre="Editar" refer="Editar" tipo="6" arreglo={this.state.sino} col="6" />
+                                        </div> 
+                                        <div className='row'>   
+                                            <Fila nombre="Eliminar" refer="Eliminar" tipo="6" arreglo={this.state.sino} col="6"/>
+                                        </div>    
+                                        
+                                    </div>
+                                    <Botones enlace='/permisos'/>    
                                 </div>
                             </form>
                         </div>

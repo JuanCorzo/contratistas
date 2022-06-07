@@ -10,6 +10,7 @@ import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import Departamento from '../../../helpers/departamentos';
 import Breadcrumb from '../../../layout/Breadcrumb';
+import TituloModal from '../../../comunes/TituloModal';
 const cookies = new Cookies(); 
 
 class Crearmuni extends Component {
@@ -33,23 +34,32 @@ class Crearmuni extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="26"){ return <Redirect to="./"/>; }
         if(this.state.status==="Ok"){ return <Redirect to="/Municipios"/>; }
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Municipios", name:"Municipios"},{href:"Crearmuni", name:"Crear Municipio"}];
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Municipios", name:"Municipios"},{href:"#", name:"Agregar Municipio"}];
         return (
             <div>
                 <Header></Header>
                 <Menulat></Menulat>
                 <Titulo titulo="Agregar Municipio"/>
                 <div className="am-mainpanel">
-                    <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+                    
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
-                            <h6 className="card-body-title">Agregar Municipio</h6>
-                            <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
+                            
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+
+                            <form  name="forma" onSubmit={this.guardar} className="center-div">
+
+                                <div className="modal-content tx-size-sm" style={{width: '700px'}}>
+
                                     <div className="modal-body pd-20">
-                                    <Departamento valor={this.state.iddepartamentos}/>
-                                    <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" />
-                                    <Fila nombre="Nombre" refer="Municipio" tipo="1" arreglo="" />
+                                    
+                                    <TituloModal titulo="Agregar Municipio"/>
+
+                                    <div className='row'>
+                                        <Departamento valor={this.state.iddepartamentos} col="5"/>
+                                        <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" col="3"/>
+                                        <Fila nombre="Nombre" refer="Municipio" tipo="1" arreglo="" col="4" />
+                                    </div>
                                 </div>
                                 <Botones enlace='/Municipios'/>    
                                 </div>

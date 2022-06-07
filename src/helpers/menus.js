@@ -13,11 +13,10 @@ class Menus extends Component {
     }
     render() { 
         const valor = this.props.valor;
+        var col = this.props.col || 3;
         return( 
-            <div>
-                <div className="row">
-                    <div className="col-md-6 izqq">Menu</div>
-                    <div className="col-md-6 derechas">
+                    <div className={`col-md-${(col)} col-input-style`}>
+                        <label>Menús</label>
                         <select name="menus" className="form-control" required>
                             <option>Seleccione...</option>
                             {
@@ -31,8 +30,6 @@ class Menus extends Component {
                             }
                         </select>
                     </div>
-                </div>
-            </div>
         ) 
     }
 }

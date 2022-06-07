@@ -4,6 +4,7 @@ import Header from '../../../layout/Header';
 import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
 import Titulo from '../../../comunes/Titulo';
+import TituloModal from '../../../comunes/TituloModal';
 import Botones from '../../../comunes/Botones';
 import Fila from '../../../comunes/fila';
 import { actualiza } from '../../../scripts/scripts';
@@ -12,6 +13,7 @@ import Cookies from 'universal-cookie';
 import Script2 from '../../../scripts/scripts2';
 import axios from 'axios';
 import global from '../../../Global';
+import Breadcrumb from '../../../layout/Breadcrumb';
 
 const cookies = new Cookies();
 
@@ -86,6 +88,7 @@ class editausuario extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="26"){ return <Redirect to="./"/>; }
         if(this.state.status==="Ok"){ return <Redirect to="/Usuarios"/>; }
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../usuarios", name:"Usuarios"},{href:"#", name:"Editar Usuario"}];
         return (
             <div>
                 <Header></Header>
@@ -94,46 +97,63 @@ class editausuario extends Component {
                 <div className="am-mainpanel">
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
-                            <h6 className="card-body-title">Editar Usuario</h6>
-                            <form  name="forma" onSubmit={this.guardar}>
-                                <div className="modal-content tx-size-sm">
-                                    <div className="modal-body pd-20">
-                                    <Roles valor={this.state.idroles}/>
-                                    <Fila nombre="Nombre" refer="Nombre" tipo="1" arreglo="" defecto={this.state.usu_nombre} id="" />
-                                    <Fila nombre="Email" refer="Email" tipo="3" arreglo="" id="" defecto={this.state.usu_email} />
-                                    <Fila nombre="Contraseña" refer="Password" tipo="4" arreglo="" id="" defecto="" />
-                                    <Fila nombre="Celular" refer="Celular" tipo="1" arreglo="" id="" defecto={this.state.usu_telefono} />
-                                    <Fila nombre="Activo desde" refer="Desde" tipo="7" arreglo="" id="" defecto={this.state.usu_telefono} />
-                                    <Fila nombre="Activo hasta" refer="Hasta" tipo="7" arreglo="" id="" defecto={this.state.usu_telefono} />
-                                    <div className="row">
-                                        <div className="col-md-6 izqq">Macrozonas</div>
-                                        <div className="col-md-6 derechas">
-                                            <select name="Macro" onChange={this.llenater} className="form-control" >
-                                                <option>Seleccione...</option>
-                                                {
-                                                    this.state.macr.map((arr, i) => {
-                                                    return (
-                                                            <option key={i} value={arr.mac_nombre}>{arr.mac_nombre} </option>  
-                                                        )
-                                                    })
-                                                }
-                                            </select>
+
+                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
+
+                        
+                            <form  name="forma" onSubmit={this.guardar} className="center-div" >
+                                <div className="modal-content tx-size-sm" style={{width:'800px'}}>
+                                    <div className="modal-body pd-20" >
+
+                                    <TituloModal titulo="Editar Usuario"/>
+
+                                    
+                                        <div className='row'>
+                                        <Roles valor={this.state.idroles} col="4"/>
+                                        <Fila nombre="Nombre" refer="Nombre" tipo="1" arreglo="" defecto={this.state.usu_nombre} id="" col="8"/>
                                         </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-md-6 izqq">Territorial</div>
-                                        <div className="col-md-6 derechas">
-                                            <select className="form-control" name="terr" required>
-                                                <option vaule="0">Territorial</option>
-                                                {
-                                                    this.state.terr.map((con, i) => {
-                                                    return (
-                                                        <option key={i} value={con.idterritorial}>{con.ter_nombre} </option> ) 
-                                                    })
-                                                }
-                                            </select>
+                                        <div className='row'>
+                                        <Fila nombre="Email" refer="Email" tipo="3" arreglo="" id="" defecto={this.state.usu_email} col="6" />
+                                    
+                                        <Fila nombre="Contraseña" refer="Password" tipo="4" arreglo="" id="" defecto="" col="6" />
                                         </div>
-                                    </div>
+
+                                        <div className='row'>
+                                        <Fila nombre="Celular" refer="Celular" tipo="1" arreglo="" id="" defecto={this.state.usu_telefono} col="4"/>
+                                        <Fila nombre="Activo desde" refer="Desde" tipo="7" arreglo="" id="" defecto={this.state.usu_telefono} col="4" />
+                                        <Fila nombre="Activo hasta" refer="Hasta" tipo="7" arreglo="" id="" defecto={this.state.usu_telefono} col="4" />
+                                        </div>
+                                        
+                                        <div className='row pt-2'>
+                                            <div className="col-md-6 col-input-style">
+                                                <label>Macrozonas</label>
+                                                <select name="Macro" onChange={this.llenater} className="form-control" >
+                                                    <option>Seleccione...</option>
+                                                    {
+                                                        this.state.macr.map((arr, i) => {
+                                                        return (
+                                                                <option key={i} value={arr.mac_nombre}>{arr.mac_nombre} </option>  
+                                                            )
+                                                        })
+                                                    }
+                                                </select>
+                                                
+                                            </div>
+                                            
+                                            <div className="col-md-6 col-input-style">
+                                                <label>Territotrial</label>
+                                                <select className="form-control" name="terr" required>
+                                                    <option vaule="0">Territorial</option>
+                                                    {
+                                                        this.state.terr.map((con, i) => {
+                                                        return (
+                                                            <option key={i} value={con.idterritorial}>{con.ter_nombre} </option> ) 
+                                                        })
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>    
+                                    
                                 </div>
                                 <Script2 id={this.props.match.params.id} tabla="usuarios" devuelvedatos={this.dato} />
                                 <Botones enlace='/Usuarios'/>    

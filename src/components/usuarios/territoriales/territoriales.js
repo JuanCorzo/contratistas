@@ -11,7 +11,7 @@ import Tabla from '../../../comunes/Tabla';
 import Tabla3 from '../../../comunes/Tabla3';
 import axios from 'axios';
 import global from '../../../Global';
-import Breadcrumb from '../../../layout/Breadcrumb';
+
 
 const cookies = new Cookies(); 
 class Territoriales extends Component {
@@ -34,33 +34,33 @@ class Territoriales extends Component {
             { title: 'Territorial', field: 'ter_nombre', sortable: true },
             { title: 'Macrozona', field: 'ter_macrozona', sortable: true },
         ]
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"territoriales", name:"Territoriales"}];
+        
         return (
                 <div>
                         <Header></Header>
                         <Menulat></Menulat>
-                        <Titulo titulo="Territoriales"/>
-                        <div className="am-mainpanel">
-                            <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
-                            <div className="card pd-20 pd-sm-40">
-                                <Script3 tabla="aportantes/territoriales/terri" devuelvedatos={this.dato} />
-                                { cookies.get("idroles")==="1"? (
-                                    <React.Fragment>
-                                        <EncTabla titulo="Territoriales" link="/Crearterr" titulo2="Territoriales" />
-                                        <Tabla tabla="territoriales" columnas={columnas} valores={this.state.rols}
-                                        redire="/territoriales" titulo="Territoriales" link="editaterr/" />
-                                    </React.Fragment>
-                                ): (
-                                    <React.Fragment>
-                                        <h6 className="card-body-title">Territoriales</h6>
-                                        <Tabla3 tabla="territoriales" columnas={columnas} valores={this.state.rols}
-                                        redire="/territoriales" titulo="Territoriales" link="editaterr/" />
-                                    </React.Fragment>
-                                )
-                            }
+                        <div className='pt-5 m-auto'>
+                            <div className="am-mainpanel">
+                                
+                                <div className="card pd-20 pd-sm-40">
+                                    <Script3 tabla="aportantes/territoriales/terri" devuelvedatos={this.dato} />
+                                    { cookies.get("idroles")==="1"? (
+                                        <React.Fragment>
+                                            <EncTabla titulo="Territoriales" link="/Crearterr" titulo2="Territoriales" />
+                                            <Tabla tabla="territoriales" columnas={columnas} valores={this.state.rols}
+                                            redire="/territoriales" titulo="Territoriales" link="editaterr/" />
+                                        </React.Fragment>
+                                    ): (
+                                        <React.Fragment>
+                                            <h6 className="card-body-title">Territoriales</h6>
+                                            <Tabla3 tabla="territoriales" columnas={columnas} valores={this.state.rols}
+                                            redire="/territoriales" titulo="Territoriales" link="editaterr/" />
+                                        </React.Fragment>
+                                    )
+                                }
+                                </div>
                             </div>
-                        </div>
-  
+                    </div>
                 <Footer></Footer>
             </div>
         );

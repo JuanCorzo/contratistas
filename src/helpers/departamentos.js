@@ -23,11 +23,11 @@ class Roles extends Component {
     }
     render() { 
         const valor = this.props.valor;
+        var col = this.props.col || 3;
         return( 
             <React.Fragment>
-                <div className="row">
-                    <div className="col-md-6 izqq">Departamento</div>
-                    <div className="col-md-6 derechas">
+                <div className={`col-md-${(col)} col-input-style`}>
+                        <label>Departamento</label>
                         <select name="Departamento" ref={this.Departamento} onChange={this.llenamun} className="form-control" required>
                             <option>Seleccione...</option>
                             {
@@ -40,7 +40,6 @@ class Roles extends Component {
                                 })
                             }
                         </select>
-                    </div>
                 </div>
                 <div className="row"><div className="clo-md-5">&nbsp;</div></div>
             </React.Fragment>
