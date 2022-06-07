@@ -5,7 +5,6 @@ import Menulat from '../../../layout/Menulat';
 import Footer from '../../../layout/Footer';
 import { Redirect } from 'react-router-dom';
 import Script3 from '../../../scripts/scripts3';
-
 import EncTabla from '../../../comunes/EncTabla';
 import Tabla from '../../../comunes/Tabla';
 import axios from 'axios';
