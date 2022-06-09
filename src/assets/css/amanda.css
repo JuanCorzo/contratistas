@@ -56705,3 +56705,20 @@ a.hover-white-8:hover, a.hover-white-8:focus {
 .fflitro{
   box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%) !important;
 }
+
+@keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+  
+.animate-spin {
+  animation: rotating 3s linear infinite;
+}

@@ -22,8 +22,10 @@ class Login extends Component {
         status: null,
         correo: "",
         clave: "",
+        loading: false,
     };
     Login = (e) => {
+        this.setState({ loading: true })
         e.preventDefault();
         var correo=this.Email.current.value;
         var clave=this.Contrasena.current.value;
@@ -44,10 +46,12 @@ class Login extends Component {
             else {
                 swal("Login incorrecto", "Usuarrio o password incorrecto", "error");
             }
+            this.setState({ loading: false })
         })
         .catch((error) => {
           swal("Login incorrecto", "Usuarrio o password incorrecto", "error");
           console.log(error);
+          this.setState({ loading: false })
         });
     }
     componentDidMount(){
@@ -79,7 +83,12 @@ class Login extends Component {
                                                 <input className="form-control" placeholder='Contraseña' ref={this.Contrasena} type="password" />
                                             </label>
                                             <div className="d-flex dere">
-                                                <input className="botonlogin" type="submit" value="Entrar"/>
+                                                <button className="botonlogin" type="submit">
+                                                    { this.state.loading
+                                                    ? <i className="icon ion-load-a animate-spin"></i>
+                                                    : "Entrar"
+                                                    }
+                                                </button>
                                             </div>
                                         </form>
                                     </div>

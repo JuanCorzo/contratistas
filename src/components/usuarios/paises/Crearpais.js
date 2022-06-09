@@ -25,7 +25,7 @@ class Crearpais extends Component {
     render() {
         if(cookies.get("idroles")!=="1") { return <Redirect to="./"/>; }
         if(this.state.status==="Ok"){ return <Redirect to="/Paises"/>; }
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Paises", name:"Paises"},{href:"Crearpais", name:"Crear país"}];
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Paises", name:"Paises"},{href:"#", name:"Crear país"}];
         return (
             <div>
                 <Header></Header>
@@ -37,7 +37,7 @@ class Crearpais extends Component {
                             
                             <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
 
-                            <form  name="forma" onSubmit={this.guardar} className="center-div">
+                            <form name="forma" onSubmit={this.guardar} className="center-div">
                                 <div className="modal-content tx-size-sm mt-3" style={{width: '700px'}}>
                                     <div className="modal-body p-6">
 
