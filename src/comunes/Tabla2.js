@@ -26,10 +26,15 @@ class Tabla2 extends Component {
                     onClick: (event, rowData)=>this.elimina(rowData.idc)
                 }
                 ]}
-                options={{ actionsColumnIndex: -1,  rowStyle: { fontSize: 12 } }}
+                options={{ 
+                    actionsColumnIndex: -1,  
+                    rowStyle: { fontSize: 12 },
+                    pageSize: 10,
+                    emptyRowsWhenPaging: false,
+                    pageSizeOptions: [10,20,50],
+                }}
                 localization={{ header:{ actions: 'Acciones'}}}
                 icons={definiciones}
-                rowsPerPageOptions={[25, 50, 100]}
             ></MaterialTable> 
         )
     }

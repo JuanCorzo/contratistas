@@ -16,27 +16,27 @@ import EncTabla from '../../../comunes/EncTabla';
 const cookies = new Cookies(); 
 
 class lineasdetiempo extends Component {
-    state = { tabe:[], status: null, tabe1: [] };
+    state = { tabe:[], status: null, tabe1: [], dataLinea: [] };
     componentDidMount() {}
     dato = (tabe) => {  this.setState({ tabe });  }
     dato1 = (tabe1) => { 
-        const columns = [
-            { type: "string", id: "Presidsent" },
-            { type: "string", id: "Preswident" },
-            { type: "string", id: "Presiedent" },
-            { type: "date", id: "Start" },
-            { type: "date", id: "End" },
-          ];
-          
-          const rows = [
-            ["Washington", "Washington", "Washington", new Date(1789, 3, 30), new Date(1797, 2, 4)],
-            ["Adams", "Adams", "Adams", new Date(1797, 2, 4), new Date(1801, 2, 4)],
-            ["Jefferson", "Jefferson", "Jefferson", new Date(1801, 2, 4), new Date(1809, 2, 4)],
-          ];
-          
-          let data = [columns, ...rows];
-        this.setState({ data }); 
-        console.log(data); 
+        let data = tabe1;
+        if(data.length == 1) data.push(["SIN DATOS","",new Date(),new Date()]);
+        
+        /*const columns = [
+            { type: 'string', id: 'Position' },
+            { type: 'string', id: 'Name' },
+            { type: 'date', id: 'Start' },
+            { type: 'date', id: 'End' },
+        ];
+        const rows = [
+            ["FTF", "ABC", new Date("2020", "0", "13") , new Date("2020", "0", "29")],
+            ["FTV", "ABC", new Date("2020", "0", "13") , new Date("2020", "0", "24")],
+            ["FTC", "ABC", new Date("2020", "0", "13") , new Date("2020", "0", "28")],
+        ];
+        data = [columns].concat([["SIN DATOS","",new Date(),new Date()]]);*/
+
+        this.setState({ dataLinea: data }); 
     }
     render() {
         if(!cookies.get("idroles")) { return <Redirect to="./"/>; }
@@ -65,8 +65,8 @@ class lineasdetiempo extends Component {
                                         <Chart
                                         width={'100%'} height={'350px'}
                                         chartType="Timeline" loader={<div>Loading Chart</div>}
-                                        data={this.state.tabe1}
-                                        options={{ showRowNumber: true}}
+                                        data={ this.state.dataLinea }
+                                        options={{ showRowNumber: true }}
                                         rootProps={{ 'data-testid': '1' }} />                        
                                     </div>
                                 </div>
