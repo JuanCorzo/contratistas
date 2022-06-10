@@ -21,7 +21,7 @@ class lineasdetiempo extends Component {
     dato = (tabe) => {  this.setState({ tabe });  }
     dato1 = (tabe1) => { 
         let data = tabe1;
-        if(data.length == 1) data.push(["SIN DATOS","",new Date(),new Date()]);
+        if(data.length === 1) data.push(["SIN DATOS","",new Date(),new Date()]);
         
         /*const columns = [
             { type: 'string', id: 'Position' },

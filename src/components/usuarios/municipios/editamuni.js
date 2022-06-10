@@ -63,7 +63,8 @@ class Crearmuni extends Component {
                                     <div className="modal-body p-6">
                                     
                                     <TituloModal titulo="Editar Municipio"/>
-
+                                    <Script2 id={this.props.match.params.id} tabla="ciudades" devuelvedatos={this.dato} />
+                                    
                                     <div className='row'>
                                         <Departamento valor={this.state.iddepartamentos} col="12"/>
                                         <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" defecto={this.state.mun_codigo} col="4" />
@@ -77,7 +78,6 @@ class Crearmuni extends Component {
                     </div>
                 </div>
                 <Footer></Footer>
-                <Script2 id={this.props.match.params.id} tabla="ciudades" devuelvedatos={this.dato} />
             </div>
         );
     }

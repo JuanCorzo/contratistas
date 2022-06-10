@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import global from '../Global';
 class Territorial extends Component {
-    state = { role:[] };
+    state = { role: [] };
     componentDidMount(){ this.llenar(); }
     llenar = () => {
-        axios.get(global.url + "aportantes//terri", global.autentica)
+        axios.get(global.url + "aportantes/territoriales/terri", global.autentica)
         .then(res => {
             let role = res.data;
             role =  role.map( (p) => { p['id'] = p.idterritorial; p[`nombre`] = p.ter_nombre; return p; });
@@ -13,7 +13,7 @@ class Territorial extends Component {
         });
     }
     render() { 
-        const valor = this.props.valor;
+        let valor = this.props.valor;
         let col = this.props.col || 12;
         return( 
             <div className={`col-md-${(col)} col-input-style`}>
