@@ -36,7 +36,6 @@ class editadpto extends Component {
         document.forma.Codigo.value=this.state[0].dep_codigo; 
         document.forma.Nombre.value=this.state[0].dep_nombre; 
     }
-
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="26")
         {
@@ -61,9 +60,10 @@ class editadpto extends Component {
                                 <div className="modal-content tx-size-sm mt-3">
                                     <div className="modal-body p-6">
 
+                                        <Script2 id={this.props.match.params.id} tabla="departamentos" devuelvedatos={this.dato} />
                                         <TituloModal titulo="Editar Departamento"/>
                                         
-                                        <div className='row'>
+                                        <div className='row'>    
                                             <Territorial valor={this.state.idterritorial} col="5"/>
                                             <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" defecto={this.state.dep_codigo} col="3"/>
                                             <Fila nombre="Departamento" refer="Nombre" tipo="1" arreglo="" defecto={this.state.dep_nombre} col="4"/>
@@ -76,7 +76,6 @@ class editadpto extends Component {
                     </div>
                 </div>
                 <Footer></Footer>
-                <Script2 id={this.props.match.params.id} tabla="departamentos" devuelvedatos={this.dato} />
             </div>
         );
     }
