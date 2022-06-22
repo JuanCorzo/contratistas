@@ -26,7 +26,7 @@ class editacapo extends Component {
             cla_codigo: document.forma.Codigo.value,
             cla_nombre: document.forma.Nombre.value
         }
-        actualiza(tabe, "clasificacionesaportantes", "Clasificación aportantes", this.idc, "/Clasificacion-aportantes");
+        actualiza(tabe, "clasificacionesaportantes", "Clasificación aportantes", this.idc, "/clasificacionesaportantes");
         this.setState({ status: 'Ok'})
     }
     dato = (rols) => { 
@@ -36,8 +36,8 @@ class editacapo extends Component {
     }
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8"  && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
-        if(this.state.status==="Ok"){return <Redirect to="/Clasificacion-aportantes"/>;}
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../Clasificacion-aportantes", name:"Clasificación de aportantes"},{href:"#", name:"Editar clasificación de aportantes"}];
+        if(this.state.status==="Ok"){return <Redirect to="/clasificacionesaportantes"/>;}
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../clasificacionesaportantes", name:"Clasificación de aportantes"},{href:"#", name:"Editar clasificación de aportantes"}];
         return (
             <div>
                 <Header></Header>
@@ -61,7 +61,7 @@ class editacapo extends Component {
                                             <Fila nombre="Clasificación" refer="Nombre" tipo="1" arreglo="" defecto={this.state.cla_nombre} col="8"/>
                                         </div>
                                     </div>
-                                    <Botones enlace='/Clasificacion-aportantes'/>    
+                                    <Botones enlace='/clasificacionesaportantes'/>    
                                 </div>
                             </form>
                         </div>

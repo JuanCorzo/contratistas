@@ -263,7 +263,7 @@ class FiltrosConsulta extends Component {
                     </div>
                     <div className="row">
                         <div className="col-lg-3 filtrot col-input-style">
-                            <label className="m-0">Clasificación por obligatoriedad</label>
+                            <label className="m-0">Clasificación por obligatoriedad</label> 
                             <Clasifmul devuelveclasif={this.clasi} />
                         </div>
                         <div className="col-lg-3 filtrot col-input-style">
@@ -350,10 +350,9 @@ class FiltrosConsulta extends Component {
                                 </div>
                             </div>
                         ) :
-                        ( <div></div> )
+                        (<br/> )
                     }
-                </form>
-                <br></br>
+                </form> 
             </React.Fragment>
         )
     }

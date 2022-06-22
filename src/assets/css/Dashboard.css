@@ -3,8 +3,8 @@
     height: 100vh;
 }
 
-.cardlogin {
-    border-radius: 10px;
+.cardlogin { 
+    border-radius: 0px !important;
     width:80%;
     background-color: white;
 }
@@ -19,21 +19,27 @@
 }
 .titullog {
     font-size: 35px;
-    color: #016bb7;
-    font-weight: bold;
+    color: #19106e;
+    font-weight: normal;
+}
+.titullogv {
+    font-size: 11px;
+    color: #19106e;
+    font-weight: normal;
+    margin-top: -25px;
 }
 
 .linea {
     background-color: #ffae00;
     width: 70px;
-    height: 5px;
+    height: 2px;
 }
 
 .white {
     color: white;
     text-align: left;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: normal;
 }
 
 .white2 {
@@ -42,17 +48,20 @@
     font-size: 13px;
 }
 
-
-.botonlogin{
+.botonlogin {
     width: 60%;
     position: relative;
     left: 20%;
     padding: 5px;
     background-color: #016bb7;
-    border-radius: 15px 15px 15px 15px;
+    border-radius: 0px;
     border:none;
     color: white;
 }
+
+.botonlogin:hover {
+    background-color: rgb(10, 162, 233);
+  }
 
 .formside {
     left:40%;
@@ -63,7 +72,7 @@
     padding: 20px;
     padding-top: 70px;
     padding-bottom: 30px;
-    border-radius: 0px 5px 5px 0px;
+    border-radius: 0px;
     text-align: left;
 }
 

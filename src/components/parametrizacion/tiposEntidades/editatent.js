@@ -24,7 +24,7 @@ class editatent extends Component {
             tad_codigo: document.forma.Codigo.value,
             tad_descripcion: document.forma.Descripcion.value 
         }
-        actualiza(tabe, "tipoadscrita", "Tipos entidades", this.idc, "/Tipos-entidades");
+        actualiza(tabe, "tipoadscrita", "Tipos entidades", this.idc, "/tipoadscrita");
         this.setState({ status: 'Ok'})
     }
     dato = (rols) => { 
@@ -34,8 +34,8 @@ class editatent extends Component {
     }
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8" && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
-        if(this.state.status==="Ok"){return <Redirect to="/Tipos-entidades"/>;}
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../tipos-Entidades", name:"Orden entidades"},{href:"#", name:"Editar orden de entidades"}];
+        if(this.state.status==="Ok"){return <Redirect to="/tipoadscrita"/>;}
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../tipoadscrita", name:"Orden entidades"},{href:"#", name:"Editar orden de entidades"}];
         return (
             <div>
                 <Header></Header>
@@ -57,7 +57,7 @@ class editatent extends Component {
                                             <Fila nombre="Descripción" refer="Descripcion" tipo="1" arreglo="" defecto={this.state.tad_descripcion} col="8"/>
                                         </div>
                                     </div>
-                                    <Botones enlace='/Tipos-entidades'/>    
+                                    <Botones enlace='/tipoadscrita'/>    
                                 </div>
                             </form>
                         </div>

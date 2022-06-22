@@ -7,7 +7,7 @@ class Botones extends Component {
         return (
             <div className="modal-footer p-4">
                 <NavLink className="btn btn-secondary pd-x-20" to={enlace}>Cancelar</NavLink>
-                <input type="submit" className="btn btn-info pd-x-20" value="Guardar Cambios" />
+                <input type="submit" className="btn btn-primary pd-x-20" value="Guardar Cambios" />
             </div>
         )
     }

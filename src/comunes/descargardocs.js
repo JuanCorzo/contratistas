@@ -10,8 +10,7 @@ class Descargardocs extends Component {
         const tipo = this.props.tipo;
         if(tipo==="responsable"){
             axios.get(Global.url + "responsables/"+docid, global.autentica).then(res => {
-                let tidc = res.data;
-                console.log("assas");
+                let tidc = res.data;  
                 axios({
                     url: (Global.url + 'documentosaportantes/downloadenla/'+docid),
                     method: 'GET', responseType: 'blob', // Important
@@ -35,7 +34,7 @@ class Descargardocs extends Component {
     render() {
         return (
             <React.Fragment>
-                <button style={{"border":"none", "font-size":"20px", "color": "#12337a"}} onClick={() => this.handleDownload()} download><i className="icon ion-document-text"></i></button>
+                <button className='xbackicon' style={{"border":"none", "font-size":"20px", "color": "#12337a"}} onClick={() => this.handleDownload()} download><i className="icon ion-document-text xbackicon"></i></button>
             </React.Fragment>
         )
     }

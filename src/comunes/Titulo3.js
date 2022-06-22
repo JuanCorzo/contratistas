@@ -9,7 +9,7 @@ class Titulo2 extends Component {
             <React.Fragment>
                 <div className='row'>
                     <div className='col-lg-8 izqq'>
-                        <h1 className="numerosaxul">{titul}</h1>
+                        <h1 className="actions">{titul}</h1>
                     </div>
                     <div className='col-lg-4 derechas'>
                     {

@@ -11,25 +11,26 @@ import Tabla from '../../../comunes/Tabla';
 import axios from 'axios';
 import global from '../../../Global';
 
-const cookies = new Cookies(); 
+const cookies = new Cookies();
 class Departamento extends Component {
-    Departamento = React.createRef(); 
-    state = { tabl: [], status: null, deps:[]};
-    dato = (tabl) => { 
-        this.setState({ tabl }); 
+    Departamento = React.createRef();
+    state = { tabl: [], status: null, deps: [] };
+
+    dato = (tabl) => {
+        this.setState({ tabl });
         axios.get(global.url + "departamentos", global.autentica)
-        .then(res => {
-            let tabl = res.data;
-            tabl =  tabl.map( (p) => { p['idc'] = p.iddepartamentos; return p; });
-            this.setState({ tabl });
-        });
+            .then(res => {
+                let tabl = res.data;
+                tabl = tabl.map((p) => { p['idc'] = p.iddepartamentos; return p; });
+                this.setState({ tabl });
+            });
     }
-    componentDidMount() {}
+    componentDidMount() { }
     render() {
-        if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="26") { return <Redirect to="./"/>; }
+        if (cookies.get("idroles") !== "1" && cookies.get("idroles") !== "26") { return <Redirect to="./" />; }
         const columnas = [
             { title: 'Territorial', field: 'ter_nombre', sortable: true },
-            { title: 'Código', field:'dep_codigo', sortable: true},
+            { title: 'Código', field: 'dep_codigo', sortable: true },
             { title: 'Departamento', field: 'dep_nombre', sortable: true }
         ]
         return (
@@ -39,10 +40,14 @@ class Departamento extends Component {
                 <div className='pt-5 m-auto'>
                     <div className="am-mainpanel">
                         <div className="card pd-20 pd-sm-40">
-                            <Script3 tabla="departamentos" devuelvedatos={this.dato} />
-                            <EncTabla titulo="Departamentos" link="/Creardpto" titulo2="Departamentos" />
-                            <Tabla tabla="departamentos" columnas={columnas} valores={this.state.tabl} 
-                            redire="/Departamentos" titulo="Departamentos" link="editadpto/" />
+                            <div className='lineacolor-card'>
+                                <Script3 tabla="departamentos" devuelvedatos={this.dato} />
+                                <div className='xill20'>
+                                    <EncTabla titulo="Departamentos" link="/Creardpto" titulo2="Departamentos" />
+                                </div>
+                                <Tabla tabla="departamentos" columnas={columnas} valores={this.state.tabl}
+                                    redire="/Departamentos" titulo="Departamentos" link="editadpto/" />
+                            </div>
                         </div>
                     </div>
                 </div>

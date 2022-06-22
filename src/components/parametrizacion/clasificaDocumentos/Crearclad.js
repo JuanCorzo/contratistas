@@ -17,12 +17,12 @@ class Creaarrol extends Component {
     guardar = (e) =>{
         e.preventDefault();
         const nuev = {cld_nombre: document.forma.Rol.value}
-        guarda(nuev, "clasificas", "Clasificación documentos", "/clasificacion-documento");
+        guarda(nuev, "clasificas", "Clasificación documentos", "/clasificas");
         this.setState({ status: 'Ok'})
     }
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="26"){ return <Redirect to="./"/>; }
-        if(this.state.status==="Ok"){ return <Redirect to="/clasificacion-documento"/>; }let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"clasificacion-documento", name:"Clasificación Documentos"}, {href:"#", name:"Agregar clasificación Documentos"}];
+        if(this.state.status==="Ok"){ return <Redirect to="/clasificas"/>; }let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"clasificacion-documento", name:"Clasificación Documentos"}, {href:"#", name:"Agregar clasificación Documentos"}];
         return (
             <div>
                 <Header/>
@@ -43,7 +43,7 @@ class Creaarrol extends Component {
                                             <Fila nombre="Nombre clasificación" refer="Rol" tipo="1" col="12" />
                                         </div>
                                     </div>
-                                    <Botones enlace='/clasificacion-documento'/>
+                                    <Botones enlace='/clasificas'/>
                                 </div>
                             </form>
                         </div>

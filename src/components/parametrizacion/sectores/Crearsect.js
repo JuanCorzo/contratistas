@@ -20,12 +20,12 @@ class Crearsect extends Component {
             sec_codigo: document.forma.Codigo.value, 
             sec_nombre: document.forma.Nombre.value
         }
-        guarda(nuev, "sectores", "Sectores", "/naturaleza-entidades");
+        guarda(nuev, "sectores", "Sectores", "/sectores");
         this.setState({ status: 'Ok'})
     }
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8" && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
-        if(this.state.status==="Ok"){ return <Redirect to="/naturaleza-entidades"/>; }
+        if(this.state.status==="Ok"){ return <Redirect to="/sectores"/>; }
         let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"naturaleza-entidades", name:"Clasificación por NIT"},{href:"#", name:"Agregar clasificación por tipo de NIT"}];
         return (
             <div>
@@ -48,7 +48,7 @@ class Crearsect extends Component {
                                             <Fila nombre="Clasificación por tipo de NIT" refer="Nombre" tipo="1" arreglo="" col="8"/>
                                         </div>
                                     </div>
-                                    <Botones enlace='/naturaleza-entidades'/>    
+                                    <Botones enlace='/sectores'/>    
                                 </div>
                             </form>
                         </div>

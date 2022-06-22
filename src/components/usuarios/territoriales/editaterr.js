@@ -32,8 +32,7 @@ class editaterr extends Component {
         actualiza(tabe1, "territoriales", "Territorial", this.idc, "/territoriales");
         this.setState({ status: 'Ok'})
     }
-    dato = (tabe) => { this.setState(tabe);
-        console.log(tabe);
+    dato = (tabe) => { this.setState(tabe); 
         document.forma.idpais.value=this.state[0].idpaises; 
         document.forma.Codigo.value=this.state[0].ter_cod; 
         document.forma.Nombre.value=this.state[0].ter_nombre; 
@@ -58,7 +57,7 @@ class editaterr extends Component {
                                     <div className="modal-body p-6">
                                     
                                         <TituloModal titulo="Editar Territorial"/>
-                                   
+                                
                                         <div className='row'>
                                             <Pais col="8"/>
                                             <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" defecto={this.state.ter_cod} col="4"/>

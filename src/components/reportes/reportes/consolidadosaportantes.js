@@ -12,7 +12,7 @@ import Chart from "react-google-charts";
 import NumberFormat from "react-number-format";
 import EncTabla from '../../../comunes/EncTabla';
 const cookies = new Cookies(); 
-
+ 
 class consolidadosaportanes extends Component {
     state = { tabe:[], status: null, tabe1: [] };
     componentDidMount() {}
@@ -40,11 +40,16 @@ class consolidadosaportanes extends Component {
                   <div className='pt-5 m-auto'>
                     <div className="am-mainpanel">
                       <div className="card pd-20 pd-sm-40 pt-3">
-                        <EncTabla titulo="Consolidado Aportantes" showButton="false" />
-
+                      <div className='col-lg-12 fflitro lineacolor-card'>
+                            <div className='xill20'>
+                              <EncTabla titulo="Consolidado Aportantes" showButton="false" />
+                            </div>
                         <FiltrosConsulta devuelvedatos={this.dato} devuelvedatos2={this.dato1} titulo='dos'/>
-                        <div className='row'>
-                            <div className="col-lg-6">
+                      </div> 
+                      <br></br>
+                      <br></br>
+                        <div className='lineacolor-card'>
+                            <div className="">
                                 <MaterialTable 
                                 components={{
                                   Pagination: PatchedPagination,
@@ -56,13 +61,18 @@ class consolidadosaportanes extends Component {
                                 rowsPerPageOptions={[25, 50, 100]}
                                 ></MaterialTable> 
                             </div>
-                            <div className="col-lg-6 ">
+                        </div>
+                        <br></br>
+                        <br></br>
+                        <div className='lineacolor-card'>
+                            <div className="">
                                 <Chart width={'100%'} height={'100%'} chartType="PieChart"
                                 loader={<div>Loading Chart</div>} 
                                 data={this.state.tabe1} options={{ title: '', is3D:true }}
                                 rootProps={{ 'data-testid': '1' }}/>          
                             </div>
                         </div>
+                        
                       </div>
                     </div>
                   </div>   

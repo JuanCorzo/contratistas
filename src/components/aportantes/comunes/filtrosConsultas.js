@@ -131,9 +131,15 @@ class FiltrosConsulta extends Component {
         return (
             <React.Fragment>
                 <h6 className="card-body-title">{titul}</h6>
-                <form name="forma" className='fflitro'>
-                <div className="row">
-                    <div className="col-lg-3 izqq filtrot">Clasificación por obligatoriedad 
+                <form name="forma" className='fflitro  lineacolor-card'>
+                <div className="row xill20">
+                <div className='col-lg-12'>
+                    <h6 className="actions">Filtros</h6>
+                </div>
+           
+                <br></br>
+                    <div className="col-lg-3 izqq filtrot"> 
+                        <label>Clasificación por obligatoriedad </label>
                         <select name="clap" className="form-control" onChange={this.arma}>
                             <option value="0">Seleccione...</option>
                             {
@@ -144,7 +150,8 @@ class FiltrosConsulta extends Component {
                             }
                         </select>
                     </div>
-                    <div className="col-lg-3 izqq filtrot">Factores salariales
+                    <div className="col-lg-3 izqq filtrot">
+                    <label>Factores salariales</label>
                         <select name="estn" className="form-control" onChange={this.arma}>
                             <option value="0">Seleccione...</option>
                             {                            
@@ -155,7 +162,8 @@ class FiltrosConsulta extends Component {
 
                         </select>
                     </div>
-                    <div className="col-lg-3 izqq filtrot">Tipo de NIT
+                    <div className="col-lg-3 izqq filtrot">
+                    <label>Tipo de NIT</label>
                         <select name="sect" className="form-control" onChange={this.arma}>
                             <option value="0">Seleccione...</option>
                             {
@@ -166,7 +174,8 @@ class FiltrosConsulta extends Component {
                             }
                         </select>
                     </div>
-                    <div className="col-lg-3 izqq filtrot">Orden de las entidades<br></br>
+                    <div className="col-lg-3 izqq filtrot">
+                    <label>Orden de las entidades</label>
                         <select name="oren" className="form-control" onChange={this.arma}>
                             <option value="0">Seleccione</option>
                             {
@@ -177,7 +186,9 @@ class FiltrosConsulta extends Component {
                             }
                         </select>
                     </div>
-                    <div className="col-lg-3 izqq filtrot">Macrozonas
+                   
+                    <div className="col-lg-3 izqq filtrot">
+                        <label>Macrozonas</label>
                         <select className="form-control" ref={this.Macrozona} 
                         name="macro" onChange={this.llenater} required>
                             <option vaule="0">Macrozona</option>
@@ -189,7 +200,8 @@ class FiltrosConsulta extends Component {
                                 }
                         </select>
                     </div>
-                    <div className="col-lg-3 izqq filtrot">Territoriales
+                    <div className="col-lg-3 izqq filtrot">
+                        <label>Territoriales</label>
                         <select className="form-control" ref={this.Territorial} 
                         name="terr" onChange={this.llenadep} required>
                             <option vaule="0">Territorial</option>
@@ -202,7 +214,8 @@ class FiltrosConsulta extends Component {
                         </select>
                     </div>
 
-                    <div className="col-lg-3 izqq filtrot">Departamentos
+                    <div className="col-lg-3 izqq filtrot">
+                        <label>Departamentos</label>
                         <select className="form-control" ref={this.Departamento} 
                         name="depa" onChange={this.llenamun} required>
                             <option vaule="0">Departamento</option>
@@ -214,7 +227,8 @@ class FiltrosConsulta extends Component {
                             }
                         </select>
                     </div>
-                    <div className="col-lg-3 izqq filtrot">Ciudades
+                    <div className="col-lg-3 izqq filtrot">
+                        <label>Ciudades</label>
                         <select className="form-control" ref="Municipio" onChange={this.arma} name="ciud">
                             <option vaule="0">Municipio</option>
                             {
@@ -229,12 +243,12 @@ class FiltrosConsulta extends Component {
                         <b>Total registros:</b> { this.state.pane.map((con, i) => {return ( con.total)})}
                         <br></br>
                         <b>Total NIT principal:</b> { this.state.pane2.map((con, i) => {return ( con.total)})}
-
+                        <br></br>
                     </div>
                     <div className='col-lg-6 derechas' style={{top:"13px"}}>
                         <Descarga/>&nbsp;
                         <NavLink to="descarga_txt" target="_blank" className="btn btn-primary">Exportar TXT</NavLink>
-                    </div>
+                    </div> 
                 </div>
                 </form>
             </React.Fragment>

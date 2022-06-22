@@ -45,25 +45,38 @@ class aportanes extends Component {
                 <Menulat></Menulat>
                   <div className='pt-5 m-auto'>
                     <div className="am-mainpanel">
+                      
                       <div className="card pd-20 pd-sm-40 pt-3">
-                        <EncTabla titulo="Consulta Aportantes" showButton="false" />
+                          <div className='col-lg-12 fflitro lineacolor-card'>
+                            <div className='xill20'>
+                              <EncTabla titulo="Consulta Aportantes" showButton="false" />
+                            </div>
+                            <FiltrosConsulta devuelvedatos={this.dato} devuelvedatos2={this.dato1} titulo='uno'/>
+                          </div> 
 
-                        <FiltrosConsulta devuelvedatos={this.dato} devuelvedatos2={this.dato1} titulo='uno'/>
-                        <MaterialTable 
-                          components={{
-                            Pagination: PatchedPagination,
-                          }}
-                          columns={columnas} data={this.state.tabe} title="Consulta Entidades aportantes"
-                          options={{ actionsColumnIndex: -1, rowStyle: { fontSize: 13 }}}
-                          localization={{ header:{ actions: 'Acciones'}}}
-                          icons={definiciones}
-                        ></MaterialTable> 
+                          <br></br>
+                          <br></br>
+
+                          <div className='lineacolor-card'>
+                              <div className="">
+                                <MaterialTable 
+                                  components={{
+                                    Pagination: PatchedPagination,
+                                  }}
+                                  columns={columnas} data={this.state.tabe} title="Consulta Entidades aportantes"
+                                  options={{ actionsColumnIndex: -1, rowStyle: { fontSize: 13 }}}
+                                  localization={{ header:{ actions: 'Acciones'}}}
+                                  icons={definiciones}
+                                ></MaterialTable> 
+                              </div>
+                          </div> 
+
                       </div>
-                    </div>    
+                    </div>
                   </div>
                 <Footer></Footer>
             </div>
         );
-    }
+    } 
 }
 export default aportanes;

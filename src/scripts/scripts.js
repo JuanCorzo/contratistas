@@ -27,7 +27,7 @@ export const guarda = (arreglo, direccion, tabela, redire) =>
           "log_accion": "Crear",
           "log_objeto": tablal, 
           "log_idusuarios": cookies.get("idusuarios")
-        }
+        } 
         axios.post(global.url + "logs", tabe,  global.autentica);
         swal(tabela + ' creado', 'Se ha creado el registro correctamente', 'success' );
     }).catch((error) => {

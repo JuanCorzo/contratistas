@@ -7,7 +7,7 @@ class Fila extends Component {
         const tipoInput = this.props.tipo;
         var dataArreglo = this.props.arreglo;
         var defecto = this.props.defecto;
-        var col = this.props.col || 3;
+        var col = this.props.col || 6;
         return (
             <div className={`col-md-${(col)} col-input-style`}>
                 <label>{nombre}</label>

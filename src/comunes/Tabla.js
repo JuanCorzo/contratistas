@@ -7,6 +7,7 @@ import PatchedPagination from './PatchedPagination';
 import DeleteOutline from '@material-ui/icons/DeleteOutline';
 import { eliminar } from '../scripts/scripts';
 import Cookies from 'universal-cookie';
+import { Paper } from '@material-ui/core';
 
 const cookies = new Cookies(); 
 class Tabla extends Component {
@@ -19,7 +20,7 @@ class Tabla extends Component {
     enviar = (id) => { this.setState({ direc: id }) }
     render() {
         if(this.state.status==="Ok"){return <Redirect to={"/navigate"}/>;}
-        const titul = this.props.titulo;
+        const titul = "";
         const link = this.props.link;
         const columnas = this.props.columnas;
         const valores = this.props.valores;
@@ -28,6 +29,7 @@ class Tabla extends Component {
             <MaterialTable 
                 components={{
                     Pagination: PatchedPagination,
+                    Container: props => <Paper {...props} elevation={0}/>
                 }}
                 columns={columnas} data={valores} 
                 title={titul} style={{"padding": "1px 1px 1px 1px"}}

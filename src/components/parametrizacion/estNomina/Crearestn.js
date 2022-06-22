@@ -22,12 +22,12 @@ class Creaarestn extends Component {
             est_nombre: document.forma.Nombre.value,
             est_descripcion: document.forma.Desc.value
         }
-        guarda(nuev, "estructuranomnina", "Factor salarial", "/EstructuraNomina");
+        guarda(nuev, "estructuranomnina", "Factor salarial", "/estructuranomnina");
         this.setState({ status: 'Ok'})
     }
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8" && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
-        if(this.state.status==="Ok"){ return <Redirect to="/EstructuraNomina"/>; }
+        if(this.state.status==="Ok"){ return <Redirect to="/estructuranomnina"/>; }
         let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"EstructuraNomina", name:"Factores salariales"},{href:"#", name:"Agregar factor salarial"}];
         return (
             <div>
@@ -53,7 +53,7 @@ class Creaarestn extends Component {
                                             <Fila nombre="Descripción" refer="Desc" tipo="1" arreglo="" col="12"/>
                                         </div>
                                     </div>
-                                    <Botones enlace='/EstructuraNomina'/>    
+                                    <Botones enlace='/estructuranomnina'/>    
                                 </div>
                                 
                             </form>

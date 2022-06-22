@@ -34,17 +34,21 @@ class sedes extends Component {
             { title: 'Dirección', field: 'sed_direccion', sortable: true },
         ]
         return (
-            <div>
+            <div> 
                 <Header></Header>
                 <Menulat></Menulat>
                     <div className='pt-5 m-auto'>
                         <form name="forma">
                             <div className="am-mainpanel">
                                 <div className="card pd-20 pd-sm-40">
+                                <div className='lineacolor-card'>
                                     <Script3 tabla="sedes" devuelvedatos={this.dato} />
+                                    <div className='xill20'>
                                     <EncTabla titulo="Sedes" link="/Crearsede" titulo2="Sedes" />
+                                    </div>
                                     <Tabla tabla="sedes" columnas={columnas} valores={this.state.tabl} 
                                     redire="/sedes" titulo="Sedes" link="editasede/" />
+                                </div>
                                 </div>
                             </div>
                         </form>

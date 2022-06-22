@@ -7,7 +7,7 @@ class Fila2 extends Component {
         var arreglo = this.props.arreglo;
         var defecto = this.props.defecto;
         var ancho = this.props.ancho;
-        if(ancho===""){ ancho="col-lg-3"; }
+        if(ancho===""){ ancho="col-lg-12"; }
         if(tipo==="7" && defecto!==""){
            //defecto = defecto.substr(0,10);
         }
@@ -17,9 +17,7 @@ class Fila2 extends Component {
                     arreglo==="1"?(
                         <React.Fragment>{ nombre }</React.Fragment> 
                     ): 
-                    
                     ( <React.Fragment></React.Fragment> )
-
                 }
                 {
                     tipo === "1"? (

@@ -29,9 +29,13 @@ class Roles extends Component {
                     <div className='pt-5 m-auto'>
                         <div className="am-mainpanel">
                             <div className="card pd-20 pd-sm-40">
+                            <div className='lineacolor-card'> 
+                            <div className='xill20'>
                                 <Script3 tabla="logs" devuelvedatos={this.dato} />
                                 <EncTabla titulo="Logs de Eventos" showButton="false" />
-                                <Tabla3 tabla="logs" columnas={columnas} valores={this.state.rols} titulo="Logs de eventos" link="/" />
+                            </div>
+                                <Tabla3 tabla="logs" columnas={columnas} valores={this.state.rols} titulo="" link="/" />
+                            </div>
                             </div>
                         </div>
                     </div>    

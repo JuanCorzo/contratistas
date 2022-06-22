@@ -24,7 +24,7 @@ class tiposEntidades extends Component {
     }
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8" && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
-        if(this.state.status==="Ok"){return <Redirect to="/Tipos-entidades"/>;}
+        if(this.state.status==="Ok"){return <Redirect to="/tipoadscrita"/>;}
         const columnas = [
             { title: 'ID', field:'idc', sortable: true },
             { title: 'Código', field: 'tad_codigo', sortable: true },
@@ -38,10 +38,14 @@ class tiposEntidades extends Component {
                     <div className="am-mainpanel">
                         
                         <div className="card pd-20 pd-sm-40">
+                        <div className='lineacolor-card'>
                             <Script3 tabla="tipoadscrita" devuelvedatos={this.dato} />
-                            <EncTabla titulo="Orden entidades" link="/creartent" titulo2="Orden entidades" />
+                            <div className='xill20'>
+                                <EncTabla titulo="Orden Entidades" link="/creartent" titulo2="Orden Entidades" />
+                            </div>
                             <Tabla tabla="tipoadscrita" columnas={columnas} valores={this.state.rols} 
-                            redire="/Tipos-entidades" titulo="Orden entidades" link="editatent/" />
+                            redire="/tipoadscrita" titulo="Orden Entidades" link="editatent/" />
+                        </div>
                         </div>
                     </div>
                 </div>   

@@ -27,7 +27,7 @@ class editatdoc extends Component {
             tid_clasifica: document.forma.clas.value,
             tid_aprobacion: document.forma.aprob.value
         }
-        actualiza(tabe, "tiposdocumentos", "Tipos de documentos", this.idc, "/Tipos-docuemntos");
+        actualiza(tabe, "tiposdocumentos", "Tipos de documentos", this.idc, "/tiposdocumentos");
         this.setState({ status: 'Ok'})
     }
     dato = (rols) => { 
@@ -38,8 +38,8 @@ class editatdoc extends Component {
     }
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8" && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
-        if(this.state.status==="Ok"){return <Redirect to="/Tipos-docuemntos"/>;}
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../tipos-docuemntos", name:"Tipos documentos"}, {href:"editatdoc/3", name:"Editar tipo de documento"}];
+        if(this.state.status==="Ok"){return <Redirect to="/tiposdocumentos"/>;}
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../tiposdocumentos", name:"Tipos documentos"}, {href:"editatdoc/3", name:"Editar tipo de documento"}];
         return (
             <div>
                 <Header></Header>
@@ -65,7 +65,7 @@ class editatdoc extends Component {
                                             <Fila nombre="Tipo aporbacion" refer="aprob" tipo="6" arreglo={this.state.apro} defecto={this.state.tid_aprobacion} col="12" />
                                         </div>
                                     </div>
-                                    <Botones enlace='/Tipos-docuemntos'/>    
+                                    <Botones enlace='/tiposdocumentos'/>    
                                 </div>
                             </form>
                         </div>

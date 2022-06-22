@@ -110,13 +110,13 @@ class Router extends Component {
                     <Route path="/permisos" component={Permisos}></Route>
                     <Route path="/editamiusuario" component={editamiusuario}></Route>
 
-                    <Route path="/EstructuraNomina" component={estNomina}></Route>
-                    <Route path="/Clasificacion-aportantes" component={clasificaAportantes}></Route>
-                    <Route path="/Tipos-entidades" component={tiposEntidades}></Route>
-                    <Route path="/naturaleza-entidades" component={sectores}></Route>
-                    <Route path="/Tipos-docuemntos" component={tiposDocumentos}></Route>
+                    <Route path="/estructuranomnina" component={estNomina}></Route>
+                    <Route path="/clasificacionesaportantes" component={clasificaAportantes}></Route>
+                    <Route path="/tipoadscrita" component={tiposEntidades}></Route>
+                    <Route path="/sectores" component={sectores}></Route>
+                    <Route path="/tiposdocumentos" component={tiposDocumentos}></Route>
                     <Route path="/macrozonas" component={macrozonas}></Route>
-                    <Route path="/clasificacion-documento" component={clasificaDocumentos}></Route>
+                    <Route path="/clasificas" component={clasificaDocumentos}></Route>
 
                     <Route path="/sedes" component={sedes}></Route>
                     <Route path="/aportantes" component={aportantes}></Route>

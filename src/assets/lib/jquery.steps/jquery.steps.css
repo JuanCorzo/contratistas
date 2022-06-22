@@ -98,9 +98,9 @@
     padding: 1em 1em;
     text-decoration: none;
 
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
 }
 
 .wizard > .steps .disabled a,
@@ -147,9 +147,9 @@
     position: relative;
     width: auto;
 
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
 }
 
 .wizard.vertical > .content
@@ -259,9 +259,9 @@
     padding: 0.5em 1em;
     text-decoration: none;
 
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
 }
 
 .wizard > .actions .disabled a,
