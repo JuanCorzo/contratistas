@@ -22,13 +22,13 @@ class Creartipd extends Component {
             tid_clasifica: document.forma.clas.value,
             tid_aprobacion: document.forma.aprob.value
         }
-        guarda(nuev, "tiposdocumentos", "Tipos de documentos", "/Tipos-docuemntos");
+        guarda(nuev, "tiposdocumentos", "Tipos de documentos", "/tiposdocumentos");
         this.setState({ status: 'Ok'})
     }
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8" && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
-        if(this.state.status==="Ok"){ return <Redirect to="/Tipos-docuemntos"/>; }
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Tipos-docuemntos", name:"Tipos documentos"}, {href:"#", name:"Agregar tipo de documento"}];
+        if(this.state.status==="Ok"){ return <Redirect to="/tiposdocumentos"/>; }
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"tiposdocumentos", name:"Tipos documentos"}, {href:"#", name:"Agregar tipo de documento"}];
         return (
             <div>
                 <Header/>
@@ -53,7 +53,7 @@ class Creartipd extends Component {
                                             <Fila nombre="Tipo aporbacion" refer="aprob" tipo="6" arreglo={this.state.apro} col="12" />
                                         </div>
                                     </div>
-                                    <Botones enlace='/Tipos-docuemntos'/>    
+                                    <Botones enlace='/tiposdocumentos'/>    
                                 </div>
                             </form>
                         </div>

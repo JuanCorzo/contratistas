@@ -24,7 +24,7 @@ class editasect extends Component {
             sec_codigo: document.forma.Codigo.value,
             sec_nombre: document.forma.Nombre.value 
         }
-        actualiza(tabe, "sectores", "sectores", this.idc, "/naturaleza-entidades");
+        actualiza(tabe, "sectores", "sectores", this.idc, "/sectores");
         this.setState({ status: 'Ok'})
     }
     dato = (rols) => { 
@@ -34,8 +34,8 @@ class editasect extends Component {
     }
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8" && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
-        if(this.state.status==="Ok"){return <Redirect to="/naturaleza-entidades"/>;}
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../naturaleza-entidades", name:"Clasificación por NIT"},{href:"#", name:"Editar clasificación por tipo de NIT"}];
+        if(this.state.status==="Ok"){return <Redirect to="/sectores"/>;}
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../sectores", name:"Clasificación por NIT"},{href:"#", name:"Editar clasificación por tipo de NIT"}];
         return (
             <div>
                 <Header></Header>
@@ -57,7 +57,7 @@ class editasect extends Component {
                                             <Fila nombre="Clasificación por tipo de NIT" refer="Nombre" tipo="1" arreglo="" defecto={this.state.sec_nombre} col="8"/>
                                         </div>
                                     </div>
-                                    <Botones enlace='/naturaleza-entidades'/>    
+                                    <Botones enlace='/sectores'/>    
                                 </div>
                             </form>
                         </div>

@@ -9,10 +9,12 @@ import EncTabla from '../../../comunes/EncTabla';
 import Tabla from '../../../comunes/Tabla';
 import axios from 'axios';
 import global from '../../../Global';
+import Breadcrumb from '../../../layout/Breadcrumb';
 
 const cookies = new Cookies(); 
 class sedes extends Component {
     state = { tabl: [], status: null, deps:[]};
+	linksBreadcrumb = [{href:"../inicio", name:"Inicio"}, {href:"../sedes", name:"Listado de Sedes"}];
     dato = (tabl) => { 
         this.setState({ tabl }); 
         axios.get(global.url + "sedes", global.autentica)
@@ -34,17 +36,24 @@ class sedes extends Component {
             { title: 'Dirección', field: 'sed_direccion', sortable: true },
         ]
         return (
-            <div>
+            <div> 
                 <Header></Header>
                 <Menulat></Menulat>
                     <div className='pt-5 m-auto'>
                         <form name="forma">
                             <div className="am-mainpanel">
+								<div className='leftBreadcrumb'>
+									<Breadcrumb links={this.linksBreadcrumb}></Breadcrumb>
+								</div>
                                 <div className="card pd-20 pd-sm-40">
+                                <div className='lineacolor-card'>
                                     <Script3 tabla="sedes" devuelvedatos={this.dato} />
+                                    <div className='xill20'>
                                     <EncTabla titulo="Sedes" link="/Crearsede" titulo2="Sedes" />
+                                    </div>
                                     <Tabla tabla="sedes" columnas={columnas} valores={this.state.tabl} 
                                     redire="/sedes" titulo="Sedes" link="editasede/" />
+                                </div>
                                 </div>
                             </div>
                         </form>

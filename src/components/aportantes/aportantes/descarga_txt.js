@@ -26,7 +26,7 @@ class descarga_txt extends Component {
         axios.get(global.url + "aportantes/filtros/1,3/0/1/0/0", global.autentica ).then((res) => {
             var tabe = res.data;
             this.setState({ tabe });
-            console.log(tabe);
+            // console.log(tabe);
             var exporte = "1|NI|899999054|"+datae+"|"+this.state.tabe1+"<br><br>";
             for (var i=0; i<tabe.length; i++) {
                 var p=i+2;

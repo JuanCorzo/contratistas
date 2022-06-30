@@ -5,7 +5,7 @@ class Territorial extends Component {
     state = { role: [] };
     componentDidMount(){ this.llenar(); }
     llenar = () => {
-        axios.get(global.url + "aportantes/territoriales/terri", global.autentica)
+        axios.get(global.url + "territorial", global.autentica)
         .then(res => {
             let role = res.data;
             role =  role.map( (p) => { p['id'] = p.idterritorial; p[`nombre`] = p.ter_nombre; return p; });

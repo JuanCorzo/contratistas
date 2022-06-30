@@ -21,7 +21,7 @@ class editaclad extends Component {
     guardar = (e) =>{
         e.preventDefault();
         const tabe = { idroles: this.idc, cld_nombre: document.forma.Rol.value }
-        actualiza(tabe, "clasificas", "Clasificación documentos", this.idc, "/clasificacion-documento");
+        actualiza(tabe, "clasificas", "Clasificación documentos", this.idc, "/clasificas");
         this.setState({ status: 'Ok'})
     }
     dato = (rols) => { 
@@ -30,8 +30,8 @@ class editaclad extends Component {
     }
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
-        if(this.state.status==="Ok"){return <Redirect to="/clasificacion-documento"/>;}
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../clasificacion-documento", name:"Clasificación Documentos"}, {href:"#", name:"Editar Clasificación Documentos"}];
+        if(this.state.status==="Ok"){return <Redirect to="/clasificas"/>;}
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../clasificas", name:"Clasificación Documentos"}, {href:"#", name:"Editar Clasificación Documentos"}];
         return (
             <div>
                 <Header></Header>
@@ -52,7 +52,7 @@ class editaclad extends Component {
                                             <Fila nombre="Nombre clasificación" refer="Rol" tipo="1" col="12"/>
                                         </div>
                                     </div>
-                                    <Botones enlace='/clasificacion-documento'/>    
+                                    <Botones enlace='/clasificas'/>    
                                 </div>
                             </form>
                         </div>

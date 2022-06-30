@@ -20,13 +20,13 @@ class Crearcapo extends Component {
             cla_codigo: document.forma.Codigo.value, 
             cla_nombre: document.forma.Nombre.value
         }
-        guarda(nuev, "clasificacionesaportantes", "Clasificación aportantes", "/Clasificacion-aportantes");
+        guarda(nuev, "clasificacionesaportantes", "Clasificación aportantes", "/clasificacionesaportantes");
         this.setState({ status: 'Ok'})
     }
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8" && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
-        if(this.state.status==="Ok"){ return <Redirect to="/Clasificacion-aportantes"/>; }
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Clasificacion-aportantes", name:"Clasificación de aportantes"},{href:"#", name:"Agregar clasificación de aportantes"}];
+        if(this.state.status==="Ok"){ return <Redirect to="/clasificacionesaportantes"/>; }
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"clasificacionesaportantes", name:"Clasificación de aportantes"},{href:"#", name:"Agregar clasificación de aportantes"}];
         return (
             <div>
                 <Header/>
@@ -47,7 +47,7 @@ class Crearcapo extends Component {
                                             <Fila nombre="Clasificación" refer="Nombre" tipo="1" arreglo="" col="8"/>
                                         </div>
                                     </div>
-                                    <Botones enlace='/Clasificacion-aportantes'/>
+                                    <Botones enlace='/clasificacionesaportantes'/>
                                 </div>
                                     
                             </form>

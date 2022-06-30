@@ -13,7 +13,7 @@ import Usuarios from '../components/usuarios/usuarios/Usuarios';
 import Departamentos from '../components/usuarios/departamentos/Departamentos';
 import Municipios from '../components/usuarios/municipios/Municipios';
 import Paises from '../components/usuarios/paises/Paises';
-import Territoriales from '../components/usuarios/territoriales/territoriales';
+import Territorial from '../components/usuarios/territorial/territorial';
 import Menus from '../components/usuarios/menus/Menus';
 import Permisos from '../components/usuarios/permisos/permisos';
 import editamiusuario from '../components/usuarios/usuarios/editamiusuario';
@@ -52,7 +52,7 @@ import Creardpto from '../components/usuarios/departamentos/Creardpto';
 import Crearmuni from '../components/usuarios/municipios/Crearmuni';
 import Crearmenu from '../components/usuarios/menus/Crearmenu';
 import Crearperm from '../components/usuarios/permisos/Crearperm';
-import Crearterr from '../components/usuarios/territoriales/Crearterr';
+import Crearterr from '../components/usuarios/territorial/Crearterr';
 
 import Crearestn from '../components/parametrizacion/estNomina/Crearestn';
 import Crearcapo from '../components/parametrizacion/clasificaAportantes/Crearcapo';
@@ -75,7 +75,7 @@ import editadpto from '../components/usuarios/departamentos/editadpto';
 import editamuni from '../components/usuarios/municipios/editamuni';
 import editamenu from '../components/usuarios/menus/editamenu';
 import editaperm from '../components/usuarios/permisos/editaperm';
-import editaterr from '../components/usuarios/territoriales/editaterr';
+import editaterr from '../components/usuarios/territorial/editaterr';
 
 import editaestn from '../components/parametrizacion/estNomina/editaestn';
 import editacapo from '../components/parametrizacion/clasificaAportantes/editacapo';
@@ -103,20 +103,20 @@ class Router extends Component {
                     <Route path="/Roles" component={Roles}></Route>
                     <Route path="/Usuarios" component={Usuarios}></Route>
                     <Route path="/Paises" component={Paises}></Route>
-                    <Route path="/territoriales" component={Territoriales}></Route>
+                    <Route path="/territoriales" component={Territorial}></Route>
                     <Route path="/Departamentos" component={Departamentos}></Route>
                     <Route path="/Municipios" component={Municipios}></Route>
                     <Route path="/Menus" component={Menus}></Route>
                     <Route path="/permisos" component={Permisos}></Route>
                     <Route path="/editamiusuario" component={editamiusuario}></Route>
 
-                    <Route path="/EstructuraNomina" component={estNomina}></Route>
-                    <Route path="/Clasificacion-aportantes" component={clasificaAportantes}></Route>
-                    <Route path="/Tipos-entidades" component={tiposEntidades}></Route>
-                    <Route path="/naturaleza-entidades" component={sectores}></Route>
-                    <Route path="/Tipos-docuemntos" component={tiposDocumentos}></Route>
+                    <Route path="/estructuranomnina" component={estNomina}></Route>
+                    <Route path="/clasificacionesaportantes" component={clasificaAportantes}></Route>
+                    <Route path="/tipoadscrita" component={tiposEntidades}></Route>
+                    <Route path="/sectores" component={sectores}></Route>
+                    <Route path="/tiposdocumentos" component={tiposDocumentos}></Route>
                     <Route path="/macrozonas" component={macrozonas}></Route>
-                    <Route path="/clasificacion-documento" component={clasificaDocumentos}></Route>
+                    <Route path="/clasificas" component={clasificaDocumentos}></Route>
 
                     <Route path="/sedes" component={sedes}></Route>
                     <Route path="/aportantes" component={aportantes}></Route>

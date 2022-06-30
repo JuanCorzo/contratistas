@@ -27,7 +27,7 @@ export const guarda = (arreglo, direccion, tabela, redire) =>
           "log_accion": "Crear",
           "log_objeto": tablal, 
           "log_idusuarios": cookies.get("idusuarios")
-        }
+        } 
         axios.post(global.url + "logs", tabe,  global.autentica);
         swal(tabela + ' creado', 'Se ha creado el registro correctamente', 'success' );
     }).catch((error) => {
@@ -59,9 +59,9 @@ export const eliminar = (direccion, tabela, id, redire) =>
         icon: "warning", buttons: true, dangerMode: true,
       }).then((willDelete) => {
         if (willDelete) {
-          axios.delete(global.url+ direccion + "/" + id, 
-          global.autentica)
+          axios.delete(global.url+ direccion + "/" + id, global.autentica)
           .then((res) => { 
+              
               const current = new Date();
               const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;      
               const tablal = tabela + " id:" + id; 

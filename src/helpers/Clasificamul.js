@@ -22,7 +22,7 @@ const Option = (props) => {
 class Clasificamul extends Component {
   state = { tipon:[] };
   componentDidMount() {
-    axios.get(global.url + "clasificacionesaportantes", global.autentica)
+    axios.get(global.url + "clasificacionesaportantes/sel", global.autentica)
     .then(res => {
         let tipon = res.data;
         this.setState({ tipon });

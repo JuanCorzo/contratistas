@@ -27,7 +27,7 @@ class Inicio extends Component {
           for (var i=0; i<tabe.length; i++) {
                 var valor=tabe[i].principal*1;
                 var valor1=tabe[i].adscrita*1;
-                tabe1.push([tabe[i].ter_nombre, valor, 'color: #ef9d9d', valor1, 'color: #6cabee']);
+                tabe1.push([tabe[i].ter_nombre, valor, 'color: #6EA6EF', valor1, 'color: #4469BA']);
           }
           this.setState({ tabe1 });
         }); 
@@ -63,11 +63,11 @@ class Inicio extends Component {
         }); 
     }
     render() {
-        if(!cookies.get("idroles")){ return <Redirect to="./"/>;}
+        if(!cookies.get("idroles")){ return <Redirect to="./"/>;} 
         return (
             <div>
                 <Header />
-                <Menulat />
+				<Menulat></Menulat> 
                 <div className="am-mainpanel">
                     <div className="am-pagebody" >
                         <div className="card pd-20 pd-sm-40">
@@ -199,7 +199,7 @@ class Inicio extends Component {
                                 <Chart width={'100%'} height={380} chartType="PieChart"
                                 loader={<div>Loading Chart</div>} 
                                 data={this.state.tabe4} options={{ title: 'Aportantes por macrozona', is3D:true,
-                                colors: ['#6cabee', '#65ada2', '#ec8f6e', '#f3b49f', '#f6c7b6'],
+                                colors: ['#6cabee', '#65ada2', '#1a48c5', '#1a48c5', '#f6c7b6'],
                                 }}
                                 rootProps={{ 'data-testid': '1' }}/>          
                             </div>

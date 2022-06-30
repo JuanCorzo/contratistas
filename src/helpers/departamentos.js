@@ -10,7 +10,7 @@ class Roles extends Component {
         .then(res => {
             let dep = res.data;
             dep =  dep.map( (p) => { p['id'] = p.iddepartamentos; p[`nombre`] = p.dep_nombre; return p; });
-            this.setState({ dep });
+            this.setState({ dep }); 
         });
     }
     llenamun = () =>{

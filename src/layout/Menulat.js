@@ -9,7 +9,8 @@ import logo from '../assets/images/logo-esap_blanco.png';
 
 const cookies = new Cookies(); 
 class Menulat extends Component {
-    state = { perm:[], terr:[], status: null, estado:"" };
+    state = { perm:[], terr:[], status: null, estado:"", collapse:true };
+ 
 
     componentDidMount() {
         var rol = cookies.get("idroles");
@@ -19,15 +20,21 @@ class Menulat extends Component {
             this.setState({ perm });
         });
     }
-    render() {
+    render() { 
+
+			
+       // const {collapse} = this.state
         return (
-            <div className="am-sideleft colorback">
-                <div className="">
-                    <NavLink to="/Inicio" className="am-logo"><img src={logo} alt="Logo" className='tamaimg' /></NavLink>
-                </div>
+            <div className="am-sideleft">
+              
                 <div className="tab-content">
                     <div key="mainMenu" id="mainMenu">
-                        <ProSidebar style={{height: "800px"}}>
+                   
+                        <ProSidebar className='menubg'  style={{height: "825px"}}> 
+                             <div>
+							 <NavLink to="./inicio"> <img className='logoblancodos' src={logo} alt="algo"></img></NavLink>
+                               
+                            </div>
                             <Menu iconShape="square">
                                 <MenuItem id="0" key="item_1" icon={<i className="icon ion-ios-home-outline tx-20"></i>}><NavLink to="./inicio">Inicio</NavLink></MenuItem>
 
@@ -82,7 +89,7 @@ class Menulat extends Component {
                         </ProSidebar>
                     </div>
                 </div>
-            </div>
+            </div> 
         );
     }
 }

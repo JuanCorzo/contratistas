@@ -21,7 +21,7 @@ class FiltrosConsulta extends Component {
     'Documentos de identificación', 'Enlaces'], lfact:null, lorde:null, lterri:null,
     lclasi:null, ltipni:null, pane:[], pane2:[]  };
     componentDidMount() {
-        axios.get(global.url + "clasificacionesaportantes", global.autentica)
+        axios.get(global.url + "clasificacionesaportantes/sel", global.autentica)
         .then(res => {
             let role = res.data;
             this.setState({ role });
@@ -31,12 +31,12 @@ class FiltrosConsulta extends Component {
             let estn = res.data;
             this.setState({ estn });
         });
-        axios.get(global.url + "sectores", global.autentica)
+        axios.get(global.url + "sectores/sel", global.autentica)
         .then(res => {
             let sect = res.data;
             this.setState({ sect });
         });
-        axios.get(global.url + "tipoadscrita", global.autentica)
+        axios.get(global.url + "tipoadscrita/sel", global.autentica)
         .then(res => {
             let oren = res.data;
             this.setState({ oren });
@@ -47,7 +47,7 @@ class FiltrosConsulta extends Component {
             let macr = res.data;
             this.setState({ macr });
         });
-        axios.get(global.url + "aportantes/territoriales/terri", global.autentica)
+        axios.get(global.url + "territorial", global.autentica)
         .then(res => {
             let terr = res.data;
             this.setState({ terr });
@@ -61,11 +61,31 @@ class FiltrosConsulta extends Component {
         });
         this.arma();
     }
-    facsa = (lfact) => { this.setState({ lfact });  }
-    ordea = (lorde) => { this.setState({ lorde });  }
-    terra = (lterri) => { this.setState({ lterri });  }
-    clasi = (lclasi) => { this.setState({ lclasi });  }
-    tipni = (ltipni) => { this.setState({ ltipni });  }
+    facsa = (lfact) => { 
+        this.setState({ lfact },() => {
+            this.arma();
+        }); 
+    }
+    ordea = (lorde) => { 
+        this.setState({ lorde },() => {
+            this.arma();
+        }); 
+    }
+    terra = (lterri) => { 
+        this.setState({ lterri },() => {
+            this.arma();
+        });
+    }
+    clasi = (lclasi) => { 
+        this.setState({ lclasi },() => {
+            this.arma();
+        });
+    }
+    tipni = (ltipni) => { 
+        this.setState({ ltipni },() => {
+            this.arma();
+        });
+    }
 
     llenater = () =>{
         var iddep = this.Macrozona.current.value;
@@ -222,7 +242,7 @@ class FiltrosConsulta extends Component {
     render() {
         return (
             <React.Fragment>
-                <form name="forma" className='fflitro shadow-sm'>
+                <form name="forma" className='fflitro'>
                     <div className="row">
                     {
                         this.props.titulo==="dos"?
@@ -230,7 +250,6 @@ class FiltrosConsulta extends Component {
                             <div className="col-lg-6 mb-2 filtrot col-input-style">
                                 <label>Reporte</label>
                                 <select name="orde" className="form-control" onChange={this.arma}>
-                                    <option value="0">Reporte</option>
                                     {
                                         this.state.reportes.map((cons, i) => {
                                         return (
@@ -245,7 +264,6 @@ class FiltrosConsulta extends Component {
                             <div className="col-lg-6 mb-2 filtrot col-input-style">
                                 <label>Líneas de tiempo</label>
                                 <select name="orde" className="form-control" onChange={this.arma}>
-                                    <option value="0">Líneas de tiempo</option>
                                     {
                                         this.state.lineas.map((cons, i) => {
                                         return (
@@ -263,7 +281,7 @@ class FiltrosConsulta extends Component {
                     </div>
                     <div className="row">
                         <div className="col-lg-3 filtrot col-input-style">
-                            <label className="m-0">Clasificación por obligatoriedad</label>
+                            <label className="m-0">Clasificación por obligatoriedad</label> 
                             <Clasifmul devuelveclasif={this.clasi} />
                         </div>
                         <div className="col-lg-3 filtrot col-input-style">
@@ -283,7 +301,7 @@ class FiltrosConsulta extends Component {
                         <div className="col-lg-3 filtrot col-input-style">
                             <label>Macrozona</label>
                             <select className="form-control" ref={this.Macrozona} name="macro" onChange={this.llenater} required>
-                                <option vaule="0">Macrozona</option>
+                                <option value="0">Seleccionar</option>
                                 {
                                     this.state.macr.map((con, i) => {
                                     return (
@@ -296,7 +314,7 @@ class FiltrosConsulta extends Component {
                             <label>Territorial</label>
                             <select className="form-control" ref={this.Territorial} 
                             name="terr" onChange={this.llenadep} required>
-                                <option vaule="0">Territorial</option>
+                                <option value="0">Seleccionar</option>
                                 {
                                     this.state.terr.map((con, i) => {
                                     return (
@@ -309,7 +327,7 @@ class FiltrosConsulta extends Component {
                             <label>Departamento</label>
                             <select className="form-control" ref={this.Departamento} 
                             name="depa" onChange={this.llenamun} required>
-                                <option vaule="0">Departamento</option>
+                                <option value="0">Seleccionar</option>
                                 {
                                     this.state.dept.map((con, i) => {
                                     return (
@@ -321,7 +339,7 @@ class FiltrosConsulta extends Component {
                         <div className="col-lg-3 filtrot col-input-style">
                             <label>Municipio</label>
                             <select className="form-control" ref="Municipio" onChange={this.arma} name="ciud">
-                                <option vaule="0">Municipio</option>
+                                <option value="0">Seleccionar</option>
                                 {
                                     this.state.ciud.map((con, i) => {
                                     return (
@@ -345,15 +363,14 @@ class FiltrosConsulta extends Component {
                                 </div>
 
                                 <div className="col-lg-6 derechas" style={{top:"5px"}}>
-                                    <input type='button' className="btn btn-primary mr-2" onClick={this.arma} value='Consultar' />
+                                    <button type='button' className="btn btn-primary mr-2" onClick={this.arma} ><i className="xicon icon ion-android-cloud-circle" ></i>Consultar</button>
                                     <Descarga/>
                                 </div>
                             </div>
                         ) :
-                        ( <div></div> )
+                        (<br/> )
                     }
-                </form>
-                <br></br>
+                </form> 
             </React.Fragment>
         )
     }

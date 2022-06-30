@@ -9,11 +9,13 @@ class Roles extends Component {
         .then(res => {
             let dept = res.data;
             this.setState({ dept });
+			// console.log( res.data);
         });
         axios.get(global.url + "ciudades", global.autentica)
         .then(res => {
             let ciud = res.data;
             this.setState({ ciud });
+			// console.log( res.data);
         });
     }
     cambiodep = () =>
@@ -23,6 +25,7 @@ class Roles extends Component {
         .then(res => {
             const ciud = res.data;
             this.setState({ ciud });
+			// console.log( res.data);
         });
     }
     render() { 

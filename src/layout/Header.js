@@ -1,15 +1,21 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom';
 import Cookies from 'universal-cookie';
+/** import { FaAlignJustify } from 'react-icons/fa';   **/
+
 const cookies = new Cookies(); 
 
-class Header extends Component {
-    render() {
-        return (
 
-            <div className="am-header" style={{padding: "40px"}}>
+class Header extends Component {
+
+    render() {
+
+        return (
+			
+            <div className="am-header" style={{padding: "25px"}}>  
+			
                 <div className="logoblanco" style={{marginLeft: "129px"}}>
-                    <b>ESAP</b> - <b>SIGIP</b> - Sistema Integrado de Gestión de Ingresos Parafiscales
+                <h1 className="xxh1">SIGID</h1>
                 </div>
                 <div className="am-header-left">
                 </div>
@@ -31,7 +37,7 @@ class Header extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> 
         );
     }
 }

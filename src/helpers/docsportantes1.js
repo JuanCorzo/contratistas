@@ -35,7 +35,7 @@ class Docsportantes1 extends Component {
                 <div className="row">
                     <div className="col-md-6 izqq">{nombre}</div>
                     <div className="col-md-6 derechas">
-                    <input type="file" className="form-control" onChange={this.handleImagePreview} name="docs_aportantes"/>
+                    <input type="file" className="form-control" onChange={this.handleImagePreview} name="docs_aportantes" />
                     </div>
                 </div>
                 <div className="row fofbl">

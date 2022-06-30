@@ -20,13 +20,13 @@ class Creartent extends Component {
             tad_codigo: document.forma.Codigo.value, 
             tad_descripcion: document.forma.Descripcion.value
         }
-        guarda(nuev, "tipoadscrita", "Orden entidades", "/Tipos-entidades");
+        guarda(nuev, "tipoadscrita", "Orden entidades", "/tipoadscrita");
         this.setState({ status: 'Ok'})
     }
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8" && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
-        if(this.state.status==="Ok"){ return <Redirect to="/Tipos-entidades"/>; }
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"Tipos-Entidades", name:"Orden entidades"},{href:"#", name:"Agregar orden de entidades"}];
+        if(this.state.status==="Ok"){ return <Redirect to="/tipoadscrita"/>; }
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"tipoadscrita", name:"Orden entidades"},{href:"#", name:"Agregar orden de entidades"}];
         return (
             <div>
                 <Header/>
@@ -47,7 +47,7 @@ class Creartent extends Component {
                                             <Fila nombre="Descripción" refer="Descripcion" tipo="1" arreglo="" col="8"/>
                                         </div>
                                     </div>
-                                    <Botones enlace='/Tipos-entidades'/> 
+                                    <Botones enlace='/tipoadscrita'/> 
                                 </div>
                             </form>
                         </div>

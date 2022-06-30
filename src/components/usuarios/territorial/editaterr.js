@@ -11,7 +11,6 @@ import Cookies from 'universal-cookie';
 import Pais from '../../../helpers/paises';
 import Macrozona from '../../../helpers/macrozonas';
 import Breadcrumb from '../../../layout/Breadcrumb';
-import TituloModal from '../../../comunes/TituloModal';
 
 const cookies = new Cookies(); 
 
@@ -29,7 +28,7 @@ class editaterr extends Component {
             "ter_nombre": document.forma.Nombre.value,
             "ter_macrozona": document.forma.Macro.value
         }
-        actualiza(tabe1, "territoriales", "Territorial", this.idc, "/territoriales");
+        actualiza(tabe1, "territorial", "Territorial", this.idc, "/territoriales");
         this.setState({ status: 'Ok'})
     }
     dato = (tabe) => { this.setState(tabe); 
@@ -51,13 +50,9 @@ class editaterr extends Component {
                         <div className="card pd-20 pd-sm-40">
                             
                             <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
-
                             <form  name="forma" onSubmit={this.guardar} className="center-div">
                                 <div className="modal-content tx-size-sm mt-3" style={{width: '700px'}}>
                                     <div className="modal-body p-6">
-                                    
-                                        <TituloModal titulo="Editar Territorial"/>
-                                
                                         <div className='row'>
                                             <Pais col="8"/>
                                             <Fila nombre="Código" refer="Codigo" tipo="1" arreglo="" defecto={this.state.ter_cod} col="4"/>

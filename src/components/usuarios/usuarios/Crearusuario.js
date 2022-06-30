@@ -97,6 +97,8 @@ class Creaarrol extends Component {
                                         <div className="row mt-4">
                                             <Fila nombre="Activo desde" refer="Desde" tipo="7" arreglo="" id="" defecto={this.state.usu_telefono} />
                                             <Fila nombre="Activo hasta" refer="Hasta" tipo="7" arreglo="" id="" defecto={this.state.usu_telefono} />
+										</div>
+										<div className="row mt-4">
                                             <div className="col-md-3 col-input-style">
                                                 <label>Macrozonas</label>
                                                 <select name="Macro" onChange={this.llenater} className="form-control" >
@@ -123,7 +125,8 @@ class Creaarrol extends Component {
                                                     }
                                                 </select>
                                             </div>
-                                        </div>
+										</div>
+                                        
                                     </div>
                                     <Botones enlace='/Usuarios'/>    
                                 </div> 

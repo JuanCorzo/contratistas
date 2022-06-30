@@ -22,7 +22,7 @@ const Option = (props) => {
 class Ordenmul extends Component {
   state = { tipon:[] };
   componentDidMount() {
-    axios.get(global.url + "tipoadscrita", global.autentica)
+    axios.get(global.url + "tipoadscrita/sel", global.autentica)
     .then(res => {
         let tipon = res.data;
         this.setState({ tipon });

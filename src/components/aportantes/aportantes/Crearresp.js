@@ -34,7 +34,7 @@ class Crearmuni extends Component {
             formData.append('res_email', document.forma.Email.value);
             formData.append('res_fecha', document.forma.Fecha.value);
             formData.append('aportantes_idaportantes', this.state.idc);
-            console.log("asdas", this.state.idc);
+            // console.log("asdas", this.state.idc);
             axios.post(global.url+"documentosaportantes/subirenla",formData,
             { headers: { "Content-type": "multipart/form-data;"}}
             ).then(res => { 
@@ -75,9 +75,11 @@ class Crearmuni extends Component {
                 <div className="am-mainpanel">
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
-                            <h6 className="card-body-title">Agregar Enlace Entidad Aportante</h6>
+                        <h6 className="card-body-title">Agregar Enlace Entidad Aportante</h6>
                             <form  name="forma" onSubmit={this.guardar}>
+                                
                                 <div className="modal-content tx-size-sm">
+                                    
                                     <div className="modal-body pd-20">
                                     <Fila nombre="Nombre" refer="Nombre" tipo="1" arreglo="" />
                                     <Fila nombre="Identificación" refer="Identificacion" tipo="1" arreglo="" />
@@ -85,10 +87,11 @@ class Crearmuni extends Component {
                                     <Fila nombre="Email" refer="Email" tipo="3" arreglo="" />
                                     <Fila nombre="Teléfono" refer="Celular" tipo="1" arreglo="" />
                                     <Fila nombre="Fecha de posesión" refer="Fecha" tipo="7" arreglo="" />
-                                    <div className="row">
-                                        <div className="col-md-6 izqq">Soporte de designación</div>
-                                        <div className="col-md-6 derechas">
-                                        <input type="file" className="form-control" onChange={this.handleImagePreview} name="docs_aportantes"/>
+                                    <br></br>
+                                    <div className="row izqq2">
+                                        <div className="col-md-12 izqq1">Soporte de designación</div>
+                                        <div className="col-md-12 ">
+                                        <input type="file" className="form-control derechas1" onChange={this.handleImagePreview} name="docs_aportantes"/>
                                         </div>
                                     </div>
                                 </div> 

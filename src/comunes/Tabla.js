@@ -7,30 +7,36 @@ import PatchedPagination from './PatchedPagination';
 import DeleteOutline from '@material-ui/icons/DeleteOutline';
 import { eliminar } from '../scripts/scripts';
 import Cookies from 'universal-cookie';
+import { Paper } from '@material-ui/core';
 
 const cookies = new Cookies(); 
 class Tabla extends Component {
     state = { direc: "", status: null };
     elimina  = (id) =>{  
         eliminar(this.props.tabla, "Departamento", id, this.props.redire);
-        cookies.set("destino", this.props.tabla, {path:"/"});
-        this.setState({ status: 'Ok'})
+        var tab=this.props.tabla;
+        if(tab==="territorial"){ tab="territoriales"; }
+        else if(tab==="ciudades"){ tab="Municipios"; }
+        console.log(tab);
+        cookies.set("destino", tab, {path:"/"});
+        this.setState({ status: 'Ok'}); 
     }
     enviar = (id) => { this.setState({ direc: id }) }
     render() {
         if(this.state.status==="Ok"){return <Redirect to={"/navigate"}/>;}
-        const titul = this.props.titulo;
+        const titul = "";
         const link = this.props.link;
         const columnas = this.props.columnas;
-        const valores = this.props.valores;
+        const valores = this.props.valores; 
         if(this.state.direc!==""){return <Redirect to={this.state.direc}/>;}
         return (
             <MaterialTable 
                 components={{
                     Pagination: PatchedPagination,
+                    Container: props => <Paper {...props} elevation={0}/>
                 }}
                 columns={columnas} data={valores} 
-                title={titul} style={{"padding": "1px 1px 1px 1px"}}
+                title={titul} style={{"padding": "1px 1px 1px 1px", "fontSize": "14px !important"}}
                 actions={[
                 {
                     icon: () => <Edit style={{"transform":"scale(0.8)"}} />,

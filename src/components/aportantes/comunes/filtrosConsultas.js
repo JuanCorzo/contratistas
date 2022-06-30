@@ -14,7 +14,7 @@ class FiltrosConsulta extends Component {
     state = { tabe:[], role:[], estn:[], sect:[], dept:[], ciud:[], macr:[], terr:[], 
     oren:[], status: null, estado:"", pane:[], pane2:[] };
     componentDidMount() {
-        axios.get(global.url + "clasificacionesaportantes", global.autentica)
+        axios.get(global.url + "clasificacionesaportantes/sel", global.autentica)
         .then(res => {
             let role = res.data;
             this.setState({ role });
@@ -24,12 +24,12 @@ class FiltrosConsulta extends Component {
             let estn = res.data;
             this.setState({ estn });
         });
-        axios.get(global.url + "sectores", global.autentica)
+        axios.get(global.url + "sectores/sel", global.autentica)
         .then(res => {
             let sect = res.data;
             this.setState({ sect });
         });
-        axios.get(global.url + "tipoadscrita", global.autentica)
+        axios.get(global.url + "tipoadscrita/sel", global.autentica)
         .then(res => {
             let oren = res.data;
             this.setState({ oren });
@@ -46,7 +46,7 @@ class FiltrosConsulta extends Component {
             let macr = res.data;
             this.setState({ macr });
         });
-        axios.get(global.url + "aportantes/territoriales/terri", global.autentica)
+        axios.get(global.url + "territorial", global.autentica)
         .then(res => {
             let terr = res.data;
             this.setState({ terr });
@@ -131,22 +131,29 @@ class FiltrosConsulta extends Component {
         return (
             <React.Fragment>
                 <h6 className="card-body-title">{titul}</h6>
-                <form name="forma" className='fflitro'>
-                <div className="row">
-                    <div className="col-lg-3 izqq filtrot">Clasificación por obligatoriedad 
+                <form name="forma" className='fflitro  lineacolor-card'>
+                <div className="row xill20">
+                <div className='col-lg-12'>
+                    <h6 className="actions">Filtros</h6>
+                </div>
+           
+                <br></br>
+                    <div className="col-lg-3 izqq filtrot"> 
+                        <label>Clasificación por obligatoriedad </label>
                         <select name="clap" className="form-control" onChange={this.arma}>
-                            <option value="0">Seleccione...</option>
+                            <option value="0">Seleccionar</option>
                             {
                                 this.state.role.map((arr, i) => {
                                 return (
-                                    <option key={i} value={arr.idclasificaaportantes}>{arr.cla_nombre} </option> ) 
+                                    <option key={i} value={arr.value}>{arr.label} </option> ) 
                                 })
                             }
                         </select>
                     </div>
-                    <div className="col-lg-3 izqq filtrot">Factores salariales
+                    <div className="col-lg-3 izqq filtrot">
+                    <label>Factores salariales</label>
                         <select name="estn" className="form-control" onChange={this.arma}>
-                            <option value="0">Seleccione...</option>
+                            <option value="0">Seleccionar</option>
                             {                            
                                 this.state.estn.map((arr, i) => {
                                 return (<option key={i} value={arr.idestructuranomina}>{arr.est_nombre} </option> ) 
@@ -155,32 +162,36 @@ class FiltrosConsulta extends Component {
 
                         </select>
                     </div>
-                    <div className="col-lg-3 izqq filtrot">Tipo de NIT
+                    <div className="col-lg-3 izqq filtrot">
+                    <label>Tipo de NIT</label>
                         <select name="sect" className="form-control" onChange={this.arma}>
-                            <option value="0">Seleccione...</option>
+                            <option value="0">Seleccionar</option>
                             {
                                 this.state.sect.map((arr, i) => {
                                 return (
-                                        <option key={i} value={arr.idsectores}>{arr.sec_nombre} </option> ) 
+                                        <option key={i} value={arr.value}>{arr.label} </option> ) 
                                 })
                             }
                         </select>
                     </div>
-                    <div className="col-lg-3 izqq filtrot">Orden de las entidades<br></br>
+                    <div className="col-lg-3 izqq filtrot">
+                    <label>Orden de las entidades</label>
                         <select name="oren" className="form-control" onChange={this.arma}>
-                            <option value="0">Seleccione</option>
+                            <option value="0">Seleccionar</option>
                             {
                                 this.state.oren.map((arr, i) => {
                                 return (
-                                    <option key={i} value={arr.idtipoadscrita}>{arr.tad_descripcion} </option> ) 
+                                    <option key={i} value={arr.value}>{arr.label} </option> ) 
                                 })
                             }
                         </select>
                     </div>
-                    <div className="col-lg-3 izqq filtrot">Macrozonas
+                   
+                    <div className="col-lg-3 izqq filtrot">
+                        <label>Macrozonas</label>
                         <select className="form-control" ref={this.Macrozona} 
                         name="macro" onChange={this.llenater} required>
-                            <option vaule="0">Macrozona</option>
+                            <option value="0">Seleccionar</option>
                             {
                                     this.state.macr.map((con, i) => {
                                     return (
@@ -189,10 +200,11 @@ class FiltrosConsulta extends Component {
                                 }
                         </select>
                     </div>
-                    <div className="col-lg-3 izqq filtrot">Territoriales
+                    <div className="col-lg-3 izqq filtrot">
+                        <label>Territoriales</label>
                         <select className="form-control" ref={this.Territorial} 
                         name="terr" onChange={this.llenadep} required>
-                            <option vaule="0">Territorial</option>
+                            <option value="0">Seleccionar</option>
                             {
                                 this.state.terr.map((con, i) => {
                                 return (
@@ -202,10 +214,11 @@ class FiltrosConsulta extends Component {
                         </select>
                     </div>
 
-                    <div className="col-lg-3 izqq filtrot">Departamentos
+                    <div className="col-lg-3 izqq filtrot">
+                        <label>Departamentos</label>
                         <select className="form-control" ref={this.Departamento} 
                         name="depa" onChange={this.llenamun} required>
-                            <option vaule="0">Departamento</option>
+                            <option value="0">Seleccionar</option>
                             {
                                 this.state.dept.map((con, i) => {
                                 return (
@@ -214,9 +227,10 @@ class FiltrosConsulta extends Component {
                             }
                         </select>
                     </div>
-                    <div className="col-lg-3 izqq filtrot">Ciudades
+                    <div className="col-lg-3 izqq filtrot">
+                        <label>Ciudades</label>
                         <select className="form-control" ref="Municipio" onChange={this.arma} name="ciud">
-                            <option vaule="0">Municipio</option>
+                            <option value="0">Seleccionar</option>
                             {
                                     this.state.ciud.map((con, i) => {
                                     return (
@@ -229,12 +243,12 @@ class FiltrosConsulta extends Component {
                         <b>Total registros:</b> { this.state.pane.map((con, i) => {return ( con.total)})}
                         <br></br>
                         <b>Total NIT principal:</b> { this.state.pane2.map((con, i) => {return ( con.total)})}
-
+                        <br></br>
                     </div>
                     <div className='col-lg-6 derechas' style={{top:"13px"}}>
                         <Descarga/>&nbsp;
                         <NavLink to="descarga_txt" target="_blank" className="btn btn-primary">Exportar TXT</NavLink>
-                    </div>
+                    </div> 
                 </div>
                 </form>
             </React.Fragment>

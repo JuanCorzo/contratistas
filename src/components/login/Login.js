@@ -13,11 +13,11 @@ import '../../assets/css/bootstrap.rtl.only.min.css';
 import '../../assets/css/bootstrap-float-label.min.css';
 import '../../assets/css/main.css';
 
-
 const cookies = new Cookies(); 
 class Login extends Component {
     Email = React.createRef(); 
     Contrasena = React.createRef(); 
+    mensaje = "";
     state = {
         status: null,
         correo: "",
@@ -25,10 +25,12 @@ class Login extends Component {
         loading: false,
     };
     Login = (e) => {
-        this.setState({ loading: true })
+        this.setState({ loading: true });
+        this.mensaje = "Cargando..";
         e.preventDefault();
         var correo=this.Email.current.value;
         var clave=this.Contrasena.current.value;
+        console.log(correo, clave);
         axios.post(global.url + "auth/login/", {usu_email: correo, usu_password: clave})
         .then((res) => {
             var respuesta=res.data;
@@ -44,14 +46,15 @@ class Login extends Component {
             cookies.set("revision", "No", {path:"/"});
             if(respuesta.result.aute==="Ok"){ this.setState({ status: 'Ok'}) }
             else {
-                swal("Login incorrecto", "Usuarrio o password incorrecto", "error");
+                this.mensaje = "";
+                swal("Login incorrecto", "Usuario o password incorrecto", "error");
             }
             this.setState({ loading: false })
         })
         .catch((error) => {
-          swal("Login incorrecto", "Usuarrio o password incorrecto", "error");
-          console.log(error);
-          this.setState({ loading: false })
+          this.mensaje = "";
+          swal("Login incorrecto", "Usuario o password incorrecto", "error");
+          this.setState({ loading: false });
         });
     }
     componentDidMount(){
@@ -72,9 +75,10 @@ class Login extends Component {
                         <div className="row h-100">
                             <div className="col-12 col-md-10 offset-md-1 h-100vh center-div">
                                 <div className="card auth-card cardlogin" >
-                                    <div className="position-relative imgside ">
+                                    <div className="position-relative imgside">
                                     <p className="titullog">SIGIP</p>
-                                        <p>{}</p>
+                                    <p className="titullogv">v 1.0.0</p>
+                                        <p>{}</p>  
                                         <form onSubmit={this.Login} name="forma">
                                             <label className="form-group has-float-label mb-4">
                                                 <input className="form-control" placeholder='Email o usuario' ref={this.Email} type="email" />
@@ -89,6 +93,9 @@ class Login extends Component {
                                                     : "Entrar"
                                                     }
                                                 </button>
+                                            </div>
+                                            <div>
+                                                <h6>{this.mensaje}</h6>
                                             </div>
                                         </form>
                                     </div>

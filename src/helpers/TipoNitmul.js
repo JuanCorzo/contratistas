@@ -22,7 +22,7 @@ const Option = (props) => {
 class Tiponitmul extends Component {
   state = { tipon:[] };
   componentDidMount() {
-    axios.get(global.url + "sectores", global.autentica)
+    axios.get(global.url + "sectores/sel", global.autentica)
     .then(res => {
         let tipon = res.data;
         this.setState({ tipon });

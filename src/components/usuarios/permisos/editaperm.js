@@ -46,7 +46,7 @@ class editaperm extends Component {
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="26"){ return <Redirect to="./"/>; }
         if(this.state.status==="Ok"){ return <Redirect to="/permisos"/>; }
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../permiso", name:"Permisos"},{href:"#", name:"Editar Permiso"}];
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../permisos", name:"Permisos"},{href:"#", name:"Editar Permiso"}];
         return (
             <div>
                 <Header></Header>

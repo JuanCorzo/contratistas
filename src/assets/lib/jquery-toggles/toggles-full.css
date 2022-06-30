@@ -24,7 +24,7 @@ div.disabled > .toggle-slide {
   cursor: grab;
 }
 .toggle-dark .toggle-slide {
-  border-radius: 5px;
+  border-radius: 0px;
   box-shadow: 0 0 0 1px #242529, 0 1px 0 1px #666;
 }
 .toggle-dark .toggle-on,
@@ -177,7 +177,7 @@ div.disabled > .toggle-slide {
   background-image: linear-gradient(#a1a9af, #a1a9af);
 }
 .toggle-soft .toggle-slide {
-  border-radius: 5px;
+  border-radius: 0px;
   box-shadow: 0 0 0 1px #999;
 }
 .toggle-soft .toggle-on,

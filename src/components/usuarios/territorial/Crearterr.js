@@ -6,63 +6,67 @@ import Botones from '../../../comunes/Botones';
 import Fila from '../../../comunes/fila';
 import { guarda } from '../../../scripts/scripts';
 import { Redirect } from 'react-router-dom';
-import Breadcrumb from '../../../layout/Breadcrumb';
 import Cookies from 'universal-cookie';
+import Pais from '../../../helpers/paises';
+import Macrozona from '../../../helpers/macrozonas';
+import Breadcrumb from '../../../layout/Breadcrumb';
 import TituloModal from '../../../comunes/TituloModal';
-
 const cookies = new Cookies(); 
 
-class Creaarestn extends Component {
-    state = { roles: {}, status: null };
-    componentDidMount() { }
+class Crearterr extends Component {
+    state = {
+        muni: {},
+        cons:[],
+        status: null
+    };
+    componentDidMount() {}
     guardar = (e) =>{
         e.preventDefault();
-        const nuev = {
-            est_codigo: document.forma.Codigo.value, 
-            est_nombre: document.forma.Nombre.value,
-            est_descripcion: document.forma.Desc.value
+        const tabe = {
+            "paises_idpaises": document.forma.idpais.value,
+            "ter_cod": document.forma.Codigo.value,
+            "ter_nombre": document.forma.Nombre.value,
+            "ter_macrozona": document.forma.Macro.value,
         }
-        guarda(nuev, "estructuranomnina", "Factor salarial", "/estructuranomnina");
+        guarda(tabe, "territorial", "Territorial", "/territoriales");
         this.setState({ status: 'Ok'})
     }
     render() {
-        if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8" && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
-        if(this.state.status==="Ok"){ return <Redirect to="/estructuranomnina"/>; }
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"estructuranomnina", name:"Factores salariales"},{href:"#", name:"Agregar factor salarial"}];
+        if(cookies.get("idroles")!=="1"){ return <Redirect to="./"/>; }
+        if(this.state.status==="Ok"){ return <Redirect to="/territoriales"/>; }
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"territoriales", name:"Territoriales"},{href:"#", name:"Crear Territorial"}];
         return (
             <div>
-                <Header/>
-                <Menulat/>
+                <Header></Header>
+                <Menulat></Menulat>
                 <div className="am-mainpanel">
                     <div className="am-pagebody">
                         <div className="card pd-20 pd-sm-40">
-                            
                             <Breadcrumb links={linksBreadcrumb}></Breadcrumb>
-
                             <form  name="forma" onSubmit={this.guardar} className="center-div">
                                 <div className="modal-content tx-size-sm mt-3" style={{width: '700px'}}>
                                     <div className="modal-body p-6">
 
-                                        <TituloModal titulo="Agregar Factor Salarial"/>
-
+                                        <TituloModal titulo="Agregar Territorial"/>
+                                    
                                         <div className='row'>
+                                            <Pais valor={this.state.paises_idpaises} col="8"/>
                                             <Fila nombre="Código" refer="Codigo" tipo="1" arreglo=""  col="4"/>
-                                            <Fila nombre="Nombre" refer="Nombre" tipo="1" arreglo="" col="8"/>
                                         </div>
-                                        <div className='row'>
-                                            <Fila nombre="Descripción" refer="Desc" tipo="1" arreglo="" col="12"/>
+                                        <div className='row mt-4'>
+                                            <Fila nombre="Terrirorial" refer="Nombre" tipo="1" arreglo="" col="6"/>
+                                            <Macrozona col="6"/>
                                         </div>
                                     </div>
-                                    <Botones enlace='/estructuranomnina'/>    
+                                    <Botones enlace='/territoriales'/>    
                                 </div>
-                                
                             </form>
                         </div>
                     </div>
                 </div>
-                <Footer/>
+                <Footer></Footer>
             </div>
         );
     }
 }
-export default Creaarestn;
+export default Crearterr;

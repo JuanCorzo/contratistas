@@ -13,6 +13,7 @@ import definiciones from '../../../comunes/definiciones';
 import PatchedPagination from '../../../comunes/PatchedPagination';
 import Moment from 'react-moment';
 import Descargado from '../../../comunes/descargardocs';
+import { Paper } from '@material-ui/core';
 
 const cookies = new Cookies(); 
 class fichaaportante extends Component {
@@ -74,102 +75,122 @@ class fichaaportante extends Component {
                 <Header></Header>
                 <Menulat></Menulat>
                 <div className="am-mainpanel">
-                <div className="card pd-20 pd-sm-40">
-                {
-                  this.state.enti.map((sin, i) => {
-                  return (
-                    <React.Fragment key={i}>
-                        <br />
-                    <Titulo3 volver="1" titulo={ 
-                        sin.apo_sufijo===""?( sin.apo_nombre + " NIT: " + sin.apo_identificacion):
-                        sin.apo_sufijo==="0"?( sin.apo_nombre + " NIT: " + sin.apo_identificacion)
-                        :(sin.apo_nombre + " NIT: " + sin.apo_identificacion +"-"+sin.apo_sufijo )
-                    }/>
-                    <div className="row fflitro">
-                      <Fila3 ancho="col-lg-3 izqq1 textrse" valor={
-                        sin.apo_sufijo===""?( sin.apo_identificacion)
-                        :sin.apo_sufijo==="0"?( sin.apo_identificacion)
-                        :( sin.apo_identificacion +"-"+sin.apo_sufijo )
-                       } nombre="Número de itentificación"></Fila3>
-                      <Fila3 ancho="col-lg-3 izqq1 textrse" valor={sin.apo_nombre } nombre="Nombre entidad"></Fila3>
-                      <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.ter_macrozona } nombre="Macrozona"></Fila3>
-                      <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.ter_nombre } nombre="Territorial"></Fila3>
-                      <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.dep_codigo +"-"+sin.dep_nombre } nombre="Departamento"></Fila3>
-                      <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.ciu_codigo +"-"+ sin.ciu_nombre } nombre="Municipio"></Fila3>
-                      <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.sec_nombre } nombre="Naturaleza entidad"></Fila3>
-                      <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.cla_nombre } nombre="Clasificación aportante"></Fila3>
-                      <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.tad_descripcion } nombre="Orden Aportante"></Fila3>
-                      <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.apo_direccion } nombre="Dirección"></Fila3>
-                      <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.apo_email } nombre="Email"></Fila3>
-                      <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.apo_celular } nombre="Teléfono"></Fila3>
+                    <div className="pd-20 pd-sm-40 mt-3">
+                        {
+                            this.state.enti.map((sin, i) => {
+                                return (
+                                    <React.Fragment key={i}>
+                                        <div className='row'>
+                                        <div className='col-lg-12 fflitro mt-3 lineacolor-card '>
+                                            <div className='xill20'>
+                                                <Titulo3 volver="1" titulo={ 
+                                                sin.apo_sufijo===""?( sin.apo_nombre + " NIT: " + sin.apo_identificacion):
+                                                sin.apo_sufijo==="0"?( sin.apo_nombre + " NIT: " + sin.apo_identificacion)
+                                                :(sin.apo_nombre + " NIT: " + sin.apo_identificacion +"-"+sin.apo_sufijo )
+                                                }/>
+                                            </div>
+                                
+                                            <div className="row xill20">
+                                                <Fila3 ancho="col-lg-3 izqq1 textrse" valor={
+                                                    sin.apo_sufijo===""?( sin.apo_identificacion)
+                                                    :sin.apo_sufijo==="0"?( sin.apo_identificacion)
+                                                    :( sin.apo_identificacion +"-"+sin.apo_sufijo )
+                                                } nombre="Número de itentificación"></Fila3>
+                                                <Fila3 ancho="col-lg-3 izqq1 textrse" valor={sin.apo_nombre } nombre="Nombre entidad"></Fila3>
+                                                <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.ter_macrozona } nombre="Macrozona"></Fila3>
+                                                <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.ter_nombre } nombre="Territorial"></Fila3>
+                                                <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.dep_codigo +"-"+sin.dep_nombre } nombre="Departamento"></Fila3>
+                                                <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.ciu_codigo +"-"+ sin.ciu_nombre } nombre="Municipio"></Fila3>
+                                                <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.sec_nombre } nombre="Naturaleza entidad"></Fila3>
+                                                <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.cla_nombre } nombre="Clasificación aportante"></Fila3>
+                                                <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.tad_descripcion } nombre="Orden Aportante"></Fila3>
+                                                <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.apo_direccion } nombre="Dirección"></Fila3>
+                                                <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.apo_email } nombre="Email"></Fila3>
+                                                <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.apo_celular } nombre="Teléfono"></Fila3>
 
-                      <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.apo_replegal } nombre="Representante legal"></Fila3>
-                      <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.apo_ccreplegal } nombre="Identificación representante legal"></Fila3>
-                      <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.apo_promedioibc } nombre="Promedio IBC entidad"></Fila3>
-                      <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.apo_empleados } nombre="Empleados promedio en la entidad"></Fila3>
-                      <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.apo_sucursal } nombre="Sucursal"></Fila3>
-                    </div>    
-                    </React.Fragment>    
-                    )
-                })
-            }<br></br>
-            <div className="row fflitro">
-                <div className="col-lg-6">
-                    <Titulo3 titulo="Documentos Anexos" volver="0"/>
-                    <hr className="mb-4 mt-2"/>
-                    <div className="table-wrapper" id="tablas">
-                        <MaterialTable 
-                        components={{
-                            Pagination: PatchedPagination,
-                        }}
-                        columns={columnas2} data={this.state.docs} 
-                        style={{"padding": "1px 1px 1px 1px"}}
-                        title="" options={{ actionsColumnIndex: -1,  rowStyle: { fontSize: 12 } }}
-                        localization={{ header:{ actions: 'Acciones'}}}
-                        icons={definiciones}
-                        ></MaterialTable>
+                                                <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.apo_replegal } nombre="Representante legal"></Fila3>
+                                                <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.apo_ccreplegal } nombre="Identificación representante legal"></Fila3>
+                                                <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.apo_promedioibc } nombre="Promedio IBC entidad"></Fila3>
+                                                <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.apo_empleados } nombre="Empleados promedio en la entidad"></Fila3>
+                                                <Fila3 ancho="col-lg-3 izqq1 textrse1" valor={sin.apo_sucursal } nombre="Sucursal"></Fila3>
+                                            </div>   
+
+                                            <br></br>
+                                        </div>
+                                        </div>
+                                    </React.Fragment>    
+                                )
+                            })
+                        }
                     </div>
-                </div>
-                <div className="col-lg-6">
-                    <Titulo3 titulo="Personas Responsables" volver="0" />
-                    <hr className="mb-4 mt-2"/>
-                    <div className="table-wrapper" id="tablas">
-                        <MaterialTable 
-                        components={{
-                            Pagination: PatchedPagination,
-                        }}
-                        columns={columnas} data={this.state.rols} 
-                        style={{"padding": "1px 1px 1px 1px"}}
-                            title=""
-                            options={{ actionsColumnIndex: -1,  rowStyle: { fontSize: 12 } }}
-                            localization={{ header:{ actions: 'Acciones'}}}
-                            icons={definiciones}
-                        ></MaterialTable>
+
+                    <div className='row xill'>
+                        <div className="col-lg-12 fflitro lineacolor-card">
+                            <div className='xill20'>
+                                <Titulo3 titulo="Documentos Anexos" volver="0"/>
+                            </div> 
+                            <div className="table-wrapper" id="tablas">
+                                <MaterialTable 
+                                components={{
+                                    Pagination: PatchedPagination,
+									Container: props => <Paper {...props} elevation={0}/>
+                                }}
+                                columns={columnas2} data={this.state.docs} 
+                                style={{"padding": "1px 1px 1px 1px"}}
+                                title="" options={{ actionsColumnIndex: -1,  rowStyle: { fontSize: 12 } }}
+                                localization={{ header:{ actions: 'Acciones'}}}
+                                icons={definiciones}
+                                ></MaterialTable>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div><br></br>
-            <div className="row fflitro">
-                <div className="col-lg-12">
-                    <Titulo3 titulo="Entidades Ejecutoras del gasto" volver="0" />
-                    <hr className="mb-4 mt-2"/>
-                    <div className="table-wrapper" id="tablas">
-                        <MaterialTable 
-                        components={{
-                            Pagination: PatchedPagination,
-                        }}
-                        columns={columnas3} data={this.state.ejec} 
-                        style={{"padding": "1px 1px 1px 1px"}}
-                        title="" options={{ actionsColumnIndex: -1,  rowStyle: { fontSize: 12 } }}
-                        localization={{ header:{ actions: 'Acciones'}}}
-                        icons={definiciones}
-                        ></MaterialTable>
+
+                    <div className='row xill'>
+                        <div className="col-lg-12 fflitro lineacolor-card">
+                            <div className='xill20'>
+                                <Titulo3 titulo="Personas Responsables" volver="0" />
+                            </div> 
+                            <div className="table-wrapper" id="tablas">
+                                <MaterialTable 
+									components={{
+										Pagination: PatchedPagination,
+										Container: props => <Paper {...props} elevation={0}/>
+									}}
+									columns={columnas} data={this.state.rols} 
+									style={{"padding": "1px 1px 1px 1px"}}
+										title=""
+										options={{ actionsColumnIndex: -1,  rowStyle: { fontSize: 12 } }}
+										localization={{ header:{ actions: 'Acciones'}}}
+										icons={definiciones}
+                                ></MaterialTable>
+                            </div>
+                        </div>
                     </div>
+
+                    <div className='row xill'>
+                        <div className="col-lg-12 fflitro lineacolor-card">
+                            <div className='xill20'>
+                                <Titulo3 titulo="Entidades Ejecutoras del gasto" volver="0" />
+                            </div> 
+                            <div className="table-wrapper" id="tablas">
+                                <MaterialTable 
+                                components={{
+                                    Pagination: PatchedPagination,
+									Container: props => <Paper {...props} elevation={0}/>
+                                }}
+                                columns={columnas3} data={this.state.ejec} 
+                                style={{"padding": "1px 1px 1px 1px"}}
+                                title="" options={{ actionsColumnIndex: -1,  rowStyle: { fontSize: 12 } }}
+                                localization={{ header:{ actions: 'Acciones'}}}
+                                icons={definiciones}
+                                ></MaterialTable>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
+                <Footer></Footer>
             </div>
-        </div>
-    </div>
-    <Footer></Footer>
-</div>
         );
     }
 }

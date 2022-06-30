@@ -16,6 +16,7 @@ const cookies = new Cookies();
 
 class Creardpto extends Component {
     state = { muni: {}, cons:[], status: null };
+
     componentDidMount() {
         axios.get(global.url + "territorial/listar", global.autentica).then((res) => {
             if (res.data) {

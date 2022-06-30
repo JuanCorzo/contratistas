@@ -4,7 +4,7 @@ import definiciones from './definiciones';
 import PatchedPagination from './PatchedPagination';
 import DeleteOutline from '@material-ui/icons/DeleteOutline';
 import { eliminar } from '../scripts/scripts';
-
+import { Paper } from '@material-ui/core';
 class Tabla2 extends Component {
     elimina  = (id) =>{  eliminar(this.props.tabla, "Departamento", id, this.props.redire); }
     render() {
@@ -16,6 +16,7 @@ class Tabla2 extends Component {
             <MaterialTable 
                 components={{
                     Pagination: PatchedPagination,
+					Container: props => <Paper {...props} elevation={0}/>
                 }}
                 columns={columnas} data={valores} 
                 title={titul} style={{"padding": "1px 1px 1px 1px"}}

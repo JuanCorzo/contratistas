@@ -22,7 +22,7 @@ class editaestn extends Component {
         e.preventDefault();
         const tabe = { idroles: this.idc, est_codigo: document.forma.Codigo.value,
         est_nombre: document.forma.Nombre.value, est_descripcion: document.forma.Desc.value  }
-        actualiza(tabe, "estructuranomnina", "Factor salarial", this.idc, "/EstructuraNomina");
+        actualiza(tabe, "estructuranomnina", "Factor salarial", this.idc, "/estructuranomnina");
         this.setState({ status: 'Ok'})
     }
     dato = (rols) => { 
@@ -33,8 +33,8 @@ class editaestn extends Component {
     }
     render() {
         if(cookies.get("idroles")!=="1" && cookies.get("idroles")!=="8" && cookies.get("idroles")!=="26"){return <Redirect to="./"/>;}
-        if(this.state.status==="Ok"){return <Redirect to="/EstructuraNomina"/>;}
-        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../estructuraNomina", name:"Factores salariales"},{href:"#", name:"Editar Factores salariales"}];
+        if(this.state.status==="Ok"){return <Redirect to="/estructuranomnina"/>;}
+        let linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../estructuranomnina", name:"Factores salariales"},{href:"#", name:"Editar Factores salariales"}];
         return (
             <div>
                 <Header></Header>
@@ -61,7 +61,7 @@ class editaestn extends Component {
                                             <Fila nombre="Descripción" refer="Desc" tipo="1" arreglo="" defecto={this.state.est_descripcion} col="12"/>
                                         </div>
                                     </div>
-                                    <Botones enlace='/EstructuraNomina'/>    
+                                    <Botones enlace='/estructuranomnina'/>    
                                 </div>
                             </form>
                         </div>

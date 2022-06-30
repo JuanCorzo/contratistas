@@ -13,18 +13,17 @@ import global from '../../../Global';
 import Breadcrumb from '../../../layout/Breadcrumb';
 
 const cookies = new Cookies();
-class Territoriales extends Component {
+class Territorial extends Component {
     Departamento = React.createRef();
     state = { tabl: [], status: null, deps: [] };
 	linksBreadcrumb = [{href:"inicio", name:"Inicio"}, {href:"../territoriales", name:"Territoriales"}];
     dato = (tabl) => {
         this.setState({ tabl });
-        axios.get(global.url + "aportantes/territoriales/terri", global.autentica)
+        axios.get(global.url + "territorial", global.autentica)
             .then(res => {
                 let rols = res.data;
                 rols = rols.map((p) => { p['idc'] = p.idterritorial; return p; });
                 this.setState({ rols });
-				console.log(res.data);
             });
     }
     componentDidMount() { }
@@ -35,7 +34,6 @@ class Territoriales extends Component {
             { title: 'Territorial', field: 'ter_nombre', sortable: true },
             { title: 'Macrozona', field: 'ter_macrozona', sortable: true },
         ]
-
         return (
             <div>
                 <Header></Header>
@@ -47,19 +45,19 @@ class Territoriales extends Component {
 						</div>
                         <div className="card pd-20 pd-sm-40">
                             <div className='lineacolor-card'>
-							<Script3 tabla="aportantes/territoriales/terri" devuelvedatos={this.dato} />
+							<Script3 tabla="territorial" devuelvedatos={this.dato} />
                                 {cookies.get("idroles") === "1" ? (
                                     <React.Fragment>
                                         <div className='xill20'>
                                             <EncTabla titulo="Territoriales" link="/Crearterr" titulo2="Territoriales" />
                                         </div>
-                                        <Tabla tabla="territoriales" columnas={columnas} valores={this.state.rols}
+                                        <Tabla tabla="territorial" columnas={columnas} valores={this.state.rols}
                                             redire="/territoriales" titulo="Territoriales" link="editaterr/" />
                                     </React.Fragment>
                                 ) : (
                                     <React.Fragment>
                                         <h6 className="card-body-title">Territoriales</h6>
-                                        <Tabla3 tabla="territoriales" columnas={columnas} valores={this.state.rols}
+                                        <Tabla3 tabla="territorial" columnas={columnas} valores={this.state.rols}
                                             redire="/territoriales" titulo="Territoriales" link="editaterr/" />
                                     </React.Fragment>
                                 )
@@ -73,4 +71,4 @@ class Territoriales extends Component {
         );
     }
 }
-export default Territoriales;
+export default Territorial;
